@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParknStore – Rent or Host Space</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    select, input {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      select, input, button {
+        font-size: 0.95rem;
+        padding: 0.65rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="ParknStore.png" alt="ParknStore Logo" />
+    <h1>Rent Out Your Unused Space</h1>
+    <p>Got unused space? ParknStore turns empty driveways, garages, and sheds into income—or helps you find space when you need it.</p>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <select name="role" required>
+        <option value="">I’m interested in...</option>
+        <option value="hosting">Hosting a space</option>
+        <option value="renting">Renting a space</option>
+        <option value="both">Both</option>
+      </select>
+      <input type="text" name="location" placeholder="City/Suburb" required />
+      <input type="email" name="email" placeholder="Email address" required />
+      <button type="submit">Join the Waitlist</button>
+      <p class="note">We’ll notify you when ParknStore launches in your area.</p>
+    </form>
+  </div>
+</body>
+</html>
