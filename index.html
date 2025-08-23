@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ParknStore – Rent or Host Space</title>
+  <title>ParknStore – Parking & Storage Rentals Across Auckland</title>
+  <meta name="description" content="ParknStore helps you rent or host unused driveways, carports, garages, and sheds for RV parking, boat storage, trailer parking, and general storage across Auckland and New Zealand." />
   <link rel="icon" href="favicon.ico" />
   <style>
     * {
@@ -29,7 +30,7 @@
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      max-width: 400px;
+      max-width: 420px;
       width: 100%;
     }
 
@@ -55,7 +56,7 @@
       gap: 0.75rem;
     }
 
-    select, input {
+    select, input, textarea {
       padding: 0.75rem;
       font-size: 1rem;
       border: 1px solid #ccc;
@@ -84,7 +85,6 @@
       margin-top: 0.5rem;
     }
 
-    /* Mobile responsiveness */
     @media (max-width: 480px) {
       .container {
         padding: 1.5rem;
@@ -117,59 +117,49 @@
 </head>
 <body>
   <div class="container">
-    <img src="ParknStore.png" alt="ParknStore Logo" />
-    <h1>Rent Out Your Unused Space</h1>
-    <p>Got unused space? ParknStore turns empty driveways, garages, and sheds into income—or helps you find space when you need it.</p>
-
+    <img src="ParknStore.png" alt="ParknStore logo for parking and storage in Auckland" />
+    <h1>Find Parking & Storage Space Near You</h1>
+    <p>ParknStore connects you with unused driveways, carports, garages, and sheds—perfect for RV parking, boat storage, trailer parking, or general overflow. Whether you're looking to rent space or earn income by hosting, we make it simple we make it simple to connect and arrange across Auckland and New Zealand.</p>
+	<p><Strong>Please note:</Strong> Insurance, security, and access arrangements are the responsibility of each host and renter. We recommend discussing expectations clearly before confirming any booking.</p>
     <form action="https://formspree.io/f/movlzobz" method="POST">
+      <select name="role" required>
+        <option value="">I’m interested in...</option>
+        <option value="hosting">Hosting a space</option>
+        <option value="renting">Renting a space</option>
+        <option value="both">Both</option>
+      </select>
 
-  <!-- Interest Role -->
-  <select name="role" required>
-    <option value="">I’m interested in...</option>
-    <option value="hosting">Hosting a space</option>
-    <option value="renting">Renting a space</option>
-    <option value="both">Both</option>
-  </select><br><br>
+      <label>Your location:</label>
+      <input type="text" name="location" placeholder="e.g. Auckland, Takapuna, Mt Eden" required>
 
-  <!-- Location -->
-  <label>Your location:</label><br>
-  <input type="text" name="location" placeholder="City/Suburb" required><br><br>
+      <label>Type of space you're interested in:</label>
+      <select name="space_type" required>
+        <option value="">Space interested in...</option>
+        <option value="Parking">RV Parking</option>
+        <option value="Storage">Boat or Trailer Storage</option>
+        <option value="Garage">Garage or Shed Space</option>
+        <option value="Other">Other Space</option>
+      </select>
 
-  <!-- Space Type -->
-  <label>Type of space you're interested in:</label><br>
-  <select name="space_type">
-    <option value="Parking">Parking</option>
-    <option value="Storage">Storage</option>
-    <option value="Other">Other</option>
-  </select><br><br>
+      <label>How soon would you want to rent or list a space?</label>
+      <select name="urgency" required>
+        <option value="">Want to rent or list space...</option>
+        <option value="Immediately">Immediately</option>
+        <option value="Within a month">Within a month</option>
+        <option value="Just exploring">Just exploring</option>
+      </select>
 
-  <!-- Urgency -->
-  <label>How soon would you want to rent or list a space?</label><br>
-  <select name="urgency">
-    <option value="Immediately">Immediately</option>
-    <option value="Within a month">Within a month</option>
-    <option value="Just exploring">Just exploring</option>
-  </select><br><br>
+      <label>What's your biggest challenge with parking or storage?</label>
+      <textarea name="pain_point" rows="3" placeholder="Optional but helpful..."></textarea>
 
-  <!-- Pain Point -->
-  <label>What's your biggest challenge with parking or storage?</label><br>
-  <textarea name="pain_point" rows="3" placeholder="Optional but helpful..."></textarea><br><br>
+      <label>Your email:</label>
+      <input type="email" name="email" placeholder="Email address" required>
 
-  <!-- Email -->
-  <label>Your email:</label><br>
-  <input type="email" name="email" placeholder="Email address" required><br><br>
+      <input type="text" name="_gotcha" style="display:none">
+      <input type="hidden" name="_next" value="https://grantkeenan.github.io/ParknStore/thankyou.html">
 
-  <!-- Spam protection -->
-  <input type="text" name="_gotcha" style="display:none">
-
-  <!-- Redirect after submission -->
-  <input type="hidden" name="_next" value="https://grantkeenan.github.io/ParknStore/thankyou.html">
-
-  <button type="submit">Register Interest</button>
-</form>
-
-
+      <button type="submit">Register Interest</button>
+    </form>
   </div>
 </body>
 </html>
-
