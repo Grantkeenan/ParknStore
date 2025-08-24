@@ -7,10 +7,7 @@
   <meta name="description" content="ParknStore helps you rent or host unused driveways, carports, garages, and sheds for RV parking, boat storage, trailer parking, and general storage across Auckland and New Zealand." />
   <link rel="icon" href="favicon.ico" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -24,7 +21,6 @@
       padding: 1rem;
       text-align: center;
     }
-
     .container {
       background: white;
       padding: 2rem;
@@ -33,29 +29,24 @@
       max-width: 420px;
       width: 100%;
     }
-
     img {
       max-width: 100%;
       height: auto;
       margin-bottom: 1rem;
     }
-
     h1 {
       font-size: 1.6rem;
       margin-bottom: 0.5rem;
     }
-
     p {
       font-size: 1rem;
       margin-bottom: 1.5rem;
     }
-
     form {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
     }
-
     select, input, textarea {
       padding: 0.75rem;
       font-size: 1rem;
@@ -63,7 +54,6 @@
       border-radius: 6px;
       width: 100%;
     }
-
     button {
       padding: 0.75rem;
       font-size: 1rem;
@@ -74,44 +64,26 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     button:hover {
       background-color: #005fa3;
     }
-
     .note {
       font-size: 0.9rem;
       color: #666;
       margin-top: 0.5rem;
     }
-
     @media (max-width: 480px) {
-      .container {
-        padding: 1.5rem;
-      }
-
-      h1 {
-        font-size: 1.4rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-
+      .container { padding: 1.5rem; }
+      h1 { font-size: 1.4rem; }
+      p { font-size: 0.95rem; }
       select, input, button {
         font-size: 0.95rem;
         padding: 0.65rem;
       }
     }
-
     @media (max-width: 320px) {
-      h1 {
-        font-size: 1.2rem;
-      }
-
-      p {
-        font-size: 0.9rem;
-      }
+      h1 { font-size: 1.2rem; }
+      p { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -120,8 +92,9 @@
     <img src="ParknStore.png" alt="ParknStore logo for parking and storage in Auckland" />
     <h1>Find Parking & Storage Space Near You</h1>
     <p>ParknStore connects you with unused driveways, carports, garages, and sheds—perfect for RV parking, boat storage, trailer parking, or general overflow. Whether you're looking to rent space or earn income by hosting, we make it simple to connect and arrange across Auckland and New Zealand.</p>
-	<p><Strong>Please note:</Strong> Insurance, security, and access arrangements are the responsibility of each host and renter. We recommend discussing expectations clearly before confirming any booking.</p>
-    <form action="https://formspree.io/f/movlzobz" method="POST">
+    <p><strong>Please note:</strong> Insurance, security, and access arrangements are the responsibility of each host and renter. We recommend discussing expectations clearly before confirming any booking.</p>
+
+    <form id="interestForm">
       <select name="role" required>
         <option value="">I’m interested in...</option>
         <option value="hosting">Hosting a space</option>
@@ -132,12 +105,12 @@
       <label>Your location:</label>
       <input type="text" name="location" placeholder="e.g. Auckland, Takapuna, Mt Eden" required>
 
-	  <label>Type of space you're interested in:</label>
-	  <select name="space_Category" required>
-		<option value="">Select category...</option>
-		<option value="Parking">Parking</option>
-		<option value="Storage">Storage</option>
-		<option value="Other">Other Space</option>
+      <label>Type of space you're interested in:</label>
+      <select name="space_Category" required>
+        <option value="">Select category...</option>
+        <option value="Parking">Parking</option>
+        <option value="Storage">Storage</option>
+        <option value="Other">Other Space</option>
       </select>
 
       <label>How soon would you want to rent or list a space?</label>
@@ -155,13 +128,33 @@
       <input type="email" name="email" placeholder="Email address" required>
 
       <input type="text" name="_gotcha" style="display:none">
-      <input type="hidden" name="_next" value="https://grantkeenan.github.io/ParknStore/thankyou.html">
 
       <button type="submit">Register Interest</button>
     </form>
   </div>
+
+  <script>
+    document.getElementById('interestForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+
+      fetch('https://formspree.io/f/movlzobz', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = 'https://www.parknstore.co.nz/thankyou';
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Form submission error:', error);
+        alert('Submission failed. Please check your connection and try again.');
+      });
+    });
+  </script>
 </body>
 </html>
-
-
-
