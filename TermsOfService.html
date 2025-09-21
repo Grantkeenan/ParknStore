@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParknStore - Terms of Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #ffbe0b;
+            --accent: #ff006e;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+        
+        .logo-placeholder {
+            height: 60px;
+            width: 160px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+       
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+        }
+        
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logo-link:hover {
+            text-decoration: none;
+        }
+        
+        .page-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark);
+            border-left: 2px solid #ddd;
+            padding-left: 15px;
+            margin-left: 15px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+            padding: 8px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .sidebar ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 2rem;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            font-size: 1.5rem;
+        }
+        
+        .content-section h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .content-section p, .content-section ul {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        
+        .content-section ul {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background-color: #fff4e6;
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .disclaimer {
+            background-color: #ffe6e6;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .prelaunch-notice {
+            background-color: #e6f4ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .refund-process {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .refund-step {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+        
+        .refund-step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+            max-width: 1200px;
+            margin: 20px auto 0;
+        }
+        
+        /* Mobile Navigation Styles */
+        .mobile-nav-container {
+            display: none;
+            width: 100%;
+        }
+        
+        /* Mobile Sidebar Toggle */
+        .sidebar-toggle {
+            display: none;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+            }
+            
+            .sidebar-toggle {
+                display: block;
+            }
+            
+            .sidebar.collapsed {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                padding: 10px;
+            }
+            
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            
+            .page-title {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 10px 0;
+                margin-top: 10px;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                z-index: 1000;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                padding: 12px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                display: block;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .content-section h3 {
+                font-size: 1.1rem;
+            }
+            
+            .highlight, .disclaimer, .prelaunch-notice, .refund-process {
+                padding: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                height: 50px;
+            }
+            
+            .logo-placeholder {
+                height: 50px;
+                width: 140px;
+                font-size: 0.9rem;
+            }
+            
+            .page-title {
+                font-size: 1rem;
+            }
+            
+            .container {
+                margin: 1rem auto;
+                gap: 1rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .content-section {
+                margin-bottom: 2rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .refund-step h4 {
+                font-size: 1rem;
+            }
+            
+            footer {
+                padding: 2rem 0 1.5rem;
+            }
+        }
+        
+        /* Improved touch targets for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            nav ul li a, 
+            .sidebar ul li a,
+            .footer-column ul li a {
+                padding: 15px 20px;
+                min-height: 44px;
+            }
+            
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+			<a href="index.html" class="logo-link">
+                <div class="logo">
+                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
+                    <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
+                        PARKNSTORE
+                    </div>
+                </div>
+			</a>
+                <div class="page-title">Terms of Service</div>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html?openModal=forms">Join the Waitlist</a></li>
+					<li><a href="index.html?openModal=how-it-works">How It Works</a></li>
+					<li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
+					<li><a href="index.html?openModal=benefits">Benefits</a></li>
+					<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
+                    <li><a href="index.html?openModal=referral-section">Refer ParknStore</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <button class="sidebar-toggle" id="sidebar-toggle">Show/Hide Table of Contents</button>
+        
+        <div class="sidebar" id="terms-sidebar">
+            <h3>Terms of Service</h3>
+            <ul>
+                <li><a href="#mvp-phase" class="active">MVP (Concierge) Service Phase</a></li>
+                <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+                <li><a href="#definitions">2. Definitions</a></li>
+                <li><a href="#platform-role">3. Platform Role</a></li>
+                <li><a href="#user-responsibilities">4. User Responsibilities</a></li>
+                <li><a href="#payment-processing">5. Payment Processing</a></li>
+                <li><a href="#refund-policy">6. Refund Policy</a></li>
+                <li><a href="#prohibited-items">7. Prohibited Items</a></li>
+                <li><a href="#cancellation">8. Cancellation Policy</a></li>
+                <li><a href="#liability">9. Liability Limitations</a></li>
+                <li><a href="#disputes">10. Dispute Resolution</a></li>
+                <li><a href="#changes">11. Changes to Terms</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <!-- MVP / CONCIERGE PHASE SECTION -->
+            <div class="content-section" id="mvp-phase">
+                <h2>MVP (Concierge) Service Phase</h2>
+                <p><i>Last Updated: September 21, 2025</i></p>
+                
+                <div class="prelaunch-notice">
+                    <p><strong>Important Notice:</strong> ParknStore is currently in its initial launch phase, operating as a minimal viable product (MVP). We are manually facilitating connections and payment processing between early-adopter Hosts and Guests as we build our full automated platform. Service during this phase is provided on a "best-effort" basis.</p>
+                </div>
+
+                <h3>1. Nature of This Phase</h3>
+                <p>During this MVP phase, ParknStore acts as a manual facilitator and payment intermediary. Our team will help connect interested Hosts and Guests, facilitate the creation of rental agreements, and process payments to test our systems. This process is designed to validate our service in a real-world setting with a limited number of users.</p>
+                
+                <h3>2. Facilitated Process</h3>
+                <p>If a promising connection is found between a Host and Guest:</p>
+                <ul>
+                    <li><strong>Introduction:</strong> ParknStore will facilitate an introduction between the parties.</li>
+                    <li><strong>Agreement Assistance:</strong> We will provide a rental agreement template and guidance. However, the final agreement is <strong>directly between the Host and the Guest</strong> ("Users").</li>
+                    <li><strong>Payment Facilitation:</strong> ParknStore will manually process payments between Users to test our systems and procedures. Guests will pay ParknStore, and ParknStore will disburse funds to Hosts.</li>
+                    <li><strong>No Agency:</strong> ParknStore is not a party to any rental agreement and does not act as an agent for either User.</li>
+                </ul>
+                
+                <h3>3. Payment Processing During MVP</h3>
+				<p><strong>No service fees will be charged by ParknStore during this MVP phase.</strong> We are manually processing payments to test our systems. The full amount paid by the Guest will be disbursed to the Host, minus only any actual payment processing costs we incur from third-party providers. <strong>This allows us to validate our platform before introducing our standard service fee of 15% or less at launch.</strong></p>
+			   
+                <h3>4. Limitation of Liability in MVP Phase</h3>
+                <p>Given the manual and testing nature of this phase, ParknStore's liability is further limited. We facilitate connections and payments in good faith but cannot guarantee the performance, suitability, or reliability of Users. All interactions and agreements between Users are at their own risk. Our total liability arising from the MVP service is limited to NZD $100.</p>
+                
+                <h3>5. Transition to Full Platform</h3>
+                <p>Upon official launch of the automated ParknStore platform, all future bookings and transactions will be governed by our standard Terms of Service (outlined in the sections below), which will include automated payment processing and the applicable service fee. Users will be notified before this transition occurs.</p>
+            </div>
+            <!-- END MVP / CONCIERGE PHASE SECTION -->
+            
+            <div class="content-section" id="acceptance">
+                <h2>1. Acceptance of Terms</h2>                
+                <p>Welcome to ParknStore! These Terms of Service govern your use of our platform connecting space owners ("Hosts") with those seeking parking and or storage solutions ("Guests").</p>
+                
+                <p>By accessing or using ParknStore.co.nz, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access our platform.</p>
+                
+                <div class="disclaimer">
+                    <p><strong>Important:</strong> These terms contain a binding arbitration agreement and class action waiver that impact your rights about how to resolve disputes.</p>
+                </div>
+            </div>
+            
+            <div class="content-section" id="definitions">
+                <h2>2. Definitions</h2>
+                
+                <ul>
+                    <li><strong>ParknStore:</strong> The ParknStore.co.nz Platform, operated by the founder and team, which connects Hosts and Guests for parking and storage solutions.</li>
+                    <li><strong>Host:</strong> A person or entity listing a parking or storage space on the ParknStore platform.</li>
+                    <li><strong>Guest:</strong> A person or entity renting a parking or storage space through the ParknStore platform.</li>
+                    <li><strong>Space:</strong> The specified parking or storage area at the Host's property.</li>
+                    <li><strong>Booking:</strong> A reservation agreement between a Host and Guest for use of a Space.</li>
+                    <li><strong>Total Fee:</strong> The full amount paid by the Guest for a Booking, including any applicable taxes.</li>
+                    <li><strong>Service Fee:</strong> The commission retained by ParknStore for facilitating the transaction. <strong>This fee is currently $0 during the MVP phase.</strong></li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="platform-role">
+                <h2>3. Platform Role</h2>
+                
+                <div class="prelaunch-notice">
+                    <p><strong>MVP Phase Notice:</strong> During our initial launch phase, we are manually facilitating connections and payment processing between Users. The automated role described below is how the platform is designed to operate after this MVP phase.</p>
+                </div>
+                
+                <p>ParknStore acts as a payment processor and platform facilitator. We are not a party to rental agreements between Hosts and Guests. We provide the technology platform to facilitate connections and process payments but do not own, manage, or insure spaces and items parked/stored at the space.</p>
+                
+                <div class="highlight">
+                    <p><strong>Platform as Payment Processor:</strong> ParknStore processes all payments between Hosts and Guests. We collect payments from Guests and distribute funds to Hosts, minus our service fee.</p>
+                </div>
+            </div>
+            
+            <div class="content-section" id="user-responsibilities">
+                <h2>4. User Responsibilities</h2>
+                
+                <h3>Host Responsibilities:</h3>
+                <ul>
+                    <li>Provide accurate and truthful descriptions of Spaces</li>
+                    <li>Ensure Spaces are safe, legal to rent, and comply with all local regulations</li>
+                    <li>Maintain appropriate insurance for their property</li>
+                    <li>Clearly communicate access instructions and rules to Guests</li>
+                    <li>Respond promptly to Guest inquiries and Booking requests</li>
+                </ul>
+                
+                <h3>Guest Responsibilities:</h3>
+                <ul>
+                    <li>Verify that Spaces meet their needs before Booking</li>
+                    <li>Use Spaces only for lawful purposes and in accordance with Host rules</li>
+                    <li>Maintain insurance for stored vehicles or items</li>
+                    <li>Leave Spaces in the same condition as when the Booking began</li>
+                    <li>Make timely payments as outlined in these Terms</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="payment-processing">
+                <h2>5. Payment Processing</h2>
+                
+                <div class="prelaunch-notice">
+                    <p><strong>MVP Phase Notice:</strong> During the MVP phase, we are manually processing payments to test our systems. No service fees are being charged, and the full amount paid by Guests (minus any actual payment processing costs we incur) is being disbursed to Hosts.</p>
+                </div>
+                
+                <h3>Service Fees</h3>
+                <p>ParknStore charges a competitive service fee of <strong>15% or less</strong> on each booking. This fee is deducted before disbursing funds to Hosts and allows us to provide a secure, reliable platform and continuous customer support. The exact fee will be clearly displayed before confirmation. Guests pay the full advertised price with no additional fees.</p>
+				
+                <h3>Payment Collection</h3>
+                <p>We collect payments from Guests at the time of Booking confirmation. Funds are held securely until 24 hours after the rental period begins, then released to the Host (minus our service fee).</p>
+                
+                <h3>Payout to Hosts</h3>
+                <p>Hosts will receive payment for confirmed Bookings within 3-5 business days after the Booking period begins, minus the ParknStore service fee.</p>
+            </div>
+            
+            <div class="content-section" id="refund-policy">
+                <h2>6. Refund Policy</h2>
+
+                <div class="prelaunch-notice">
+                    <p><strong>MVP Phase Notice:</strong> During the MVP phase, refunds will be handled manually by our team. The process outlined below describes how refunds will be handled once the automated platform launches.</p>
+                </div>
+                
+                <div class="refund-process">
+                    <h3>How ParknStore Processes Refunds</h3>
+                    <p>ParknStore acts as a payment intermediary. While we strive to pay our Hosts promptly, we understand that situations requiring a refund may arise. Here is our process for handling refunds after funds have been disbursed to the Host.</p>
+                    
+                    <div class="refund-step">
+                        <h4>1. The Refund Agreement is Paramount</h4>
+                        <p>All refund requests must first be discussed and mutually agreed upon between the Host and the Guest. ParknStore will not initiate a refund without written confirmation from both parties, typically via our messaging system.</p>
+                    </div>
+                    
+                    <div class="refund-step">
+                        <h4>2. The Process: Reversing the Transaction</h4>
+                        <p>When a refund is agreed upon after we have paid the Host, the process involves two potential steps:</p>
+                        
+                        <p><strong>Step A: Host-Cooperated Refund (Preferred Method)</strong></p>
+                        <ul>
+                            <li>We will contact the Host and request that they repay the refund amount to ParknStore.</li>
+                            <li>Once we receive the funds from the Host, we will immediately process the full refund to the Guest's original payment method.</li>
+                            <li>This is the fastest and most straightforward method.</li>
+                        </ul>
+                        
+                        <p><strong>Step B: ParknStore-Mediated Refund (If Host is Unresponsive/Uncooperative)</strong></p>
+                        <ul>
+                            <li>If the Host agrees to the refund but does not voluntarily repay the amount, ParknStore will deduct the refund sum from the Host's future payouts.</li>
+                            <li>For example: If a Guest is owed a $100 refund, the next $100 earned by the Host from other bookings will be retained by ParknStore and used to fund the Guest's refund.</li>
+                            <li>Once the full amount is secured, we will process the refund to the Guest.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="refund-step">
+                        <h4>3. Service Fees on Refunds</h4>
+                        <p>Our service fee, which was deducted from the original transaction, will also be refunded to the Host. This means the Host is refunded their full payout amount, and the Guest is refunded the full amount they paid.</p>
+                        <p><strong>Example:</strong> On a $100 booking, ParknStore took a $15 fee and paid the Host $85. For a full refund, the Host must repay $85, and ParknStore returns the $15 fee, allowing us to refund the Guest the full $100.</p>
+                    </div>
+                    
+                    <div class="refund-step">
+                        <h4>4. Timing</h4>
+                        <p>Refunds are processed to the Guest's original payment method within 5-10 business days from the date the funds are secured from the Host.</p>
+                        <p>The time it takes for the refund to appear in the Guest's account depends on their bank or card issuer's processing times.</p>
+                    </div>
+                    
+                    <div class="refund-step">
+                        <h4>5. Important Conditions</h4>
+                        <ul>
+                            <li>ParknStore's ability to process a refund is contingent on the Host's cooperation or their future use of our platform.</li>
+                            <li>We reserve the right to suspend a Host's account if they refuse to comply with a mutually agreed-upon refund.</li>
+                            <li>ParknStore is not liable for refunds if a Host leaves the platform and has no future earnings.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section" id="prohibited-items">
+                <h2>7. Prohibited Items</h2>
+                <p>Guests may not store the following items in any ParknStore space:</p>
+                <ul>
+                    <li>Weapons, firearms, ammunition, explosives</li>
+                    <li>Hazardous, toxic, or flammable materials</li>
+                    <li>Live animals or plants</li>
+                    <li>Perishable food items (unless specifically agreed in writing)</li>
+                    <li>Cash, securities, or precious metals/stones</li>
+                    <li>Illegal or stolen goods</li>
+                    <li>Items producing odors or fumes</li>
+                    <li>Any items that would void Host's insurance</li>
+                </ul>
+                
+                <div class="disclaimer">
+                    <p>Storage of prohibited items will result in immediate termination of your account and may lead to legal action.</p>
+                </div>
+            </div>
+            
+			<div class="content-section" id="cancellation">
+				<h2>8. Cancellation Policy</h2>
+				
+				<h3>Grace Period</h3>
+				<p>Both Hosts and Guests may cancel any booking within 24 hours of confirmation without penalty.</p>
+				
+				<h3>Standard Cancellations</h3>
+				<p>After the 24-hour grace period, cancellations require 30 days' written notice. Guests are responsible for payment for the entire notice period even if they vacate early.</p>
+				
+				<h3>Host-Initiated Cancellations</h3>
+				<p>If a Host cancels a confirmed booking after the grace period, they may be subject to penalties including temporary suspension from the platform.</p>
+			</div>
+            
+            <div class="content-section" id="liability">
+                <h2>9. Liability Limitations</h2>
+                
+                <h3>No Insurance Provision</h3>
+                <p>ParknStore does not provide insurance coverage for stored items. Hosts must maintain appropriate property insurance, and Guests must maintain insurance for their stored items.</p>
+                
+                <h3>Platform Liability</h3>
+                <p>ParknStore's liability is limited to the total fees collected in the 6 months preceding any claim. We are not liable for any indirect, incidental, or consequential damages.</p>
+                
+                <h3>User Responsibility</h3>
+                <p>Hosts are responsible for the condition and legality of their spaces. Guests are responsible for verifying that spaces meet their needs before booking.</p>
+            </div>
+            
+            <div class="content-section" id="disputes">
+                <h2>10. Dispute Resolution</h2>
+                
+                <h3>Mediation Process</h3>
+                <p>In case of disputes between Users, ParknStore will attempt to mediate a resolution. However, we are not obligated to mediate and may defer to legal authorities when appropriate.</p>
+                
+                <h3>Arbitration Agreement</h3>
+                <p>By using our platform, you agree to resolve any disputes through binding arbitration rather than in court, except for small claims matters.</p>
+                
+                <h3>Governing Law</h3>
+                <p>These Terms are governed by the laws of New Zealand. Any legal proceedings will be conducted in Auckland, New Zealand.</p>
+            </div>
+            
+            <div class="content-section" id="changes">
+                <h2>11. Changes to Terms</h2>
+                
+                <p>We may update these Terms from time to time. We will notify users of significant changes via email or through our platform. Continued use of ParknStore after changes constitutes acceptance of the modified terms.</p>
+                
+                <div class="disclaimer">
+                    <p>It is your responsibility to review these Terms periodically for changes. The "Last Updated" date at the beginning of these Terms indicates when they were last revised.</p>
+                </div>
+            </div>
+            
+			<!--
+            <div class="content-section">
+                <h2>Contact Information</h2>
+                
+                <p>For questions about these Terms, please contact us at:</p>
+                <p><strong>ParknStore Support</strong><br>
+                Email: info@parknstore.co.nz<br>
+                Address: Auckland, New Zealand</p>
+            </div>-->
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>ParknStore</h3>
+                <p>Connecting communities through shared parking and storage solutions.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+					<li><a href="index.html?openModal=forms">Join the Waitlist</a></li>
+					<li><a href="index.html?openModal=how-it-works">How It Works</a></li>
+					<li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
+					<li><a href="index.html?openModal=benefits">Benefits</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+ 					<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
+					<li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+					<li><a href="TermsOfService.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@parknstore.co.nz</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 ParknStore. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('show');
+        });
+        
+        // Sidebar toggle for mobile
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const termsSidebar = document.getElementById('terms-sidebar');
+        
+        if (sidebarToggle && termsSidebar) {
+            sidebarToggle.addEventListener('click', function() {
+                termsSidebar.classList.toggle('collapsed');
+            });
+        }
+        
+        // Improved smooth scrolling for sidebar links
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (!targetElement) return;
+                
+                // Calculate the scroll position with proper offset
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const additionalOffset = 20; // Extra spacing
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update active class
+                document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update URL hash without scrolling
+                history.replaceState(null, null, targetId);
+                
+                // Auto-close sidebar on mobile after clicking a link
+                if (window.innerWidth <= 1024) {
+                    termsSidebar.classList.add('collapsed');
+                }
+            });
+        });
+        
+        // Adjust scroll offset for mobile header
+        function adjustScrollOffset() {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.scrollMarginTop = headerHeight + 20 + 'px';
+            });
+        }
+        
+        // Handle URL hash on page load
+        function handleInitialHash() {
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    // Small timeout to ensure DOM is fully rendered
+                    setTimeout(() => {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const additionalOffset = 20;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active class in sidebar
+                        document.querySelectorAll('.sidebar a').forEach(a => {
+                            a.classList.remove('active');
+                            if (a.getAttribute('href') === window.location.hash) {
+                                a.classList.add('active');
+                            }
+                        });
+                    }, 100);
+                }
+            }
+        }
+        
+        // Run on load and resize
+        window.addEventListener('load', function() {
+            adjustScrollOffset();
+            handleInitialHash();
+        });
+        window.addEventListener('resize', adjustScrollOffset);
+    </script>
+</body>
+</html>
