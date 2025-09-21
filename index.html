@@ -1259,39 +1259,72 @@
 				font-size: 14px;
 			}
 		}
+		  
+		 /* Add these new styles for the lead modals */
+        .lead-modal .modal-content {
+            max-width: 500px;
+            padding: 30px;
+        }
+        
+        .lead-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .lead-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .lead-form .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .already-submitted {
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .value-card-btn .btn {
+            width: 100%; /* Make buttons in value cards full width */
+        }
     </style>
 </head>
 <body>
-    <!-- Beta Notice Banner -->
+  <!-- Beta Notice Banner -->
     <div class="beta-banner">
         BETA: We're validating demand in your area! Join our waitlist to help bring ParknStore to your community.
     </div>
 
     <!-- Header -->
-    <!-- Header -->
-	 <header>
-		<div class="container header-container">
-			<a href="index.html" class="logo-link">
-				<div class="logo">
-					<img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
-					<div id="logo-placeholder" class="logo-placeholder" style="display: none;">
-						PARKNSTORE
-					</div>
-				</div>
-			</a>
-			<button class="mobile-menu-btn">☰</button>
-			<nav>
-				<ul id="menu">
-					<li><a href="#forms">Get Started</a></li>
-					<li><a href="#how-it-works">How It Works</a></li>
-					<li><a href="#value-bomb">Explore Hosting</a></li>
-					<li><a href="#benefits">Benefits</a></li>
-					<li><a href="/FAQ.HTML" id="faq-link">FAQ</a></li>
-					<li><a href="#referral-section">Refer ParknStore</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo">
+                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
+                    <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
+                        PARKNSTORE
+                    </div>
+                </div>
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#forms">Get Started</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#value-bomb">Explore Hosting</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="/FAQ.HTML" id="faq-link">FAQ</a></li>
+                    <li><a href="#referral-section">Refer ParknStore</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
     <!-- Hero Section -->
     <section class="hero">
@@ -1302,7 +1335,7 @@
                 <a href="#forms" class="btn btn-primary">Join Waitlist</a>
                 <a href="#how-it-works" class="btn btn-outline">Learn More</a>
             </div>
-            <p class="cta-nudge">We’re validating demand before launch. By sharing your interest, you’ll help shape ParknStore and get early access when we go live.</p>
+            <p class="cta-nudge">We're validating demand before launch. By sharing your interest, you'll help shape ParknStore and get early access when we go live.</p>
         </div>
     </section>
 
@@ -1591,7 +1624,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Benefits Section -->
      <section class="benefits" id="benefits">
         <div class="container">
@@ -1627,7 +1660,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Referral Section -->
     <section class="referral-section" id="referral-section">
@@ -1674,16 +1706,16 @@
                 <div class="footer-column">
                     <h3>Support</h3>
                     <ul>
-						<li><a href="/FAQ.HTML" id="faq-link">FAQ</a></li>
-						<li><a href="/PrivacyPolicy.HTML">Privacy Policy</a></li>
-						<li><a href="/TermsOfService.html">Terms of Service</a></li>
+                        <li><a href="/FAQ.HTML" id="faq-link">FAQ</a></li>
+                        <li><a href="/PrivacyPolicy.HTML">Privacy Policy</a></li>
+                        <li><a href="/TermsOfService.html">Terms of Service</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> ParknStoreNZ@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> ParknStore@gmail.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
                     </ul>
                 </div>
@@ -1761,18 +1793,6 @@
                     </div>
                 </div>
                 
-                <!--<div class="guide-section">
-                    <h3>ParknStore Support</h3>
-                    <p>Remember that our support team is available to help with:</p>
-                    <ul>
-                        <li>Mediating disputes between hosts and renters</li>
-                        <li>Answering questions about insurance coverage</li>
-                        <li>Addressing platform technical issues</li>
-                        <li>Guidance on difficult situations</li>
-                    </ul>
-                    <p>Contact <strong>support@parknstore.co.nz</strong> or use the in-app support feature for assistance.</p>
-                </div>-->
-                
                 <div class="guide-section">
                     <p><em>This guide provides general advice only. Local laws and regulations may vary. ParknStore recommends consulting with insurance professionals and legal advisors to understand your specific obligations and protections as a host.</em></p>
                     <p><em>Document Version: 1.1 - Last Updated: September 2025</em></p>
@@ -1791,121 +1811,216 @@
     </div>
 
     <!-- Add the new calculator modal -->
-	<div id="calculatorModal" class="modal calculator-modal">
-		<div class="modal-content">
-			<span class="close-modal">&times;</span>
-			<h2>ParknStore Calculator</h2>
-			<p class="subtitle">Calculate the value of your parking or storage space</p>
-			
-			<div class="calculator-toggle">
-				<div class="toggle-option parking active" data-target="parking-calculator">Parking</div>
-				<div class="toggle-option storage" data-target="storage-calculator">Storage</div>
-			</div>
-			
-			<!-- Parking Calculator -->
-			<div id="parking-calculator" class="calculator-section active">
-				<div class="form-group">
-					<label for="location"><strong>Location Desirability</strong></label>
-					<div class="options-container" id="parking-location-options">
-						<div class="option-button parking" data-value="1">Low</div>
-						<div class="option-button parking selected" data-value="2">Medium</div>
-						<div class="option-button parking" data-value="3">High</div>
-					</div>
-				</div>
+    <div id="calculatorModal" class="modal calculator-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>ParknStore Calculator</h2>
+            <p class="subtitle">Calculate the value of your parking or storage space</p>
+            
+            <div class="calculator-toggle">
+                <div class="toggle-option parking active" data-target="parking-calculator">Parking</div>
+                <div class="toggle-option storage" data-target="storage-calculator">Storage</div>
+            </div>
+            
+            <!-- Parking Calculator -->
+            <div id="parking-calculator" class="calculator-section active">
+                <div class="form-group">
+                    <label for="location"><strong>Location Desirability</strong></label>
+                    <div class="options-container" id="parking-location-options">
+                        <div class="option-button parking" data-value="1">Low</div>
+                        <div class="option-button parking selected" data-value="2">Medium</div>
+                        <div class="option-button parking" data-value="3">High</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="space-type"><strong>Parking Type</strong></label>
+                    <div class="options-container" id="parking-type-options">
+                        <div class="option-button parking" data-value="1">Driveway</div>
+                        <div class="option-button parking selected" data-value="2">Garage</div>
+                        <div class="option-button parking" data-value="3">Carport</div>
+                        <div class="option-button parking" data-value="4">Underground</div>
+                        <div class="option-button parking" data-value="5">Parking Lot</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="availability"><strong>Weekly Availability</strong></label>
+                    <p>Select the days you can make your space available:</p>
+                    <div class="days-container" id="parking-days-container">
+                        <div class="day-button parking" data-day="1">Mon</div>
+                        <div class="day-button parking" data-day="2">Tue</div>
+                        <div class="day-button parking" data-day="3">Wed</div>
+                        <div class="day-button parking" data-day="4">Thu</div>
+                        <div class="day-button parking" data-day="5">Fri</div>
+                        <div class="day-button parking" data-day="6">Sat</div>
+                        <div class="day-button parking" data-day="7">Sun</div>
+                    </div>
+                    <div class="selected-days-count" id="parking-selected-days-count">0 days selected</div>
+                </div>
+                
+                <button id="calculate-parking" class="submit-btn parking">Calculate Parking Value</button>
+                
+                <div class="calculator-result" id="parking-calculator-result">
+                    <h3>Your Estimated Monthly Parking Earnings</h3>
+                    <div class="estimated-earnings parking" id="parking-estimated-earnings">$0</div>
+                    <p>Based on your inputs and local market rates</p>
+                    <div class="calculator-note">
+                        <p><strong>Note:</strong> This is an estimate. Actual earnings may vary based on demand, seasonality, and other factors.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Storage Calculator -->
+            <div id="storage-calculator" class="calculator-section">
+                <div class="dropdown-group">
+                    <label for="storage-location"><strong>Location Desirability</strong></label>
+                    <select id="storage-location">
+                        <option value="1">Low</option>
+                        <option value="2" selected>Medium</option>
+                        <option value="3">High</option>
+                    </select>
+                </div>
+                
+                <div class="dropdown-group">
+                    <label for="storage-type"><strong>Storage Type</strong></label>
+                    <select id="storage-type">
+                        <option value="1">Warehouse</option>
+                        <option value="2" selected>Storage Garage</option>
+                        <option value="3">Storage Container</option>
+                        <option value="4">Storage Shed</option>
+                        <option value="5">Basement</option>
+                    </select>
+                </div>
+                
+                <div class="dropdown-group">
+                    <label for="storage-size"><strong>Storage Size (m²)</strong></label>
+                    <select id="storage-size">
+                        <option value="5">5 m²</option>
+                        <option value="10" selected>10 m²</option>
+                        <option value="20">20 m²</option>
+                        <option value="30">30 m²</option>
+                        <option value="40">40+ m²</option>
+                    </select>
+                </div>
+                
+                <div class="dropdown-group">
+                    <label for="storage-availability"><strong>Availability</strong></label>
+                    <select id="storage-availability">
+                        <option value="full" selected>Full Month</option>
+                        <option value="seasonal">Seasonal</option>
+                        <option value="occasional">Occasional</option>
+                    </select>
+                </div>
+                
+                <button id="calculate-storage" class="submit-btn storage">Calculate Storage Value</button>
+                
+                <div class="calculator-result" id="storage-calculator-result">
+                    <h3>Your Estimated Monthly Storage Earnings</h3>
+                    <div class="estimated-earnings storage" id="storage-estimated-earnings">$0</div>
+                    <p>Based on your inputs and local market rates</p>
+                    <div class="calculator-note">
+                        <p><strong>Note:</strong> This is an estimate. Actual earnings may vary based on demand, seasonality, and other factors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Calculator Lead Capture Modal -->
+    <div id="calculatorLeadModal" class="modal lead-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Get Your Personalized Estimate</h2>
+            <p>Tell us a bit about your space to calculate your potential earnings</p>
+            <form id="calculatorLeadForm" class="lead-form">
+                <input type="hidden" name="calculator_lead" value="true">
+                <input type="hidden" name="user_type" value="potential_host">
+                <input type="hidden" id="calcSpaceType" name="space_type" value="">
+                
+                <div class="form-group">
+                    <label for="calc-name">Name</label>
+                    <input type="text" id="calc-name" name="name" class="form-control" placeholder="Your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="calc-email">Email</label>
+                    <input type="email" id="calc-email" name="email" class="form-control" placeholder="Your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="calc-suburb">Suburb</label>
+                    <input type="text" id="calc-suburb" name="suburb" class="form-control" placeholder="Your suburb" required>
+                </div>
+                
+				<!--Added-->
+				 <div class="form-group">
+                    <label>What type of space do you have?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="guide-parking" name="space_type" value="parking" required>
+                            <label for="guide-parking">Parking</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="guide-storage" name="space_type" value="storage">
+                            <label for="guide-storage">Storage</label>
+                        </div>
+                    </div>
+                </div>
 				
-				<div class="form-group">
-					<label for="space-type"><strong>Parking Type</strong></label>
-					<div class="options-container" id="parking-type-options">
-						<div class="option-button parking" data-value="1">Driveway</div>
-						<div class="option-button parking selected" data-value="2">Garage</div>
-						<div class="option-button parking" data-value="3">Carport</div>
-						<div class="option-button parking" data-value="4">Underground</div>
-						<div class="option-button parking" data-value="5">Parking Lot</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="availability"><strong>Weekly Availability</strong></label>
-					<p>Select the days you can make your space available:</p>
-					<div class="days-container" id="parking-days-container">
-						<div class="day-button parking" data-day="1">Mon</div>
-						<div class="day-button parking" data-day="2">Tue</div>
-						<div class="day-button parking" data-day="3">Wed</div>
-						<div class="day-button parking" data-day="4">Thu</div>
-						<div class="day-button parking" data-day="5">Fri</div>
-						<div class="day-button parking" data-day="6">Sat</div>
-						<div class="day-button parking" data-day="7">Sun</div>
-					</div>
-					<div class="selected-days-count" id="parking-selected-days-count">0 days selected</div>
-				</div>
-				
-				<button id="calculate-parking" class="submit-btn parking">Calculate Parking Value</button>
-				
-				<div class="calculator-result" id="parking-calculator-result">
-					<h3>Your Estimated Monthly Parking Earnings</h3>
-					<div class="estimated-earnings parking" id="parking-estimated-earnings">$0</div>
-					<p>Based on your inputs and local market rates</p>
-					<div class="calculator-note">
-						<p><strong>Note:</strong> This is an estimate. Actual earnings may vary based on demand, seasonality, and other factors.</p>
-					</div>
-				</div>
-			</div>
-			
-			<!-- Storage Calculator -->
-			<div id="storage-calculator" class="calculator-section">
-				<div class="dropdown-group">
-					<label for="storage-location"><strong>Location Desirability</strong></label>
-					<select id="storage-location">
-						<option value="1">Low</option>
-						<option value="2" selected>Medium</option>
-						<option value="3">High</option>
-					</select>
-				</div>
-				
-				<div class="dropdown-group">
-					<label for="storage-type"><strong>Storage Type</strong></label>
-					<select id="storage-type">
-						<option value="1">Warehouse</option>
-						<option value="2" selected>Storage Garage</option>
-						<option value="3">Storage Container</option>
-						<option value="4">Storage Shed</option>
-						<option value="5">Basement</option>
-					</select>
-				</div>
-				
-				<div class="dropdown-group">
-					<label for="storage-size"><strong>Storage Size (m²)</strong></label>
-					<select id="storage-size">
-						<option value="5">5 m²</option>
-						<option value="10" selected>10 m²</option>
-						<option value="20">20 m²</option>
-						<option value="30">30 m²</option>
-						<option value="40">40+ m²</option>
-					</select>
-				</div>
-				
-				<div class="dropdown-group">
-					<label for="storage-availability"><strong>Availability</strong></label>
-					<select id="storage-availability">
-						<option value="full" selected>Full Month</option>
-						<option value="seasonal">Seasonal</option>
-						<option value="occasional">Occasional</option>
-					</select>
-				</div>
-				
-				<button id="calculate-storage" class="submit-btn storage">Calculate Storage Value</button>
-				
-				<div class="calculator-result" id="storage-calculator-result">
-					<h3>Your Estimated Monthly Storage Earnings</h3>
-					<div class="estimated-earnings storage" id="storage-estimated-earnings">$0</div>
-					<p>Based on your inputs and local market rates</p>
-					<div class="calculator-note">
-						<p><strong>Note:</strong> This is an estimate. Actual earnings may vary based on demand, seasonality, and other factors.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                <button type="submit" class="submit-btn" id="calcLeadSubmitBtn">See My Estimate</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Guide Lead Capture Modal -->
+    <div id="guideLeadModal" class="modal lead-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Get Your Free Hosting Guide</h2>
+            <p>Share a few details to download our comprehensive Host Safety & Security Guide</p>
+            
+            <form id="guideLeadForm" class="lead-form" action="https://formspree.io/f/movlzobz" method="POST">
+                <input type="hidden" name="guide_download" value="true">
+                <input type="hidden" name="user_type" value="potential_host">
+                
+                <div class="form-group">
+                    <label for="guide-name">Name</label>
+                    <input type="text" id="guide-name" name="name" class="form-control" placeholder="Your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guide-email">Email</label>
+                    <input type="email" id="guide-email" name="email" class="form-control" placeholder="Your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guide-suburb">Suburb</label>
+                    <input type="text" id="guide-suburb" name="suburb" class="form-control" placeholder="Your suburb" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>What type of space do you have?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="guide-parking" name="space_type" value="parking" required>
+                            <label for="guide-parking">Parking</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="guide-storage" name="space_type" value="storage">
+                            <label for="guide-storage">Storage</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="guideLeadSubmitBtn">Download Guide</button>
+            </form>
+            
+            <div class="already-submitted" id="guideAlreadySubmitted">
+                <p>Already submitted your details? <a href="#" id="viewGuideDirect">View the guide directly</a></p>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script>
@@ -1964,84 +2079,84 @@
             emailReplyInput.value = this.value;
         });
         
-		// Form submission handler
-		document.getElementById('unifiedLeadForm').addEventListener('submit', function(e) {
-			e.preventDefault();
-			const form = e.target;
-			const submitBtn = document.getElementById('submitBtn');
-			const originalText = submitBtn.innerHTML;
-			
-			// Show loading state
-			submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
-			submitBtn.disabled = true;
-			
-			fetch(form.action, {
-				method: 'POST',
-				body: new FormData(form),
-				headers: { 'Accept': 'application/json' }
-			})
-			.then(response => {
-				if (response.ok) {
-					window.location.href = 'https://www.parknstore.co.nz/thankyou';
-				} else {
-					showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
-					submitBtn.innerHTML = originalText;
-					submitBtn.disabled = false;
-				}
-			})
-			.catch(error => {
-				console.error('Form submission error:', error);
-				showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
-				submitBtn.innerHTML = originalText;
-				submitBtn.disabled = false;
-			});
-		});
+        // Form submission handler
+        document.getElementById('unifiedLeadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            submitBtn.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'https://www.parknstore.co.nz/thankyou';
+                } else {
+                    showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
 
-		// Renter form submission handler
-		document.getElementById('renterLeadForm').addEventListener('submit', function(e) {
-			e.preventDefault();
-			const form = e.target;
-			const submitBtn = form.querySelector('.submit-btn');
-			const originalText = submitBtn.innerHTML;
-			
-			// Show loading state
-			submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
-			submitBtn.disabled = true;
-			
-			fetch(form.action, {
-				method: 'POST',
-				body: new FormData(form),
-				headers: { 'Accept': 'application/json' }
-			})
-			.then(response => {
-				if (response.ok) {
-					window.location.href = 'https://www.parknstore.co.nz/thankyou';
-				} else {
-					showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
-					submitBtn.innerHTML = originalText;
-					submitBtn.disabled = false;
-				}
-			})
-			.catch(error => {
-				console.error('Form submission error:', error);
-				showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
-				submitBtn.innerHTML = originalText;
-				submitBtn.disabled = false;
-			});
-		});
+        // Renter form submission handler
+        document.getElementById('renterLeadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            submitBtn.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'https://www.parknstore.co.nz/thankyou';
+                } else {
+                    showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
 
-		// Show alert function
-		function showAlert(elementId, type, message) {
-			const alertElement = document.getElementById(elementId);
-			alertElement.className = `alert alert-${type}`;
-			alertElement.textContent = message;
-			alertElement.style.display = 'block';
-			
-			// Auto hide after 5 seconds
-			setTimeout(() => {
-				alertElement.style.display = 'none';
-			}, 5000);
-		}
+        // Show alert function
+        function showAlert(elementId, type, message) {
+            const alertElement = document.getElementById(elementId);
+            alertElement.className = `alert alert-${type}`;
+            alertElement.textContent = message;
+            alertElement.style.display = 'block';
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                alertElement.style.display = 'none';
+            }, 5000);
+        }
         
         // Copy referral link functionality
         document.getElementById('copyLinkBtn').addEventListener('click', function() {
@@ -2078,22 +2193,34 @@
         // Modal functionality
         const guideModal = document.getElementById('guideModal');
         const calculatorModal = document.getElementById('calculatorModal');
+        const calculatorLeadModal = document.getElementById('calculatorLeadModal');
+        const guideLeadModal = document.getElementById('guideLeadModal');
         const openGuideBtn = document.getElementById('openGuideBtn');
         const openCalculatorBtn = document.getElementById('openCalculator');
         const closeGuideBtn = document.getElementById('closeGuideBtn');
         const printGuideBtn = document.getElementById('printGuideBtn');
         const closeButtons = document.querySelectorAll('.close-modal');
+        const viewGuideDirect = document.getElementById('viewGuideDirect');
+        const guideAlreadySubmitted = document.getElementById('guideAlreadySubmitted');
+        const calcSpaceTypeInput = document.getElementById('calcSpaceType');
         
         // Open guide modal
         openGuideBtn.addEventListener('click', function() {
-            guideModal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            if (checkIfGuideSubmitted()) {
+                // Already submitted - show guide directly
+                guideModal.style.display = 'block';
+            } else {
+                // Not submitted - show lead capture form
+                guideLeadModal.style.display = 'block';
+            }
+            document.body.style.overflow = 'hidden';
         });
         
         // Open calculator modal
         openCalculatorBtn.addEventListener('click', function() {
-            calculatorModal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            // For calculator, we'll always show the lead form first to get their details
+            calculatorLeadModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         });
         
         // Close modals with close buttons
@@ -2101,19 +2228,28 @@
             button.addEventListener('click', function() {
                 guideModal.style.display = 'none';
                 calculatorModal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
+                calculatorLeadModal.style.display = 'none';
+                guideLeadModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             });
         });
         
         // Close guide modal with the close button in footer
         closeGuideBtn.addEventListener('click', function() {
             guideModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            document.body.style.overflow = 'auto';
         });
         
         // Print guide functionality
         printGuideBtn.addEventListener('click', function() {
             window.print();
+        });
+        
+        // View guide directly link
+        viewGuideDirect.addEventListener('click', function(e) {
+            e.preventDefault();
+            guideLeadModal.style.display = 'none';
+            guideModal.style.display = 'block';
         });
         
         // Close modals when clicking outside
@@ -2124,6 +2260,14 @@
             }
             if (event.target == calculatorModal) {
                 calculatorModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target == calculatorLeadModal) {
+                calculatorLeadModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target == guideLeadModal) {
+                guideLeadModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
@@ -2160,6 +2304,9 @@
                             section.classList.add('active');
                         }
                     });
+                    
+                    // Set space type for lead form
+                    calcSpaceTypeInput.value = target === 'parking-calculator' ? 'parking' : 'storage';
                 });
             });
             
@@ -2263,57 +2410,115 @@
             
             // Initialize the days count
             updateParkingSelectedDaysCount();
+            
+            // Set initial space type for calculator
+            calcSpaceTypeInput.value = 'parking';
         });
             
-       //Open HTML Pages
-		document.addEventListener('DOMContentLoaded', function() {
-		  // Map of link IDs to their target pages
-		  const pageMap = {
-			'faq-link': '/FAQ.HTML',
-			'terms-link': 'Terms.html',
-			'privacy-link': 'Privacy.html'
-		  };
+        // Check if user has already submitted details for the guide
+        function checkIfGuideSubmitted() {
+            return localStorage.getItem('guideSubmitted') === 'true';
+        }
 
-		  // Loop through each link ID and attach click event
-		  Object.keys(pageMap).forEach(linkId => {
-			const linkElement = document.getElementById(linkId);
-			if (linkElement) {
-			  linkElement.addEventListener('click', function(event) {
-				event.preventDefault();
-				window.location.href = pageMap[linkId];
-			  });
-			}
-		  });
-		});
+        // Check if user has already submitted details for the calculator
+        function checkIfCalcSubmitted() {
+            return localStorage.getItem('calcSubmitted') === 'true';
+        }
 
-		
-		//Open the modals from another page
-		window.addEventListener('DOMContentLoaded', () => {
-		const params = new URLSearchParams(window.location.search);
-		const target = params.get('openModal');
+        // Guide Lead Form submission
+        document.getElementById('guideLeadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('guideLeadSubmitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            submitBtn.disabled = true;
+            
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - mark as submitted and show guide
+                    localStorage.setItem('guideSubmitted', 'true');
+                    guideLeadModal.style.display = 'none';
+                    guideModal.style.display = 'block';
+                    guideAlreadySubmitted.style.display = 'block'; // Show the "already submitted" link for future
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                alert('Submission failed. Please check your connection and try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
 
-		// Map of valid section IDs
-		const sectionMap = {
-			'forms': 'forms',
-			'how-it-works': 'how-it-works',
-			'value-bomb': 'value-bomb',
-			'benefits': 'benefits'
-		};
+        // Calculator Lead Form submission
+        document.getElementById('calculatorLeadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('calcLeadSubmitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Calculating...';
+            submitBtn.disabled = true;
+            
+            // Create FormData to send to Formspree
+            const formData = new FormData();
+            formData.append('name', document.getElementById('calc-name').value);
+            formData.append('email', document.getElementById('calc-email').value);
+            formData.append('suburb', document.getElementById('calc-suburb').value);
+            formData.append('space_type', calcSpaceTypeInput.value);
+            formData.append('calculator_lead', 'true');
+            formData.append('user_type', 'potential_host');
+            
+            // Submit to Formspree
+            fetch('https://formspree.io/f/movlzobz', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - mark as submitted, close lead modal, open calculator
+                    localStorage.setItem('calcSubmitted', 'true');
+                    calculatorLeadModal.style.display = 'none';
+                    calculatorModal.style.display = 'block';
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                alert('Submission failed. Please check your connection and try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
 
-		  // Check if the target matches a known section
-		  const sectionId = sectionMap[target];
-		  if (sectionId) {
-			const section = document.getElementById(sectionId);
-			if (section) {
-			  section.scrollIntoView({ behavior: 'smooth' });
-			}
-		  }
-		});
-	
-		
+        // Check on page load if user has already submitted for the guide
+        document.addEventListener('DOMContentLoaded', function() {
+            if (checkIfGuideSubmitted()) {
+                guideAlreadySubmitted.style.display = 'block';
+            }
+        });
+        
+        // FAQ link functionality
+        document.getElementById('faq-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'FAQ.html';
+        });
     </script>
 </body>
 </html>
-
-
-
