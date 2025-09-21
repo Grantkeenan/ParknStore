@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParknStore - FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #ffbe0b;
+            --accent: #ff006e;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #38b000;
+            --blue: #3a86ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        .beta-banner {
+            background-color: var(--blue);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+        }
+        
+        .logo-placeholder {
+            height: 80px;
+            width: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .page-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--dark);
+            border-left: 2px solid #ddd;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            padding: 8px 0;
+            display: block;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Close Button Container - Outside of header */
+        .close-btn-container {
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px auto;
+            padding: 0 20px;
+            max-width: 1200px;
+        }
+        
+        .close-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 1rem;
+            color: var(--dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tab-button {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        .tab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .faq-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .faq-question {
+            padding: 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+        
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 1.2rem 1.2rem;
+            max-height: 1000px;
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .warning {
+            background-color: #fff4e6;
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .disclaimer {
+            background-color: #ffe6e6;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .prelaunch-notice {
+            background-color: #e6f4ff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        /* New styles for service fee section */
+        .audience-section {
+            margin: 20px 0;
+            padding-left: 15px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .audience-header {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .example-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .calculator {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        
+        .calculator h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .slider-container {
+            margin: 20px 0;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e2e8f0;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 10px;
+        }
+        
+        .result {
+            background: #f0f9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+            border: 2px dashed var(--primary);
+        }
+        
+        .result-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .guide-footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 0.8rem;
+                flex-wrap: wrap;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            
+            .logo {
+                height: 50px;
+                flex-shrink: 0;
+            }
+            
+            .logo img {
+                max-width: 140px;
+            }
+            
+            .logo-placeholder {
+                height: 50px;
+                width: 140px;
+                font-size: 16px;
+            }
+            
+            .page-title {
+                font-size: 1.1rem;
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                border-top: none;
+                padding-top: 0;
+                margin-top: 0;
+                width: auto;
+                text-align: right;
+                flex-grow: 1;
+                padding-right: 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                order: 3;
+                margin-left: auto;
+            }
+            
+            nav {
+                width: 100%;
+                order: 4;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 10px 0;
+                margin-top: 10px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                padding: 12px 20px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .close-btn-container {
+                justify-content: center;
+                margin: 15px 0;
+                padding: 0 10px;
+            }
+            
+            .close-btn {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .tagline {
+                font-size: 0.95rem;
+                padding: 0.8rem 0.5rem;
+            }
+            
+            .container {
+                padding: 1rem 0.5rem;
+            }
+            
+            .tabs {
+                margin-bottom: 1.2rem;
+                gap: 0.4rem;
+                padding: 0 5px;
+            }
+            
+            .tab-button {
+                padding: 0.7rem 0.9rem;
+                font-size: 0.85rem;
+                flex: 1;
+                min-width: calc(50% - 10px);
+                text-align: center;
+            }
+            
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.95rem;
+                min-height: 50px;
+            }
+            
+            .faq-answer {
+                padding: 0 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .faq-answer.active {
+                padding: 0 1rem 1rem;
+            }
+            
+            .warning, .disclaimer, .prelaunch-notice {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+                margin: 0.8rem 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            /* Mobile adjustments for calculator */
+            .calculator {
+                padding: 15px;
+            }
+            
+            .result-value {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .logo-container {
+                width: 100%;
+            }
+            
+            .tabs {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .tab-button {
+                width: calc(50% - 5px);
+                min-width: calc(50% - 5px);
+                margin-bottom: 5px;
+            }
+            
+            .page-title {
+                font-size: 1rem;
+            }
+            
+            .logo img {
+                max-width: 120px;
+            }
+            
+            .logo-placeholder {
+                width: 120px;
+                font-size: 14px;
+            }
+            
+            nav ul li a {
+                font-size: 15px;
+            }
+        }
+        
+        /* Prevent horizontal scrolling */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Improved touch targets for mobile */
+        @media (hover: none) {
+            .faq-question:hover {
+                background-color: inherit;
+            }
+            
+            .tab-button:hover {
+                transform: none;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            .tab-button:active {
+                background: var(--primary);
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+			<a href="index.html" class="logo-link">
+                <div class="logo">
+                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
+                    <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
+                        PARKNSTORE
+                    </div>
+                </div>
+			</a>
+                <div class="page-title">Frequently Asked Questions</div>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html?openModal=forms">Join the Waitlist</a></li>
+					<li><a href="index.html?openModal=how-it-works">How It Works</a></li>
+					<li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
+					<li><a href="index.html?openModal=benefits">Benefits</a></li>
+					<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
+                    <li><a href="index.html?openModal=referral-section">Refer ParknStore</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tagline">Connecting space owners with those who need storage solutions. We provide the platform - you make the agreement.</div>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-category="all">All Questions</button>
+            <button class="tab-button" data-category="general">General</button>
+            <button class="tab-button" data-category="hosts">For Hosts</button>
+            <button class="tab-button" data-category="guests">For Guests</button>
+            <button class="tab-button" data-category="legal">Legal & Safety</button>
+        </div>
+		<div class="close-btn-container">
+			<button class="close-btn" onclick="closeFAQ()">Close</button>
+		</div>
+        <div class="prelaunch-notice">
+            <strong>MVP Phase Notice:</strong> ParknStore is currently in our initial launch phase with manual facilitation. We are not a party to rental agreements between Hosts and Guests. All users are solely responsible for their agreements, compliance with laws, and resolving any disputes.
+        </div>
+        
+        <div class="faq-section">
+            <!-- General Questions -->
+            <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                    What is ParknStore? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ParknStore is currently in our MVP (Minimum Viable Product) launch phase. We're manually connecting space owners ("Hosts") with those needing storage ("Guests") as we build our full automated platform. During this phase, our team personally facilitates introductions and helps coordinate agreements between users.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                    What does "MVP Phase" mean? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>MVP stands for "Minimum Viable Product." This means we're launching ParknStore in its simplest form to:</p>
+                    <ul>
+                        <li>Validate that our solution meets real user needs</li>
+                        <li>Test our processes and systems with a small group of early adopters</li>
+                        <li>Gather feedback to improve before building our full automated platform</li>
+                    </ul>
+                    <p>During this phase, you'll work directly with our team who will personally facilitate connections and payments. This hands-on approach helps us ensure everything works smoothly before scaling up.</p>
+                    <div class="warning">
+                        <strong>Please note:</strong> As an MVP user, you might experience occasional manual processes as we refine our systems. We appreciate your patience and feedback!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                    How does ParknStore make money? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>During our MVP launch phase, we are waiving all service fees to validate our platform and build our community.</p>
+                    
+                    <div class="audience-section">
+                        <div class="audience-header">For Guests:</div>
+                        <p>The price you agree on with the Host is the price you pay. You will not be charged any additional fees by ParknStore during our MVP phase.</p>
+                    </div>
+                    
+                    <div class="audience-section">
+                        <div class="audience-header">For Hosts:</div>
+                        <p>We are currently charging <strong>0% service fees</strong> during our MVP phase. The full amount agreed with your Guest will be disbursed to you (minus only any actual payment processing costs we incur). After launch, we plan to introduce a competitive service fee of 15% or less.</p>
+                    </div>
+                    
+                    <p class="warning"><strong>Important:</strong> Once we launch our automated platform, ParknStore will introduce service fees. Any changes will be prominently communicated in advance to all users.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                    What is ParknStore's role in the rental? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We are a connection platform and payment processor. We do not own, lease, manage, or insure any of the spaces listed on our site. The rental contract is a private agreement between the Host and the Guest. We are not responsible for the condition, safety, or legality of the space, or for any disputes that arise between users.</p>
+                </div>
+            </div>
+            
+            <!-- For Hosts -->
+            <div class="faq-item" data-category="hosts">
+                <div class="faq-question">
+                    How do I list my space? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can create a listing through our website or app. You will need to provide accurate details, including size, location, access instructions, and any specific rules for Guests.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="hosts">
+                <div class="faq-question">
+                    What are my responsibilities as a Host? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You are solely responsible for:</p>
+                    <ul>
+                        <li>Providing an accurate and truthful description of your space</li>
+                        <li>Ensuring your space is safe, legal to rent out, and complies with all local laws</li>
+                        <li>Setting clear rules for access, usage, and vehicle restrictions</li>
+                        <li>Maintaining appropriate insurance for your property</li>
+                        <li>Handling any issues or disputes directly with your Guest</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="hosts">
+                <div class="faq-question">
+                    What fees will I pay as a Host? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>During our MVP phase: <strong>You pay 0% in service fees</strong>. We're waiving all fees to build our community and test our systems.</p>
+                    <p>After launch: We plan to introduce a competitive service fee of <strong>15% or less</strong> on completed bookings. This fee will be clearly displayed before you confirm any booking.</p>
+                </div>
+            </div>
+            
+            <!-- For Guests -->
+            <div class="faq-item" data-category="guests">
+                <div class="faq-question">
+                    How do I rent a space? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Browse listings on our website or app. When you find a suitable space, you can contact the Host through our platform to ask questions and finalize the booking details.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="guests">
+                <div class="faq-question">
+                    What are my responsibilities as a Guest? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You are solely responsible for:</p>
+                    <ul>
+                        <li>Verifying that the space is suitable and meets your needs before you book</li>
+                        <li>Making payments to the Host as agreed upon</li>
+                        <li>Adhering to all the Host's rules regarding access hours and usage</li>
+                        <li>Securing appropriate insurance for your vehicle or stored items</li>
+                        <li>Not storing prohibited items (weapons, hazardous materials, etc.)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Updated Refund Policy FAQ Item -->
+            <div class="faq-item" data-category="guests">
+                <div class="faq-question">
+                    What is your refund policy? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer a 24-hour grace period after booking confirmation during which both Hosts and Guests may cancel without penalty.</p>
+                    
+                    <p>After this period, cancellations require 30 days' written notice. Guests are responsible for payment for the entire notice period even if they vacate early.</p>
+                    
+                    <p><strong>For refunds after funds have been disbursed to the Host:</strong></p>
+                    <ol>
+                        <li>Host and Guest must first mutually agree to the refund</li>
+                        <li>We will contact the Host to request repayment of the refund amount</li>
+                        <li>Once we receive funds from the Host, we process the refund to the Guest</li>
+                        <li>If the Host is unresponsive, we may deduct the refund from their future payouts</li>
+                    </ol>
+                    
+                    <p><strong>During our MVP phase:</strong> All refund requests will be handled manually by our team. <!--Please contact us directly at info@parknstore.co.nz for assistance with refunds.--></p>
+                    
+                    <div class="warning">
+                        <strong>Important:</strong> ParknStore's ability to process a refund is contingent on the Host's cooperation or their future use of our platform.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="legal">
+                <div class="faq-question">
+                    What items are prohibited from storage? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Guests may not store the following items in any ParknStore space:</p>
+                    <ul>
+                        <li>Weapons, firearms, ammunition, explosives</li>
+                        <li>Hazardous, toxic, or flammable materials</li>
+                        <li>Live animals or plants</li>
+                        <li>Perishable food items (unless specifically agreed in writing)</li>
+                        <li>Cash, securities, or precious metals/stones</li>
+                        <li>Illegal or stolen goods</li>
+                        <li>Items producing odors or fumes</li>
+                        <li>Any items that would void Host's insurance</li>
+                    </ul>
+                    
+                    <div class="disclaimer">
+                        <p>Storage of prohibited items will result in immediate termination of your account and may lead to legal action.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Legal & Safety -->
+            <div class="faq-item" data-category="legal">
+                <div class="faq-question">
+                    Does ParknStore provide insurance? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong class="highlight">No.</strong> ParknStore does not provide any insurance coverage for stored items, vehicles, or properties. It is the sole responsibility of the Host to insure their property and the sole responsibility of the Guest to insure their belongings or vehicle.</p>
+                </div>
+            </div>
+            
+			<div class="faq-item" data-category="legal">
+				<div class="faq-question">
+					What happens if my items are damaged or stolen? <span>+</span>
+				</div>
+				<div class="faq-answer">
+					<p><strong class="highlight">ParknStore is not liable for any damage, loss, or theft</strong> that occurs before, during, or after a rental period.</p>
+					
+					<p>Any claims must be handled directly between the Host and Guest, typically through their respective insurance policies. As stated in our Terms of Service, users are solely responsible for securing appropriate insurance for their property and stored items.</p>
+					
+					<div class="disclaimer">
+						<strong>Important:</strong> ParknStore acts solely as a facilitation platform. We are not a party to the rental agreement and assume no liability for the condition, safety, or security of spaces or items stored within them.
+					</div>
+				</div>
+			</div>
+            
+            <div class="faq-item" data-category="legal">
+                <div class="faq-question">
+                    How is my personal information protected? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We take your privacy seriously. We implement appropriate security measures to protect your personal information, including SSL encryption and secure servers.</p>
+                    
+                    <p>We collect information necessary to facilitate your bookings and improve our services. We do not sell your personal information to third parties.</p>
+                    
+                    <p>For more details, please see our <a href="PrivacyPolicy.html" style="color: var(--primary);">Privacy Policy</a>.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" data-category="legal">
+                <div class="faq-question">
+                    What activities are prohibited on ParknStore? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Users must not:</p>
+                    <ul>
+                        <li>List fraudulent, inaccurate, or illegal spaces</li>
+                        <li>Harass other users or misrepresent spaces</li>
+                        <li>Attempt to bypass ParknStore's fees (e.g., arranging off-platform payments to avoid commissions)</li>
+                        <li>Store prohibited items as outlined in our Terms of Service</li>
+                    </ul>
+                    <p class="warning">We reserve the right to suspend or terminate accounts that violate these terms.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ParknStore</h3>
+                    <p>Connecting communities through shared parking and storage solutions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html?openModal=forms">Join the Waitlist</a></li>
+                        <li><a href="index.html?openModal=how-it-works">How It Works</a></li>
+                        <li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
+                        <li><a href="index.html?openModal=benefits">Benefits</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+						<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
+						<li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+						<li><a href="TermsOfService.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@parknstore.co.nz</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ParknStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+	
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('show');
+        });
+        
+        // Close FAQ function
+        function closeFAQ() {
+            // For demonstration - in a real scenario, this might close a modal or redirect
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html'; // Replace with your actual homepage URL
+            }
+        }
+        
+        // Fee calculator function
+        function calculateFee() {
+            // Get values from inputs
+            const monthlyRate = parseFloat(document.getElementById('monthly-rate').value) || 0;
+            const feePercentage = parseFloat(document.getElementById('fee-percentage').value);
+            
+            // Update percentage display
+            document.getElementById('percentage-value').textContent = feePercentage;
+            
+            // Calculate fee and payout
+            const feeAmount = (monthlyRate * feePercentage / 100).toFixed(2);
+            const payoutAmount = (monthlyRate - feeAmount).toFixed(2);
+            
+            // Update result displays
+            document.getElementById('fee-amount').textContent = feeAmount;
+            document.getElementById('payout-amount').textContent = payoutAmount;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = answer.classList.contains('active');
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('active');
+                    });
+                    
+                    document.querySelectorAll('.faq-question span').forEach(span => {
+                        span.textContent = '+';
+                    });
+                    
+                    // Open clicked answer if it wasn't already open
+                    if (!isActive) {
+                        answer.classList.add('active');
+                        question.querySelector('span').textContent = '−';
+                    }
+                });
+            });
+            
+            // Tab filtering functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.getAttribute('data-category');
+                    
+                    // Update active tab
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Show/hide FAQs based on category
+                    const allItems = document.querySelectorAll('.faq-item');
+                    
+                    if (category === 'all') {
+                        allItems.forEach(item => {
+                            item.style.display = 'block';
+                        });
+                    } else {
+                        allItems.forEach(item => {
+                            if (item.getAttribute('data-category') === category) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Initialize calculator functionality
+            const monthlyRateInput = document.getElementById('monthly-rate');
+            const feePercentageSlider = document.getElementById('fee-percentage');
+            
+            if (monthlyRateInput && feePercentageSlider) {
+                monthlyRateInput.addEventListener('input', calculateFee);
+                feePercentageSlider.addEventListener('input', calculateFee);
+                
+                // Initial calculation
+                calculateFee();
+            }
+            
+            // Handle touch events for better mobile responsiveness
+            document.addEventListener('touchstart', function() {}, {passive: true});
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
