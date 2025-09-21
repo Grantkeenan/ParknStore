@@ -124,7 +124,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Hero image.png');
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('heroimage.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -1268,6 +1268,7 @@
     </div>
 
     <!-- Header -->
+    <!-- Header -->
 	 <header>
 		<div class="container header-container">
 			<a href="index.html" class="logo-link">
@@ -1565,7 +1566,7 @@
                             <i class="fas fa-calculator"></i>
                         </div>
                         <h4>Parking Space Value Calculator</h4>
-                        <p>Find out exactly how much your unused parking/storage space could earn based on your location, type of space, and local demand.</p>
+                        <p>Find out exactly how much your unused parking space could earn based on your location, type of space, and local demand.</p>
                         <div class="value-card-btn">
                             <button class="btn btn-primary" id="openCalculator">Calculate Your Earnings</button>
                         </div>
@@ -1658,9 +1659,6 @@
                 <div class="footer-column">
                     <h3>ParknStore</h3>
                     <p>Connecting communities through shared parking and storage solutions.</p>
-					 <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61579723498240" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    </div>
                 </div>
                 
                 <div class="footer-column">
@@ -1674,17 +1672,18 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Legal</h3>
+                    <h3>Support</h3>
                     <ul>
 						<li><a href="/FAQ.HTML" id="faq-link">FAQ</a></li>
 						<li><a href="/PrivacyPolicy.HTML">Privacy Policy</a></li>
 						<li><a href="/TermsOfService.html">Terms of Service</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> parknstorenz@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> ParknStore@gmail.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
                     </ul>
                 </div>
@@ -1762,7 +1761,7 @@
                     </div>
                 </div>
                 
-                <div class="guide-section">
+                <!--<div class="guide-section">
                     <h3>ParknStore Support</h3>
                     <p>Remember that our support team is available to help with:</p>
                     <ul>
@@ -1771,8 +1770,8 @@
                         <li>Addressing platform technical issues</li>
                         <li>Guidance on difficult situations</li>
                     </ul>
-                    <p>Contact <strong>parknstorenz@gmail.com</strong> or use the in-app support feature for assistance.</p>
-                </div>
+                    <p>Contact <strong>support@parknstore.co.nz</strong> or use the in-app support feature for assistance.</p>
+                </div>-->
                 
                 <div class="guide-section">
                     <p><em>This guide provides general advice only. Local laws and regulations may vary. ParknStore recommends consulting with insurance professionals and legal advisors to understand your specific obligations and protections as a host.</em></p>
@@ -1781,9 +1780,9 @@
             </div>
             
             <div class="guide-footer">
-                <!--<button class="btn btn-primary" id="printGuideBtn">
+                <button class="btn btn-primary" id="printGuideBtn">
                     <i class="fas fa-print"></i> Print Guide
-                </button>-->
+                </button>
                 <button class="btn btn-primary" style="margin-left: 10px;" id="closeGuideBtn">
                     Close Guide
                 </button>	
@@ -2130,9 +2129,7 @@
         });
         
         // Calculator functionality
-  document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM loaded, initializing calculator...");
-            
+        document.addEventListener('DOMContentLoaded', function() {
             // Initialize values for parking calculator
             let parkingLocationValue = 2;
             let parkingTypeValue = 2;
@@ -2153,22 +2150,8 @@
                     const target = this.getAttribute('data-target');
                     
                     // Update toggle UI
-                    calculatorToggleOptions.forEach(opt => {
-                        opt.classList.remove('active');
-                        if (opt.classList.contains('parking')) {
-                            opt.classList.remove('parking');
-                        }
-                        if (opt.classList.contains('storage')) {
-                            opt.classList.remove('storage');
-                        }
-                    });
-                    
+                    calculatorToggleOptions.forEach(opt => opt.classList.remove('active'));
                     this.classList.add('active');
-                    if (target === 'parking-calculator') {
-                        this.classList.add('parking');
-                    } else {
-                        this.classList.add('storage');
-                    }
                     
                     // Show correct calculator section
                     calculatorSections.forEach(section => {
@@ -2184,14 +2167,9 @@
             const parkingLocationOptions = document.querySelectorAll('#parking-location-options .option-button');
             parkingLocationOptions.forEach(option => {
                 option.addEventListener('click', function() {
-                    parkingLocationOptions.forEach(opt => {
-                        opt.classList.remove('selected');
-                        opt.classList.remove('parking');
-                    });
+                    parkingLocationOptions.forEach(opt => opt.classList.remove('selected'));
                     this.classList.add('selected');
-                    this.classList.add('parking');
                     parkingLocationValue = parseInt(this.getAttribute('data-value'));
-                    console.log("Parking location value:", parkingLocationValue);
                 });
             });
             
@@ -2199,14 +2177,9 @@
             const parkingTypeOptions = document.querySelectorAll('#parking-type-options .option-button');
             parkingTypeOptions.forEach(option => {
                 option.addEventListener('click', function() {
-                    parkingTypeOptions.forEach(opt => {
-                        opt.classList.remove('selected');
-                        opt.classList.remove('parking');
-                    });
+                    parkingTypeOptions.forEach(opt => opt.classList.remove('selected'));
                     this.classList.add('selected');
-                    this.classList.add('parking');
                     parkingTypeValue = parseInt(this.getAttribute('data-value'));
-                    console.log("Parking type value:", parkingTypeValue);
                 });
             });
             
@@ -2217,7 +2190,6 @@
             parkingDayButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     this.classList.toggle('selected');
-                    this.classList.toggle('parking');
                     updateParkingSelectedDaysCount();
                 });
             });
@@ -2226,7 +2198,6 @@
                 const selected = document.querySelectorAll('#parking-days-container .day-button.selected');
                 parkingSelectedDays = selected.length;
                 parkingSelectedDaysCount.textContent = `${parkingSelectedDays} day${parkingSelectedDays !== 1 ? 's' : ''} selected`;
-                console.log("Parking selected days:", parkingSelectedDays);
             }
             
             // Set up storage dropdowns
@@ -2235,122 +2206,63 @@
             const storageSizeDropdown = document.getElementById('storage-size');
             const storageAvailabilityDropdown = document.getElementById('storage-availability');
             
-            if (storageLocationDropdown) {
-                storageLocationDropdown.addEventListener('change', function() {
-                    storageLocationValue = parseInt(this.value);
-                    console.log("Storage location value:", storageLocationValue);
-                });
-            }
+            storageLocationDropdown.addEventListener('change', function() {
+                storageLocationValue = parseInt(this.value);
+            });
             
-            if (storageTypeDropdown) {
-                storageTypeDropdown.addEventListener('change', function() {
-                    storageTypeValue = parseInt(this.value);
-                    console.log("Storage type value:", storageTypeValue);
-                });
-            }
+            storageTypeDropdown.addEventListener('change', function() {
+                storageTypeValue = parseInt(this.value);
+            });
             
-            if (storageSizeDropdown) {
-                storageSizeDropdown.addEventListener('change', function() {
-                    storageSizeValue = parseInt(this.value);
-                    console.log("Storage size value:", storageSizeValue);
-                });
-            }
+            storageSizeDropdown.addEventListener('change', function() {
+                storageSizeValue = parseInt(this.value);
+            });
             
-            if (storageAvailabilityDropdown) {
-                storageAvailabilityDropdown.addEventListener('change', function() {
-                    storageAvailabilityValue = this.value;
-                    console.log("Storage availability value:", storageAvailabilityValue);
-                });
-            }
+            storageAvailabilityDropdown.addEventListener('change', function() {
+                storageAvailabilityValue = this.value;
+            });
             
             // Calculate parking earnings
-            const calculateParkingBtn = document.getElementById('calculate-parking');
-            if (calculateParkingBtn) {
-                calculateParkingBtn.addEventListener('click', function() {
-                    console.log("Calculating parking earnings...");
-                    
-                    // Base rate calculation for parking
-                    const baseRate = 50; // Base monthly rate per day of availability
-                    const locationMultiplier = parkingLocationValue * 0.5; // 0.5, 1, or 1.5
-                    const typeMultiplier = parkingTypeValue * 0.5; // 0.5, 1, 1.5, 2, or 2.5
-                    
-                    const estimatedEarnings = baseRate * parkingSelectedDays * locationMultiplier * typeMultiplier;
-                    
-                    console.log("Parking earnings calculation:", {
-                        baseRate,
-                        parkingSelectedDays,
-                        locationMultiplier,
-                        typeMultiplier,
-                        estimatedEarnings
-                    });
-                    
-                    // Display result
-                    const earningsElement = document.getElementById('parking-estimated-earnings');
-                    const resultElement = document.getElementById('parking-calculator-result');
-                    
-                    if (earningsElement && resultElement) {
-                        earningsElement.textContent = '$' + Math.round(estimatedEarnings);
-                        resultElement.style.display = 'block';
-                        
-                        // Smooth scroll to results
-                        resultElement.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                        console.error("Could not find parking calculator result elements");
-                    }
-                });
-            } else {
-                console.error("Calculate parking button not found");
-            }
+            document.getElementById('calculate-parking').addEventListener('click', function() {
+                // Base rate calculation for parking
+                const baseRate = 50; // Base monthly rate per day of availability
+                const locationMultiplier = parkingLocationValue * 0.5; // 0.5, 1, or 1.5
+                const typeMultiplier = parkingTypeValue * 0.5; // 0.5, 1, 1.5, 2, or 2.5
+                
+                const estimatedEarnings = baseRate * parkingSelectedDays * locationMultiplier * typeMultiplier;
+                
+                // Display result
+                document.getElementById('parking-estimated-earnings').textContent = '$' + Math.round(estimatedEarnings);
+                document.getElementById('parking-calculator-result').style.display = 'block';
+                
+                // Smooth scroll to results
+                document.getElementById('parking-calculator-result').scrollIntoView({ behavior: 'smooth' });
+            });
             
             // Calculate storage earnings
-            const calculateStorageBtn = document.getElementById('calculate-storage');
-            if (calculateStorageBtn) {
-                calculateStorageBtn.addEventListener('click', function() {
-                    console.log("Calculating storage earnings...");
-                    
-                    // Base rate calculation for storage (adjusted for square meters)
-                    const baseRate = 12; // Base rate per square meter
-                    const locationMultiplier = storageLocationValue * 0.5; // 0.5, 1, or 1.5
-                    const typeMultiplier = storageTypeValue * 0.5; // 0.5, 1, 1.5, 2, or 2.5
-                    
-                    // Availability multiplier
-                    let availabilityMultiplier = 1;
-                    if (storageAvailabilityValue === 'seasonal') availabilityMultiplier = 0.7;
-                    if (storageAvailabilityValue === 'occasional') availabilityMultiplier = 0.4;
-                    
-                    const estimatedEarnings = baseRate * storageSizeValue * locationMultiplier * typeMultiplier * availabilityMultiplier;
-                    
-                    console.log("Storage earnings calculation:", {
-                        baseRate,
-                        storageSizeValue,
-                        locationMultiplier,
-                        typeMultiplier,
-                        availabilityMultiplier,
-                        estimatedEarnings
-                    });
-                    
-                    // Display result
-                    const earningsElement = document.getElementById('storage-estimated-earnings');
-                    const resultElement = document.getElementById('storage-calculator-result');
-                    
-                    if (earningsElement && resultElement) {
-                        earningsElement.textContent = '$' + Math.round(estimatedEarnings);
-                        resultElement.style.display = 'block';
-                        
-                        // Smooth scroll to results
-                        resultElement.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                        console.error("Could not find storage calculator result elements");
-                    }
-                });
-            } else {
-                console.error("Calculate storage button not found");
-            }
+            document.getElementById('calculate-storage').addEventListener('click', function() {
+                // Base rate calculation for storage (adjusted for square meters)
+                const baseRate = 12; // Base rate per square meter
+                const locationMultiplier = storageLocationValue * 0.5; // 0.5, 1, or 1.5
+                const typeMultiplier = storageTypeValue * 0.5; // 0.5, 1, 1.5, 2, or 2.5
+                
+                // Availability multiplier
+                let availabilityMultiplier = 1;
+                if (storageAvailabilityValue === 'seasonal') availabilityMultiplier = 0.7;
+                if (storageAvailabilityValue === 'occasional') availabilityMultiplier = 0.4;
+                
+                const estimatedEarnings = baseRate * storageSizeValue * locationMultiplier * typeMultiplier * availabilityMultiplier;
+                
+                // Display result
+                document.getElementById('storage-estimated-earnings').textContent = '$' + Math.round(estimatedEarnings);
+                document.getElementById('storage-calculator-result').style.display = 'block';
+                
+                // Smooth scroll to results
+                document.getElementById('storage-calculator-result').scrollIntoView({ behavior: 'smooth' });
+            });
             
             // Initialize the days count
             updateParkingSelectedDaysCount();
-            
-            console.log("Calculator initialization complete");
         });
             
        //Open HTML Pages
@@ -2359,7 +2271,7 @@
 		  const pageMap = {
 			'faq-link': 'FAQ.html',
 			'terms-link': 'Terms.html',
-			'privacy-link': 'Privacy.HTML'
+			'privacy-link': 'Privacy.html'
 		  };
 
 		  // Loop through each link ID and attach click event
@@ -2402,11 +2314,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
