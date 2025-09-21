@@ -86,7 +86,14 @@
             font-weight: bold;
             border-radius: 4px;
         }
+		.logo-link {
+			text-decoration: none;
+			display: inline-block;
+		}
 
+		.logo-link:hover {
+			text-decoration: none;
+		}
         nav ul {
             display: flex;
             list-style: none;
@@ -116,20 +123,20 @@
         }
         
         /* Hero Section */
-		.hero {
-			background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Hero image.png');
-			background-size: cover;
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-attachment: fixed; /* Optional: creates parallax effect */
-			color: white;
-			padding: 100px 0;
-			text-align: center;
-			min-height: 80vh; /* Ensures hero section has minimum height */
-			display: flex;
-			align-items: center;
-		}
-        
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('heroimage.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Optional: creates parallax effect */
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            min-height: 80vh; /* Ensures hero section has minimum height */
+            display: flex;
+            align-items: center;
+        }
+
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
@@ -157,6 +164,9 @@
             display: inline-block;
             text-align: center;
             min-width: 180px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
         }
         
         .btn-primary {
@@ -173,6 +183,8 @@
         .btn-outline {
             border: 2px solid white;
             color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            background-color: transparent;
         }
         
         .btn-outline:hover {
@@ -222,12 +234,13 @@
         
         .toggle-option {
             padding: 12px 25px;
-            border-radius: 25px;
+            border-radius: 25px !important;	/* Force rounded corners */
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
             text-align: center;
             min-width: 160px;
+			flex: 0 1 auto; /* Override the flex:1 from the conflicting rule */
         }
         
         .toggle-option.active {
@@ -235,7 +248,23 @@
             color: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        
+        /* Form states */
+		.form-host, .form-renter {
+			display: none;
+		}
+
+		.form-host.active, .form-renter.active {
+			display: block;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.toggle-option {
+				min-width: 140px;
+				padding: 10px 20px;
+				font-size: 14px;
+			}
+		}
         /* Form Card */
         .form-card {
             background: white;
@@ -449,6 +478,61 @@
             color: var(--primary);
         }
         
+        /* New Value Bomb Section */
+        .value-bomb {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .value-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 450px;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .value-card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .value-card-icon {
+            font-size: 40px;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .value-card-btn {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+        
         /* Benefits Section */
         .benefits {
             padding: 80px 0;
@@ -584,6 +668,7 @@
         .footer-column h3 {
             margin-bottom: 20px;
             font-size: 18px;
+            color: white;
         }
         
         .footer-column ul {
@@ -610,6 +695,173 @@
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 14px;
             color: #aaa;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 10px;
+            max-width: 900px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            z-index: 10;
+            background: none;
+            border: none;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+        
+        .guide-header {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin: 0;
+        }
+        
+        .guide-body {
+            padding: 30px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .guide-section {
+            margin-bottom: 30px;
+        }
+        
+        .guide-section h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .guide-section li {
+            margin-bottom: 8px;
+        }
+        
+        .prohibited-items {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .tip-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .guide-footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        /* Calculator Styles */
+        .calculator-container {
+            padding: 20px;
+        }
+        
+        .calculator-result {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        .calculator-result h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .estimated-earnings {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--success);
+            margin: 10px 0;
+        }
+        
+        .calculator-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 15px;
+        }
+        
+        .slider-container {
+            margin-bottom: 20px;
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .slider-value {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            cursor: pointer;
         }
         
         /* Responsive Design */
@@ -663,6 +915,7 @@
                 align-items: center;
             }
             
+			/* IS this 2nd one */
             .toggle-option {
                 min-width: 140px;
                 padding: 10px 20px;
@@ -671,6 +924,15 @@
             
             .steps {
                 flex-direction: column;
+            }
+            
+            .value-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .value-card {
+                max-width: 100%;
             }
             
             .share-container {
@@ -686,6 +948,17 @@
             .share-btn {
                 padding: 12px 15px;
             }
+            
+            .modal-content {
+                margin: 10% auto;
+                width: 90%;
+                padding: 20px;
+            }
+            
+            .guide-body {
+                padding: 20px;
+                max-height: 65vh;
+            }
         }
 
         /* Additional styles */
@@ -696,7 +969,7 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        .form-cta {
+        .form-cta{
             text-align: center;
             margin-bottom: 20px;
             font-weight: 500;
@@ -718,6 +991,274 @@
         .d-block {
             display: block;
         }
+        
+        /* Remove outline from buttons when focused */
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+        }
+        
+        /* Calculator Modal Styles */
+        .calculator-modal .modal-content {
+            max-width: 600px;
+            padding: 30px;
+        }
+        
+        .calculator-modal h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .calculator-modal p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        /* Print styles for guide */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #guideModal, #guideModal * {
+                visibility: visible;
+            }
+            #guideModal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: auto;
+                background-color: white;
+            }
+            .guide-footer, .close-modal {
+                display: none !important;
+            }
+        }
+		/* New calculator styles */
+		.calculator-toggle {
+			display: flex;
+			background: #f8f9fa;
+			border-radius: 8px;
+			padding: 5px;
+			margin-bottom: 25px;
+		}
+
+		.toggle-option {
+			flex: 1;
+			padding: 12px;
+			text-align: center;
+			cursor: pointer;
+			border-radius: 6px;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+
+		.toggle-option.active.parking {
+			background: #3498db;
+			color: white;
+			box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+		}
+
+		.toggle-option.active.storage {
+			background: #ff8c00;
+			color: white;
+			box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+		}
+
+		.calculator-section {
+			display: none;
+		}
+
+		.calculator-section.active {
+			display: block;
+		}
+
+		.options-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+			gap: 10px;
+			margin-top: 10px;
+		}
+
+		.option-button {
+			padding: 12px 15px;
+			background: #f8f9fa;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-weight: 500;
+		}
+
+		.option-button:hover {
+			background: #e9ecef;
+			border-color: #ced4da;
+		}
+
+		.option-button.selected.parking {
+			background: #3498db;
+			color: white;
+			border-color: #3498db;
+			box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+		}
+
+		.option-button.selected.storage {
+			background: #ff8c00;
+			color: white;
+			border-color: #ff8c00;
+			box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+		}
+
+		.days-container {
+			display: flex;
+			gap: 8px;
+			margin-top: 10px;
+			flex-wrap: wrap;
+		}
+
+		.day-button {
+			flex: 1;
+			min-width: 50px;
+			padding: 12px 5px;
+			background: #f8f9fa;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-weight: 500;
+		}
+
+		.day-button:hover {
+			background: #e9ecef;
+			border-color: #ced4da;
+		}
+
+		.day-button.selected.parking {
+			background: #3498db;
+			color: white;
+			border-color: #3498db;
+			box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+		}
+
+		.day-button.selected.storage {
+			background: #ff8c00;
+			color: white;
+			border-color: #ff8c00;
+			box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+		}
+
+		.selected-days-count {
+			margin-top: 10px;
+			font-size: 14px;
+			color: #7f8c8d;
+			text-align: center;
+		}
+
+		.submit-btn.parking {
+			width: 100%;
+			padding: 16px;
+			background: #3498db;
+			color: white;
+			border: none;
+			border-radius: 8px;
+			font-size: 18px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background 0.3s;
+			margin: 20px 0;
+			box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+		}
+
+		.submit-btn.parking:hover {
+			background: #2980b9;
+		}
+
+		.submit-btn.storage {
+			width: 100%;
+			padding: 16px;
+			background: #ff8c00;
+			color: white;
+			border: none;
+			border-radius: 8px;
+			font-size: 18px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background 0.3s;
+			margin: 20px 0;
+			box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+		}
+
+		.submit-btn.storage:hover {
+			background: #e67e22;
+		}
+
+		.estimated-earnings.parking {
+			color: #3498db;
+		}
+
+		.estimated-earnings.storage {
+			color: #ff8c00;
+		}
+
+		/* Dropdown styles */
+		select {
+			width: 100%;
+			padding: 12px 15px;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			background-color: white;
+			font-size: 16px;
+			color: #2c3e50;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			appearance: none;
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+			background-repeat: no-repeat;
+			background-position: right 15px center;
+			background-size: 16px;
+		}
+
+		select:focus {
+			outline: none;
+			border-color: #3498db;
+			box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+		}
+
+		.storage select:focus {
+			border-color: #ff8c00;
+			box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
+		}
+
+		.dropdown-group {
+			margin-bottom: 25px;
+		}
+
+		.subtitle {
+			color: #7f8c8d;
+			margin-bottom: 25px;
+			font-size: 16px;
+		}
+
+		@media (max-width: 480px) {
+			.options-container {
+				grid-template-columns: 1fr 1fr;
+			}
+			
+			.day-button {
+				min-width: 40px;
+				padding: 10px 5px;
+				font-size: 14px;
+			}
+			
+			select {
+				padding: 10px 12px;
+				font-size: 14px;
+			}
+		}
     </style>
 </head>
 <body>
@@ -727,25 +1268,29 @@
     </div>
 
     <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
-                <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
-                    PARKNSTORE
-                </div>
-            </div>
-            <button class="mobile-menu-btn">☰</button>
-            <nav>
-                <ul id="menu">
-                    <li><a href="#forms">Get Started</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#referral-section">Refer ParknStore</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+	 <header>
+		<div class="container header-container">
+			<a href="index.html" class="logo-link">
+				<div class="logo">
+					<img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
+					<div id="logo-placeholder" class="logo-placeholder" style="display: none;">
+						PARKNSTORE
+					</div>
+				</div>
+			</a>
+			<button class="mobile-menu-btn">☰</button>
+			<nav>
+				<ul id="menu">
+					<li><a href="#forms">Get Started</a></li>
+					<li><a href="#how-it-works">How It Works</a></li>
+					<li><a href="#value-bomb">Explore Hosting</a></li>
+					<li><a href="#benefits">Benefits</a></li>
+					<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
+					<li><a href="#referral-section">Refer ParknStore</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
     
     <!-- Hero Section -->
     <section class="hero">
@@ -756,7 +1301,7 @@
                 <a href="#forms" class="btn btn-primary">Join Waitlist</a>
                 <a href="#how-it-works" class="btn btn-outline">Learn More</a>
             </div>
-            <p class="cta-nudge">Be among the first to know when we launch!</p>
+            <p class="cta-nudge">We’re validating demand before launch. By sharing your interest, you’ll help shape ParknStore and get early access when we go live.</p>
         </div>
     </section>
 
@@ -786,7 +1331,7 @@
                     <h2 id="form-title">List Your Space</h2>
                 </div>
                 <div class="form-body">
-                    <p class="form-cta" id="form-subtitle">Earn extra income from your unused space.<br>(Your space, your rules, your extra income.)</p>
+                    <p class="form-cta" id="form-subtitle">Earn extra income from your unused space</p>
                     <div id="formAlert" class="alert"></div>
                     
                     <!-- Host Form -->
@@ -806,7 +1351,7 @@
                         
                         <div class="form-group">
                             <label for="suburb"><strong>Suburb</strong></label>
-                            <input type="text" id="suburb" name="suburb" class="form-control" placeholder="e.g. Mt Eden, Kingsland, Remurea" required placeholder="Where is your space located?">
+                            <input type="text" id="suburb" name="suburb" class="form-control" placeholder="Where is your space located?" required>
                         </div>
                         
                         <div class="form-group">
@@ -816,6 +1361,7 @@
                                     <input type="radio" id="space-parking" name="space_type" value="parking" required>
                                     <label for="space-parking">Parking</label>
                                 </div>
+                                
                                 <div class="radio-option">
                                     <input type="radio" id="space-storage" name="space_type" value="storage">
                                     <label for="space-storage">Storage</label>
@@ -831,7 +1377,7 @@
                             <label><strong>What space do you have available?</strong></label>
                             <div class="checkbox-group">
                                 <div class="checkbox-option">
-                                    <input type="checkbox" id="available-driveway" name="available_space" value="driveway">
+                                    <input type="checkbox" id="available-driveway" name="available_space" value="driveway"> 
                                     <label for="available-driveway">Driveway</label>
                                 </div>
                                 <div class="checkbox-option">
@@ -868,6 +1414,7 @@
                                     <input type="radio" id="concern-payment" name="concerns" value="payment">
                                     <label for="concern-payment">Getting paid on time</label>
                                 </div>
+    
                                 <div class="radio-option">
                                     <input type="radio" id="concern-curious" name="concerns" value="curious">
                                     <label for="concern-curious">I'm not sure, just curious</label>
@@ -894,7 +1441,7 @@
                         
                         <div class="form-group">
                             <label for="renter-suburb"><strong>Suburb</strong></label>
-                            <input type="text" id="renter-suburb" name="suburb" class="form-control" placeholder="e.g. Mt Eden, Kingsland, Remurea" required placeholder="Where do you need space?">
+                            <input type="text" id="renter-suburb" name="suburb" class="form-control" placeholder="Where do you need space?" required>
                         </div>
                         
                         <div class="form-group">
@@ -1000,8 +1547,52 @@
         </div>
     </section>
 
+    <!-- New Value Bomb Section -->
+    <section class="value-bomb" id="value-bomb">
+        <div class="container">
+            <div class="section-title">
+                <h2>Is Hosting Right For You?</h2>
+                <p>Explore our free resources to learn how much you could earn and how to get started safely</p>
+            </div>
+            
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="value-card-header">
+                        <h3>Free Tool</h3>
+                    </div>
+                    <div class="value-card-body">
+                        <div class="value-card-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4>Parking Space Value Calculator</h4>
+                        <p>Find out exactly how much your unused parking space could earn based on your location, type of space, and local demand.</p>
+                        <div class="value-card-btn">
+                            <button class="btn btn-primary" id="openCalculator">Calculate Your Earnings</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card-header">
+                        <h3>Free Guide</h3>
+                    </div>
+                    <div class="value-card-body">
+                        <div class="value-card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4>Host Safety & Security Guide</h4>
+                        <p>Learn how to safely share your space with our comprehensive guide covering insurance, security measures, and best practices.</p>
+                        <div class="value-card-btn">
+                            <button class="btn btn-primary" id="openGuideBtn">Download Free Guide</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Benefits Section -->
-    <section class="benefits" id="benefits">
+     <section class="benefits" id="benefits">
         <div class="container">
             <div class="section-title">
                 <h2>Why ParknStore Will Be Great</h2>
@@ -1036,19 +1627,27 @@
         </div>
     </section>
 
+
     <!-- Referral Section -->
     <section class="referral-section" id="referral-section">
         <div class="container">
-            <h2 class="mb-3">Love the idea? Spread the word!</h2>
-            <p class="lead mb-4">The more people who join our waitlist in your area, the sooner we can launch. Share this page to help make ParknStore a reality in <strong>Auckland</strong>.</p>
+            <h2>Refer ParknStore to Friends & Neighbors</h2>
+            <p class="lead">Help us grow our community and be the first to know when we launch!</p>
             
             <div class="share-container">
-                <input type="text" class="share-input" id="shareableLink" value="https://parknstore.co.nz" readonly>
-                <button class="share-btn" onclick="copyLink()">
-                    <i class="fa-regular fa-copy"></i> Copy Link
-                </button>
+                <input type="text" class="share-input" id="referralLink" value="https://parknstore.co.nz" readonly>
+                <button class="share-btn" id="copyLinkBtn">Copy Link</button>
             </div>
-            <small class="share-instructions mt-2 d-block">Just copy the link and send it to your friends, family, and local community groups!</small>
+            
+            <p class="share-instructions">Share this link with friends and neighbors who might be interested</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://parknstore.co.nz&quote=Check out ParknStore - a new platform for renting parking and storage spaces!" target="_blank" style="background-color: #3b5998;"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?text=Check out ParknStore - a new platform for renting parking and storage spaces!&url=https://parknstore.co.nz" target="_blank" style="background-color: #1da1f2;"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://parknstore.co.nz" target="_blank" style="background-color: #0077b5;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/?text=Check out ParknStore - a new platform for renting parking and storage spaces! https://parknstore.co.nz" target="_blank" style="background-color: #25d366;"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:?subject=Check out ParknStore&body=I thought you might be interested in ParknStore - a new platform for renting parking and storage spaces! https://parknstore.co.nz" style="background-color: #333;"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
     </section>
 
@@ -1058,8 +1657,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>ParknStore</h3>
-                    <p>Connecting people with unused space to those who need it.</p>
-                    <div class="social-links">
+                    <p>Connecting communities through shared parking and storage solutions.</p>
+					 <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61579723498240" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
@@ -1067,14 +1666,29 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#forms">Get Started</a></li>
+                        <li><a href="#forms">Join Waitlist</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#value-bomb">Explore Hosting</a></li>
                         <li><a href="#benefits">Benefits</a></li>
-                        <li><a href="#referral-section">Refer ParknStore</a></li>
                     </ul>
                 </div>
                 
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+						<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
+						<li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+						<li><a href="TermsOfService.html">Terms of Service</a></li>
+                    </ul>
+                </div>
                 
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <!--<li><i class="fas fa-envelope"></i> info@parknstore.co.nz</li>-->
+                        <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                    </ul>
+                </div>
             </div>
             
             <div class="copyright">
@@ -1083,21 +1697,235 @@
         </div>
     </footer>
 
+    <!-- Guide Modal -->
+    <div id="guideModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            
+            <div class="guide-header">
+                <h2>Host Safety & Security Guide</h2>
+                <p>Comprehensive safety practices for parking and storage space hosts</p>
+            </div>
+            
+            <div class="guide-body">
+                <div class="guide-section">
+                    <h3>Introduction</h3>
+                    <p>Welcome to ParknStore's comprehensive Safety & Security Guide for hosts. Whether you're listing a parking space or storage area, your safety and peace of mind are our top priorities. This guide provides essential information to help you create a secure, positive experience for both you and your renters.</p>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>Security Measures for Parking Spaces</h3>
+                    <ul>
+                        <li>Use temporary access codes instead of physical keys when possible</li>
+                        <li>For gated areas, set specific access hours that work for your schedule</li>
+                        <li>Clearly disclose any security cameras monitoring the area</li>
+                        <li>Require renters to provide vehicle information (make, model, license plate)</li>
+                        <li>Regular visual inspections of the parking area</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>Security Measures for Storage Spaces</h3>
+                    <ul>
+                        <li>Use high-quality locks (consider smart locks for access tracking)</li>
+                        <li>Maintain control of access - you should be able to enter if needed</li>
+                        <li>Establish specific access hours that work with your schedule</li>
+                        <li>Require renters to provide a basic inventory of stored items</li>
+                        <li>Prohibit storage of hazardous, illegal, or perishable materials</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>Prohibited Items for Storage</h3>
+                    <div class="prohibited-items">
+                        <p>Never allow renters to store these items:</p>
+                        <ul>
+                            <li>Flammable or combustible materials (gasoline, propane, chemicals)</li>
+                            <li>Firearms, weapons, or ammunition</li>
+                            <li>Illegal substances or drug paraphernalia</li>
+                            <li>Perishable food items</li>
+                            <li>Living plants or animals</li>
+                            <li>Hazardous waste or materials</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>Final Tips for Success</h3>
+                    <div class="tip-box">
+                        <ul>
+                            <li><strong>Start Small:</strong> Begin with short-term rentals to build confidence</li>
+                            <li><strong>Meet Renters:</strong> When possible, meet renters in person for the first exchange</li>
+                            <li><strong>Trust Your Instincts:</strong> If something feels wrong, don't proceed</li>
+                            <li><strong>Stay Informed:</strong> Keep up with ParknStore policy updates and best practices</li>
+                            <li><strong>Communicate Clearly:</strong> Misunderstandings are the root of most issues</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!--<div class="guide-section">
+                    <h3>ParknStore Support</h3>
+                    <p>Remember that our support team is available to help with:</p>
+                    <ul>
+                        <li>Mediating disputes between hosts and renters</li>
+                        <li>Answering questions about insurance coverage</li>
+                        <li>Addressing platform technical issues</li>
+                        <li>Guidance on difficult situations</li>
+                    </ul>
+                    <p>Contact <strong>support@parknstore.co.nz</strong> or use the in-app support feature for assistance.</p>
+                </div>-->
+                
+                <div class="guide-section">
+                    <p><em>This guide provides general advice only. Local laws and regulations may vary. ParknStore recommends consulting with insurance professionals and legal advisors to understand your specific obligations and protections as a host.</em></p>
+                    <p><em>Document Version: 1.1 - Last Updated: September 2025</em></p>
+                </div>
+            </div>
+            
+            <div class="guide-footer">
+                <!--<button class="btn btn-primary" id="printGuideBtn">
+                    <i class="fas fa-print"></i> Print Guide
+                </button>-->
+                <button class="btn btn-primary" style="margin-left: 10px;" id="closeGuideBtn">
+                    Close Guide
+                </button>	
+            </div>
+        </div>
+    </div>
+
+    <!-- Add the new calculator modal -->
+	<div id="calculatorModal" class="modal calculator-modal">
+		<div class="modal-content">
+			<span class="close-modal">&times;</span>
+			<h2>ParknStore Calculator</h2>
+			<p class="subtitle">Calculate the value of your parking or storage space</p>
+			
+			<div class="calculator-toggle">
+				<div class="toggle-option parking active" data-target="parking-calculator">Parking</div>
+				<div class="toggle-option storage" data-target="storage-calculator">Storage</div>
+			</div>
+			
+			<!-- Parking Calculator -->
+			<div id="parking-calculator" class="calculator-section active">
+				<div class="form-group">
+					<label for="location"><strong>Location Desirability</strong></label>
+					<div class="options-container" id="parking-location-options">
+						<div class="option-button parking" data-value="1">Low</div>
+						<div class="option-button parking selected" data-value="2">Medium</div>
+						<div class="option-button parking" data-value="3">High</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="space-type"><strong>Parking Type</strong></label>
+					<div class="options-container" id="parking-type-options">
+						<div class="option-button parking" data-value="1">Driveway</div>
+						<div class="option-button parking selected" data-value="2">Garage</div>
+						<div class="option-button parking" data-value="3">Carport</div>
+						<div class="option-button parking" data-value="4">Underground</div>
+						<div class="option-button parking" data-value="5">Parking Lot</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="availability"><strong>Weekly Availability</strong></label>
+					<p>Select the days you can make your space available:</p>
+					<div class="days-container" id="parking-days-container">
+						<div class="day-button parking" data-day="1">Mon</div>
+						<div class="day-button parking" data-day="2">Tue</div>
+						<div class="day-button parking" data-day="3">Wed</div>
+						<div class="day-button parking" data-day="4">Thu</div>
+						<div class="day-button parking" data-day="5">Fri</div>
+						<div class="day-button parking" data-day="6">Sat</div>
+						<div class="day-button parking" data-day="7">Sun</div>
+					</div>
+					<div class="selected-days-count" id="parking-selected-days-count">0 days selected</div>
+				</div>
+				
+				<button id="calculate-parking" class="submit-btn parking">Calculate Parking Value</button>
+				
+				<div class="calculator-result" id="parking-calculator-result">
+					<h3>Your Estimated Monthly Parking Earnings</h3>
+					<div class="estimated-earnings parking" id="parking-estimated-earnings">$0</div>
+					<p>Based on your inputs and local market rates</p>
+					<div class="calculator-note">
+						<p><strong>Note:</strong> This is an estimate. Actual earnings may vary based on demand, seasonality, and other factors.</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Storage Calculator -->
+			<div id="storage-calculator" class="calculator-section">
+				<div class="dropdown-group">
+					<label for="storage-location"><strong>Location Desirability</strong></label>
+					<select id="storage-location">
+						<option value="1">Low</option>
+						<option value="2" selected>Medium</option>
+						<option value="3">High</option>
+					</select>
+				</div>
+				
+				<div class="dropdown-group">
+					<label for="storage-type"><strong>Storage Type</strong></label>
+					<select id="storage-type">
+						<option value="1">Warehouse</option>
+						<option value="2" selected>Storage Garage</option>
+						<option value="3">Storage Container</option>
+						<option value="4">Storage Shed</option>
+						<option value="5">Basement</option>
+					</select>
+				</div>
+				
+				<div class="dropdown-group">
+					<label for="storage-size"><strong>Storage Size (m²)</strong></label>
+					<select id="storage-size">
+						<option value="5">5 m²</option>
+						<option value="10" selected>10 m²</option>
+						<option value="20">20 m²</option>
+						<option value="30">30 m²</option>
+						<option value="40">40+ m²</option>
+					</select>
+				</div>
+				
+				<div class="dropdown-group">
+					<label for="storage-availability"><strong>Availability</strong></label>
+					<select id="storage-availability">
+						<option value="full" selected>Full Month</option>
+						<option value="seasonal">Seasonal</option>
+						<option value="occasional">Occasional</option>
+					</select>
+				</div>
+				
+				<button id="calculate-storage" class="submit-btn storage">Calculate Storage Value</button>
+				
+				<div class="calculator-result" id="storage-calculator-result">
+					<h3>Your Estimated Monthly Storage Earnings</h3>
+					<div class="estimated-earnings storage" id="storage-estimated-earnings">$0</div>
+					<p>Based on your inputs and local market rates</p>
+					<div class="calculator-note">
+						<p><strong>Note:</strong> This is an estimate. Actual earnings may vary based on demand, seasonality, and other factors.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!-- JavaScript -->
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('menu').classList.toggle('show');
         });
-
+        
         // Form toggle functionality
         const toggleOptions = document.querySelectorAll('.toggle-option');
-        const formHost = document.querySelector('.form-host');
-        const formRenter = document.querySelector('.form-renter');
+        const forms = {
+            host: document.querySelector('.form-host'),
+            renter: document.querySelector('.form-renter')
+        };
         const formTitle = document.getElementById('form-title');
         const formSubtitle = document.getElementById('form-subtitle');
-        const userTypeField = document.getElementById('userType');
-        const emailReplyField = document.getElementById('emailReply');
-        const emailField = document.getElementById('email');
+        const userTypeInput = document.getElementById('userType');
+        const emailReplyInput = document.getElementById('emailReply');
         
         toggleOptions.forEach(option => {
             option.addEventListener('click', function() {
@@ -1107,110 +1935,134 @@
                 toggleOptions.forEach(opt => opt.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Show appropriate form
+                // Show correct form
+                for (const key in forms) {
+                    forms[key].classList.remove('active');
+                }
+                forms[formType].classList.add('active');
+                
+                // Update form title and subtitle
                 if (formType === 'host') {
-                    formHost.classList.add('active');
-                    formRenter.classList.remove('active');
                     formTitle.textContent = 'List Your Space';
-                    formSubtitle.textContent = 'Earn extra income from your unused space';
-                    userTypeField.value = 'host';
+                    formSubtitle.innerHTML = 'Earn extra income from your unused space.';
+                    userTypeInput.value = 'host';
                 } else {
-                    formHost.classList.remove('active');
-                    formRenter.classList.add('active');
                     formTitle.textContent = 'Find a Space';
-                    formSubtitle.textContent = 'Find affordable parking or storage solutions in your area';
-                    userTypeField.value = 'renter';
+                    formSubtitle.innerHTML = 'Find affordable parking and storage in your area.';
+                    userTypeInput.value = 'renter';
                 }
             });
         });
         
-        // Update reply-to email when email field changes
-        emailField.addEventListener('input', function() {
-            emailReplyField.value = this.value;
+        // Set reply-to email dynamically
+        const emailInput = document.getElementById('email');
+        const renterEmailInput = document.getElementById('renter-email');
+        
+        emailInput.addEventListener('blur', function() {
+            emailReplyInput.value = this.value;
         });
         
-        // Show alert function
-        function showAlert(elementId, type, message) {
-            const alertElement = document.getElementById(elementId);
-            alertElement.className = `alert alert-${type}`;
-            alertElement.textContent = message;
-            alertElement.style.display = 'block';
+        renterEmailInput.addEventListener('blur', function() {
+            emailReplyInput.value = this.value;
+        });
+        
+		// Form submission handler
+		document.getElementById('unifiedLeadForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const form = e.target;
+			const submitBtn = document.getElementById('submitBtn');
+			const originalText = submitBtn.innerHTML;
+			
+			// Show loading state
+			submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+			submitBtn.disabled = true;
+			
+			fetch(form.action, {
+				method: 'POST',
+				body: new FormData(form),
+				headers: { 'Accept': 'application/json' }
+			})
+			.then(response => {
+				if (response.ok) {
+					window.location.href = 'https://www.parknstore.co.nz/thankyou';
+				} else {
+					showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
+					submitBtn.innerHTML = originalText;
+					submitBtn.disabled = false;
+				}
+			})
+			.catch(error => {
+				console.error('Form submission error:', error);
+				showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
+				submitBtn.innerHTML = originalText;
+				submitBtn.disabled = false;
+			});
+		});
+
+		// Renter form submission handler
+		document.getElementById('renterLeadForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const form = e.target;
+			const submitBtn = form.querySelector('.submit-btn');
+			const originalText = submitBtn.innerHTML;
+			
+			// Show loading state
+			submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+			submitBtn.disabled = true;
+			
+			fetch(form.action, {
+				method: 'POST',
+				body: new FormData(form),
+				headers: { 'Accept': 'application/json' }
+			})
+			.then(response => {
+				if (response.ok) {
+					window.location.href = 'https://www.parknstore.co.nz/thankyou';
+				} else {
+					showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
+					submitBtn.innerHTML = originalText;
+					submitBtn.disabled = false;
+				}
+			})
+			.catch(error => {
+				console.error('Form submission error:', error);
+				showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
+				submitBtn.innerHTML = originalText;
+				submitBtn.disabled = false;
+			});
+		});
+
+		// Show alert function
+		function showAlert(elementId, type, message) {
+			const alertElement = document.getElementById(elementId);
+			alertElement.className = `alert alert-${type}`;
+			alertElement.textContent = message;
+			alertElement.style.display = 'block';
+			
+			// Auto hide after 5 seconds
+			setTimeout(() => {
+				alertElement.style.display = 'none';
+			}, 5000);
+		}
+        
+        // Copy referral link functionality
+        document.getElementById('copyLinkBtn').addEventListener('click', function() {
+            const referralInput = document.getElementById('referralLink');
+            referralInput.select();
+            document.execCommand('copy');
             
-            // Auto hide after 5 seconds
+            // Show feedback
+            const originalText = this.textContent;
+            this.textContent = 'Copied!';
+            
             setTimeout(() => {
-                alertElement.style.display = 'none';
-            }, 5000);
-        }
-
-        // Form submission handler
-        document.getElementById('unifiedLeadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
-            submitBtn.disabled = true;
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = 'https://www.parknstore.co.nz/thankyou';
-                } else {
-                    showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }
-            })
-            .catch(error => {
-                console.error('Form submission error:', error);
-                showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            });
+                this.textContent = originalText;
+            }, 2000);
         });
-
-        // Renter form submission handler
-        document.getElementById('renterLeadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const submitBtn = form.querySelector('.submit-btn');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
-            submitBtn.disabled = true;
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = 'https://www.parknstore.co.nz/thankyou';
-                } else {
-                    showAlert('formAlert', 'danger', 'Something went wrong. Please try again.');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }
-            })
-            .catch(error => {
-                console.error('Form submission error:', error);
-                showAlert('formAlert', 'danger', 'Submission failed. Please check your connection and try again.');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            });
-        });
-
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
@@ -1224,31 +2076,243 @@
                 }
             });
         });
+        
+        // Modal functionality
+        const guideModal = document.getElementById('guideModal');
+        const calculatorModal = document.getElementById('calculatorModal');
+        const openGuideBtn = document.getElementById('openGuideBtn');
+        const openCalculatorBtn = document.getElementById('openCalculator');
+        const closeGuideBtn = document.getElementById('closeGuideBtn');
+        const printGuideBtn = document.getElementById('printGuideBtn');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        
+        // Open guide modal
+        openGuideBtn.addEventListener('click', function() {
+            guideModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+        
+        // Open calculator modal
+        openCalculatorBtn.addEventListener('click', function() {
+            calculatorModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+        
+        // Close modals with close buttons
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                guideModal.style.display = 'none';
+                calculatorModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+        });
+        
+        // Close guide modal with the close button in footer
+        closeGuideBtn.addEventListener('click', function() {
+            guideModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+        
+        // Print guide functionality
+        printGuideBtn.addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target == guideModal) {
+                guideModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target == calculatorModal) {
+                calculatorModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Calculator functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize values for parking calculator
+            let parkingLocationValue = 2;
+            let parkingTypeValue = 2;
+            let parkingSelectedDays = 0;
+            
+            // Initialize values for storage calculator
+            let storageLocationValue = 2;
+            let storageTypeValue = 2;
+            let storageSizeValue = 10;
+            let storageAvailabilityValue = 'full';
+            
+            // Set up calculator toggle
+            const calculatorToggleOptions = document.querySelectorAll('.calculator-toggle .toggle-option');
+            const calculatorSections = document.querySelectorAll('.calculator-section');
+            
+            calculatorToggleOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    // Update toggle UI
+                    calculatorToggleOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show correct calculator section
+                    calculatorSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Set up parking location options
+            const parkingLocationOptions = document.querySelectorAll('#parking-location-options .option-button');
+            parkingLocationOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    parkingLocationOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    parkingLocationValue = parseInt(this.getAttribute('data-value'));
+                });
+            });
+            
+            // Set up parking type options
+            const parkingTypeOptions = document.querySelectorAll('#parking-type-options .option-button');
+            parkingTypeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    parkingTypeOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    parkingTypeValue = parseInt(this.getAttribute('data-value'));
+                });
+            });
+            
+            // Set up parking day selection
+            const parkingDayButtons = document.querySelectorAll('#parking-days-container .day-button');
+            const parkingSelectedDaysCount = document.getElementById('parking-selected-days-count');
+            
+            parkingDayButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    updateParkingSelectedDaysCount();
+                });
+            });
+            
+            function updateParkingSelectedDaysCount() {
+                const selected = document.querySelectorAll('#parking-days-container .day-button.selected');
+                parkingSelectedDays = selected.length;
+                parkingSelectedDaysCount.textContent = `${parkingSelectedDays} day${parkingSelectedDays !== 1 ? 's' : ''} selected`;
+            }
+            
+            // Set up storage dropdowns
+            const storageLocationDropdown = document.getElementById('storage-location');
+            const storageTypeDropdown = document.getElementById('storage-type');
+            const storageSizeDropdown = document.getElementById('storage-size');
+            const storageAvailabilityDropdown = document.getElementById('storage-availability');
+            
+            storageLocationDropdown.addEventListener('change', function() {
+                storageLocationValue = parseInt(this.value);
+            });
+            
+            storageTypeDropdown.addEventListener('change', function() {
+                storageTypeValue = parseInt(this.value);
+            });
+            
+            storageSizeDropdown.addEventListener('change', function() {
+                storageSizeValue = parseInt(this.value);
+            });
+            
+            storageAvailabilityDropdown.addEventListener('change', function() {
+                storageAvailabilityValue = this.value;
+            });
+            
+            // Calculate parking earnings
+            document.getElementById('calculate-parking').addEventListener('click', function() {
+                // Base rate calculation for parking
+                const baseRate = 50; // Base monthly rate per day of availability
+                const locationMultiplier = parkingLocationValue * 0.5; // 0.5, 1, or 1.5
+                const typeMultiplier = parkingTypeValue * 0.5; // 0.5, 1, 1.5, 2, or 2.5
+                
+                const estimatedEarnings = baseRate * parkingSelectedDays * locationMultiplier * typeMultiplier;
+                
+                // Display result
+                document.getElementById('parking-estimated-earnings').textContent = '$' + Math.round(estimatedEarnings);
+                document.getElementById('parking-calculator-result').style.display = 'block';
+                
+                // Smooth scroll to results
+                document.getElementById('parking-calculator-result').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Calculate storage earnings
+            document.getElementById('calculate-storage').addEventListener('click', function() {
+                // Base rate calculation for storage (adjusted for square meters)
+                const baseRate = 12; // Base rate per square meter
+                const locationMultiplier = storageLocationValue * 0.5; // 0.5, 1, or 1.5
+                const typeMultiplier = storageTypeValue * 0.5; // 0.5, 1, 1.5, 2, or 2.5
+                
+                // Availability multiplier
+                let availabilityMultiplier = 1;
+                if (storageAvailabilityValue === 'seasonal') availabilityMultiplier = 0.7;
+                if (storageAvailabilityValue === 'occasional') availabilityMultiplier = 0.4;
+                
+                const estimatedEarnings = baseRate * storageSizeValue * locationMultiplier * typeMultiplier * availabilityMultiplier;
+                
+                // Display result
+                document.getElementById('storage-estimated-earnings').textContent = '$' + Math.round(estimatedEarnings);
+                document.getElementById('storage-calculator-result').style.display = 'block';
+                
+                // Smooth scroll to results
+                document.getElementById('storage-calculator-result').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Initialize the days count
+            updateParkingSelectedDaysCount();
+        });
+            
+       //Open HTML Pages
+		document.addEventListener('DOMContentLoaded', function() {
+		  // Map of link IDs to their target pages
+		  const pageMap = {
+			'faq-link': 'FAQ.html',
+			'terms-link': 'Terms.html',
+			'privacy-link': 'Privacy.html'
+		  };
 
-        // Copy link function for referral section
-        function copyLink() {
-            const copyText = document.getElementById("shareableLink");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
-            navigator.clipboard.writeText(copyText.value);
-            
-            // Change button text temporarily
-            const button = document.querySelector('.share-btn');
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fa-regular fa-check"></i> Copied!';
-            
-            setTimeout(() => {
-                button.innerHTML = originalText;
-            }, 2000);
-        }
+		  // Loop through each link ID and attach click event
+		  Object.keys(pageMap).forEach(linkId => {
+			const linkElement = document.getElementById(linkId);
+			if (linkElement) {
+			  linkElement.addEventListener('click', function(event) {
+				event.preventDefault();
+				window.location.href = pageMap[linkId];
+			  });
+			}
+		  });
+		});
+
+		
+		//Open the modals from another page
+		window.addEventListener('DOMContentLoaded', () => {
+		const params = new URLSearchParams(window.location.search);
+		const target = params.get('openModal');
+
+		// Map of valid section IDs
+		const sectionMap = {
+			'forms': 'forms',
+			'how-it-works': 'how-it-works',
+			'value-bomb': 'value-bomb',
+			'benefits': 'benefits'
+		};
+
+		  // Check if the target matches a known section
+		  const sectionId = sectionMap[target];
+		  if (sectionId) {
+			const section = document.getElementById(sectionId);
+			if (section) {
+			  section.scrollIntoView({ behavior: 'smooth' });
+			}
+		  }
+		});
+	
+		
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
