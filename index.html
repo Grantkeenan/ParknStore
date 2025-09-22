@@ -1296,7 +1296,7 @@
     </style>
 </head>
 <body>
-  <!-- Beta Notice Banner -->
+    <!-- Beta Notice Banner -->
     <div class="beta-banner">
         BETA: We're validating demand in your area! Join our waitlist to help bring ParknStore to your community.
     </div>
@@ -1306,8 +1306,8 @@
         <div class="container header-container">
             <a href="index.html" class="logo-link">
                 <div class="logo">
-                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
-                    <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
+                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="logo-placeholder" style="display: none;">
                         PARKNSTORE
                     </div>
                 </div>
@@ -1598,8 +1598,8 @@
                         <div class="value-card-icon">
                             <i class="fas fa-calculator"></i>
                         </div>
-                        <h4>Parking/Storage Space Value Calculator</h4>
-                        <p>Find out exactly how much your unused parking/storage space could earn based on your location, type of space, and local demand.</p>
+                        <h4>Parking Space Value Calculator</h4>
+                        <p>Find out exactly how much your unused parking space could earn based on your location, type of space, and local demand.</p>
                         <div class="value-card-btn">
                             <button class="btn btn-primary" id="openCalculator">Calculate Your Earnings</button>
                         </div>
@@ -1691,9 +1691,6 @@
                 <div class="footer-column">
                     <h3>ParknStore</h3>
                     <p>Connecting communities through shared parking and storage solutions.</p>
-					<div class="social-links">
-                    	<a href="https://www.facebook.com/profile.php?id=61579723498240" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    </div>
                 </div>
                 
                 <div class="footer-column">
@@ -1956,21 +1953,6 @@
                     <input type="text" id="calc-suburb" name="suburb" class="form-control" placeholder="Your suburb" required>
                 </div>
                 
-				<!--Added-->
-				 <div class="form-group">
-                    <label>What type of space do you have?</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="guide-parking" name="space_type" value="parking" required>
-                            <label for="guide-parking">Parking</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="guide-storage" name="space_type" value="storage">
-                            <label for="guide-storage">Storage</label>
-                        </div>
-                    </div>
-                </div>
-				
                 <button type="submit" class="submit-btn" id="calcLeadSubmitBtn">See My Estimate</button>
             </form>
         </div>
@@ -2525,6 +2507,3 @@
     </script>
 </body>
 </html>
-
-
-
