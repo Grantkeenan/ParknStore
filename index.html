@@ -1350,7 +1350,7 @@
             <!-- Form Toggle -->
             <div class="form-toggle-container">
                 <div class="form-toggle">
-                    <div class="toggle-option active" data-form="host">
+                    <div class="toggle-option active" data-form="host" id="hostFormToggle">
                         <i class="fas fa-home"></i> List Your Space
                     </div>
                     <div class="toggle-option" data-form="renter">
@@ -2039,6 +2039,16 @@
 				// Optional: Clear the hash from the URL after triggering the modal
 				// history.replaceState(null, null, ' ');
 			}
+			else if (window.location.hash === '#list-your-space') {
+				// Scroll to the forms section smoothly
+				document.getElementById('forms').scrollIntoView({ behavior: 'smooth' });
+				
+				// Ensure the host form is active (clicks the toggle if it's not already active)
+				const hostToggle = document.getElementById('hostFormToggle');
+				if (hostToggle && !hostToggle.classList.contains('active')) {
+					hostToggle.click(); // This uses your existing toggle functionality
+				}
+			}
 		});
 
         // Form toggle functionality
@@ -2534,6 +2544,7 @@
     </script>
 </body>
 </html>
+
 
 
 
