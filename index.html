@@ -1955,7 +1955,19 @@
                     <label for="calc-suburb">Suburb</label>
                     <input type="text" id="calc-suburb" name="suburb" class="form-control" placeholder="Your suburb" required>
                 </div>
-                
+                <div class="form-group">
+                    <label>What type of space do you have?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="guide-parking" name="space_type" value="parking" required>
+                            <label for="guide-parking">Parking</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="guide-storage" name="space_type" value="storage">
+                            <label for="guide-storage">Storage</label>
+                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="submit-btn" id="calcLeadSubmitBtn">See My Estimate</button>
             </form>
         </div>
@@ -2510,6 +2522,7 @@
     </script>
 </body>
 </html>
+
 
 
 
