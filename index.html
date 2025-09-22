@@ -1317,7 +1317,7 @@
                 <ul id="menu">
                     <li><a href="#forms">Get Started</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#value-bomb">Explore Hosting</a></li>
+                    <li><a href="#value-bomb" id="openCalculatorLink">Explore Hosting</a></li>
                     <li><a href="#benefits">Benefits</a></li>
                     <li><a href="/FAQ.HTML" id="faq-link">FAQ</a></li>
                     <li><a href="#referral-section">Refer ParknStore</a></li>
@@ -1701,7 +1701,7 @@
                     <ul>
                         <li><a href="#forms">Join Waitlist</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#value-bomb">Explore Hosting</a></li>
+                        <li><a href="#value-bomb" id="openCalculatorLink">Explore Hosting</a></li>
                         <li><a href="#benefits">Benefits</a></li>
                     </ul>
                 </div>
@@ -2028,7 +2028,19 @@
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('menu').classList.toggle('show');
         });
-        
+
+		// === Direct Link to Calculator via URL Hash === //
+		document.addEventListener('DOMContentLoaded', function() {
+			// Check the URL when the page loads
+			if (window.location.hash === '#calculator') {
+				// Click the button that opens the calculator lead modal
+				document.getElementById('openCalculator').click();
+				
+				// Optional: Clear the hash from the URL after triggering the modal
+				// history.replaceState(null, null, ' ');
+			}
+		});
+
         // Form toggle functionality
         const toggleOptions = document.querySelectorAll('.toggle-option');
         const forms = {
@@ -2522,6 +2534,7 @@
     </script>
 </body>
 </html>
+
 
 
 
