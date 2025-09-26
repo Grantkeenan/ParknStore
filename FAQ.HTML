@@ -376,29 +376,7 @@
             font-size: 1.3rem;
             font-weight: 700;
         }
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
         
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--blue);
-            transform: translateY(-3px);
-        }
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -704,7 +682,7 @@
 					<li><a href="index.html?openModal=how-it-works">How It Works</a></li>
 					<li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
 					<li><a href="index.html?openModal=benefits">Benefits</a></li>
-					<li><a href="FAQ.HTML" id="faq-link">FAQ</a></li>
+					<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
                     <li><a href="index.html?openModal=referral-section">Refer ParknStore</a></li>
                 </ul>
             </nav>
@@ -712,7 +690,7 @@
     </header>
     
     <div class="container">
-        <div class="tagline">Connecting space owners with those who need parking & storage solutions. We provide the platform - you make the agreement.</div>
+        <div class="tagline">Connecting space owners with those who need parking/ storage solutions. We provide the platform - you make the agreement.</div>
         
         <div class="tabs">
             <button class="tab-button active" data-category="all">All Questions</button>
@@ -735,7 +713,7 @@
                     What is ParknStore? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>ParknStore is currently in our MVP (Minimum Viable Product) launch phase. We're manually connecting space owners ("Hosts") with those needing storage ("Guests") as we build our full automated platform. During this phase, our team personally facilitates introductions and helps coordinate agreements between users.</p>
+                    <p>ParknStore is currently in our MVP (Minimum Viable Product) launch phase. We're manually connecting space owners ("Hosts") with those needing parking / storage ("Guests") as we build our full automated platform. During this phase, our team personally facilitates introductions and helps coordinate agreements between users.</p>
                 </div>
             </div>
             
@@ -771,10 +749,10 @@
                     
                     <div class="audience-section">
                         <div class="audience-header">For Hosts:</div>
-                        <p>We are currently charging <strong>0% service fees</strong> during our MVP phase. The full amount agreed with your Guest will be disbursed to you (minus only any actual payment processing costs we incur). After launch, we plan to introduce a competitive service fee of 15% or less.</p>
+                        <p>We are currently charging <strong>0% service fees</strong> during our MVP phase. The full amount agreed with your Guest will be disbursed to you (minus only any actual payment processing costs we incur). After launch, we plan to introduce a competitive service fee or less or base the platform on lead generation for your unused space.</p>
                     </div>
                     
-                    <p class="warning"><strong>Important:</strong> Once we launch our automated platform, ParknStore will introduce service fees. Any changes will be prominently communicated in advance to all users.</p>
+                    <p class="warning"><strong>Important:</strong> Once we launch our automated platform, ParknStore will introduce service or lead generation fees. Any changes will be prominently communicated in advance to all users.</p>
                 </div>
             </div>
             
@@ -783,7 +761,7 @@
                     What is ParknStore's role in the rental? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>We are a connection platform and payment processor. We do not own, lease, manage, or insure any of the spaces listed on our site. The rental contract is a private agreement between the Host and the Guest. We are not responsible for the condition, safety, or legality of the space, or for any disputes that arise between users.</p>
+                    <p>We are a connection platform. We do not own, lease, manage, or insure any of the spaces listed on our site. The rental contract is a private agreement between the Host and the Guest. We are not responsible for the condition, safety, or legality of the space, or for any disputes that arise between users.</p>
                 </div>
             </div>
             
@@ -793,7 +771,7 @@
                     How do I list my space? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>You can create a listing through our website or app. You will need to provide accurate details, including size, location, access instructions, and any specific rules for Guests.</p>
+                    <p>You can create a listing through our website or app once fully developed. You will need to provide accurate details, including size, location, access instructions, and any specific rules for Guests.</p>
                 </div>
             </div>
             
@@ -819,7 +797,7 @@
                 </div>
                 <div class="faq-answer">
                     <p>During our MVP phase: <strong>You pay 0% in service fees</strong>. We're waiving all fees to build our community and test our systems.</p>
-                    <p>After launch: We plan to introduce a competitive service fee of <strong>15% or less</strong> on completed bookings. This fee will be clearly displayed before you confirm any booking.</p>
+                    <p>After launch: We plan to introduce a competitive service fee of <strong>15% or less</strong> on completed bookings or a lead generation fee. This fee will be clearly displayed before you confirm any booking.</p>
                 </div>
             </div>
             
@@ -829,7 +807,7 @@
                     How do I rent a space? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Browse listings on our website or app. When you find a suitable space, you can contact the Host through our platform to ask questions and finalize the booking details.</p>
+                    <p>Browse listings on our website or app once fully developed. When you find a suitable space, you can contact the Host through our platform to ask questions and finalize the booking details.</p>
                 </div>
             </div>
             
@@ -850,7 +828,7 @@
             </div>
             
             <!-- Updated Refund Policy FAQ Item -->
-            <div class="faq-item" data-category="guests">
+            <!--<div class="faq-item" data-category="guests">
                 <div class="faq-question">
                     What is your refund policy? <span>+</span>
                 </div>
@@ -867,13 +845,13 @@
                         <li>If the Host is unresponsive, we may deduct the refund from their future payouts</li>
                     </ol>
                     
-                    <p><strong>During our MVP phase:</strong> All refund requests will be handled manually by our team. <!--Please contact us directly at info@parknstore.co.nz for assistance with refunds.--></p>
+                    <p><strong>During our MVP phase:</strong> All refund requests will be handled manually by our team. </p>
                     
                     <div class="warning">
                         <strong>Important:</strong> ParknStore's ability to process a refund is contingent on the Host's cooperation or their future use of our platform.
                     </div>
                 </div>
-            </div>
+            </div> -->
             
             <div class="faq-item" data-category="legal">
                 <div class="faq-question">
@@ -932,7 +910,7 @@
                     
                     <p>We collect information necessary to facilitate your bookings and improve our services. We do not sell your personal information to third parties.</p>
                     
-                    <p>For more details, please see our <a href="PrivacyPolicy.HTML" style="color: var(--primary);">Privacy Policy</a>.</p>
+                    <p>For more details, please see our <a href="PrivacyPolicy.html" style="color: var(--primary);">Privacy Policy</a>.</p>
                 </div>
             </div>
             
@@ -961,9 +939,6 @@
                 <div class="footer-column">
                     <h3>ParknStore</h3>
                     <p>Connecting communities through shared parking and storage solutions.</p>
-					<div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61579723498240" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    </div>
                 </div>
                 
                 <div class="footer-column">
@@ -980,7 +955,7 @@
                     <h3>Legal</h3>
                     <ul>
 						<li><a href="FAQ.html" id="faq-link">FAQ</a></li>
-						<li><a href="PrivacyPolicy.HTML">Privacy Policy</a></li>
+						<li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
 						<li><a href="TermsOfService.html">Terms of Service</a></li>
                     </ul>
                 </div>
@@ -988,7 +963,7 @@
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> ParknStoreNZ@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> info@parknstore.co.nz</li>
                         <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
                     </ul>
                 </div>
@@ -1125,10 +1100,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
