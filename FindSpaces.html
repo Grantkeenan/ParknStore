@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParknStore - Find & List Parking & Storage Spaces</title>
+	<!-- Favicon -->
+    <link rel="icon" href="ParknStore.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;  /* Blue */
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;    /* Orange */
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0; /* Reduced padding to make room for larger logo */
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 80px; /* Increased from 60px */
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 220px; /* Increased from 180px */
+            object-fit: contain;
+        }
+        
+        .logo-placeholder {
+			height: 80px; /* Increased from 60px */
+			width: 220px; /* Increased from 180px */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+			font-size: 1.5rem; /* Added to make text bigger */
+        }
+        
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logo-link:hover {
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background-color: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        /*Button colours*/
+		.btn-parking {
+			border-color: var(--secondary);
+			color: var(--secondary);
+		}
+
+		.btn-parking:hover {
+			background-color: var(--secondary);
+			color: white;
+		}
+
+		.btn-storage {
+			border-color: var(--warning);
+			color: var(--warning);
+		}
+
+		.btn-storage:hover {
+			background-color: var(--warning);
+			color: white;
+		}
+
+		.btn-primary-parking {
+			background-color: var(--secondary);
+			color: white;
+		}
+
+		.btn-primary-parking:hover {
+			background-color: #2980b9;
+		}
+
+		.btn-primary-storage {
+			background-color: var(--warning);
+			color: white;
+		}
+
+		.btn-primary-storage:hover {
+			background-color: #e67e22;
+		}
+		
+		/* Listing type buttons */
+		.listing-type.parking ~ .btn-outline {
+			border-color: var(--secondary);
+			color: var(--secondary);
+		}
+
+		.listing-type.parking ~ .btn-outline:hover {
+			background-color: var(--secondary);
+			color: white;
+		}
+
+		.listing-type.parking ~ .btn-primary {
+			background-color: var(--secondary);
+			color: white;
+		}
+
+		.listing-type.parking ~ .btn-primary:hover {
+			background-color: #2980b9;
+		}
+
+		/* Target buttons in storage listings */
+		.listing-type.storage ~ .btn-outline {
+			border-color: var(--warning);
+			color: var(--warning);
+		}
+
+		.listing-type.storage ~ .btn-outline:hover {
+			background-color: var(--warning);
+			color: white;
+		}
+
+		.listing-type.storage ~ .btn-primary {
+			background-color: var(--warning);
+			color: white;
+		}
+
+		.listing-type.storage ~ .btn-primary:hover {
+			background-color: #e67e22;
+		}
+		
+		/* Search Results Info */
+		.search-results-info {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+		
+		.search-results-count {
+			font-size: 16px;
+			color: var(--gray);
+		}
+		
+		.no-results {
+			text-align: center;
+			padding: 40px;
+			color: var(--gray);
+			font-size: 18px;
+		}
+		
+        /* Search Section */
+        .search-section {
+            /*background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');*/
+			background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--warning) 100%);           
+		   background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+   
+        .search-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .search-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .search-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .search-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Tabs Navigation */
+        .tabs-container {
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tabs {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Listings Grid */
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .listing-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .listing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .listing-image {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .listing-content {
+            padding: 20px;
+        }
+        
+        .listing-type {
+            display: inline-block;
+            background: var(--light);
+            color: var(--dark);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Updated: Parking and Storage type colors */
+        .listing-type.parking {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .listing-type.storage {
+            background: var(--warning);
+            color: white;
+        }
+        
+        .listing-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .listing-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .listing-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .listing-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .listing-price span {
+            font-size: 14px;
+            font-weight: normal;
+            color: var(--gray);
+        }
+        
+        /* Dashboard Styles */
+        .dashboard {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: fit-content;
+        }
+        
+        .sidebar h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: var(--primary);
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: var(--light);
+            color: var(--secondary);
+        }
+        
+        .main-content {
+            flex: 1;
+        }
+        
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .leads-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 15px 20px;
+            background: var(--light);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-contacted {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-converted {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            border-radius: 10px;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            z-index: 10;
+            background: none;
+            border: none;
+        }
+        
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-body {
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                 padding: 10px 20px; /* Adjusted padding for mobile */
+            }
+            
+            .logo {
+                height: 60px; /* Slightly smaller on mobile */
+            }
+              .logo img {
+				max-width: 180px; /* Slightly smaller on mobile */
+			}
+			
+			.logo-placeholder {
+				height: 60px; /* Slightly smaller on mobile */
+				width: 180px; /* Slightly smaller on mobile */
+				font-size: 1.2rem; /* Slightly smaller text on mobile */
+			}
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .dashboard {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .table-header, .table-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .table-header div:nth-child(3),
+            .table-row div:nth-child(3) {
+                display: none;
+            }
+        }
+		
+		/* Footer */
+		footer {
+			background-color: var(--dark);
+			color: white;
+			padding: 50px 0 20px;
+			margin-top: 60px;
+		}
+
+		.footer-content {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 40px;
+			margin-bottom: 30px;
+		}
+
+		.footer-column {
+			flex: 1;
+			min-width: 200px;
+		}
+
+		.footer-column h3 {
+			margin-bottom: 20px;
+			font-size: 18px;
+			color: white;
+		}
+
+		.footer-column ul {
+			list-style: none;
+		}
+
+		.footer-column ul li {
+			margin-bottom: 10px;
+		}
+
+		.footer-column ul li a {
+			color: #ddd;
+			text-decoration: none;
+			transition: color 0.3s;
+		}
+
+		.footer-column ul li a:hover {
+			color: white;
+		}
+
+		.copyright {
+			text-align: center;
+			padding-top: 20px;
+			border-top: 1px solid rgba(255,255,255,0.1);
+			font-size: 14px;
+			color: #aaa;
+		}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="FindSpaces.html" class="logo-link">
+                <div class="logo">
+                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="logo-placeholder" style="display: none;">
+                        PARKNSTORE
+                    </div>
+                </div>
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="FindSpaces.html"><i class="fas fa-search"></i> Find Spaces</a></li>
+                    <li><a href="ListYourSpace.html"><i class="fas fa-plus-circle"></i> List Your Space</a></li>
+                    <li><a href="Howitworks.html"><i class="fas fa-question-circle"></i> How It Works</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <a href="signin.html" class="btn btn-outline"><i class="fas fa-user"></i> Sign In</a>
+                <a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <h1>Find Parking & Storage Spaces in Your Area</h1>
+            <p>Search thousands of listings. Contact owners directly with no fees.</p>
+            
+            <div class="search-box">
+                <div class="search-form">
+                    <input type="text" class="search-input" id="locationSearch" placeholder="Enter suburb or address">
+                    <select class="search-input" id="typeSearch">
+                        <option value="">All Space Types</option>
+                        <option value="parking">Parking</option>
+                        <option value="storage">Storage</option>
+                    </select>
+                    <select class="search-input" id="priceSearch">
+                        <option value="">Any Price</option>
+                        <option value="0-50">$0 - $50/month</option>
+                        <option value="50-100">$50 - $100/month</option>
+                        <option value="100-200">$100 - $200/month</option>
+                        <option value="200+">$200+/month</option>
+                    </select>
+                    <button class="search-btn" id="searchButton"><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab active" data-tab="search">Search Results</div>
+            <div class="tab" data-tab="host">Host Dashboard</div>
+        </div>
+    </div>
+
+    <!-- Search Results Tab -->
+    <div class="container">
+        <div class="tab-content active" id="search-tab">
+            <div class="search-results-info">
+                <h2 id="resultsTitle">Available Spaces in Auckland</h2>
+                <div class="search-results-count" id="resultsCount">45 spaces found</div>
+            </div>
+            <p id="resultsSort">Sorted by: Closest match</p>
+            
+            <div class="listings-grid" id="listingsGrid">
+                <!-- Listings will be dynamically generated here -->
+            </div>
+            
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-search" style="font-size: 48px; margin-bottom: 15px;"></i>
+                <h3>No spaces found</h3>
+                <p>Try adjusting your search criteria</p>
+            </div>
+        </div>
+
+        <!-- Host Dashboard Tab -->
+        <div class="tab-content" id="host-tab">
+            <h2>Host Dashboard</h2>
+            <p>Manage your listings and track your leads</p>
+            
+            <div class="dashboard">
+                <div class="sidebar">
+                    <h3>Menu</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="#"><i class="fas fa-list"></i> My Listings</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Leads</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Earnings</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="#" class="btn btn-primary" style="width: 100%;"><i class="fas fa-plus"></i> Add New Listing</a>
+                    </div>
+                </div>
+                
+                <div class="main-content">
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Active Listings</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Total Leads</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Converted Leads</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">$320</div>
+                            <div class="stat-label">Monthly Earnings</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Recent Leads</h3>
+                    <div class="leads-table">
+                        <div class="table-header">
+                            <div>Seeker</div>
+                            <div>Listing</div>
+                            <div>Date</div>
+                            <div>Status</div>
+                        </div>
+                        <div class="table-row">
+                            <div>Sarah Johnson</div>
+                            <div>Driveway Parking</div>
+                            <div>Sep 20, 2025</div>
+                            <div><span class="status-badge status-converted">Converted</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div>Mike Thompson</div>
+                            <div>Garage Storage</div>
+                            <div>Sep 18, 2025</div>
+                            <div><span class="status-badge status-contacted">Contacted</span></div>
+                        </div>
+                        <div class="table-row">
+                            <div>Emma Wilson</div>
+                            <div>Driveway Parking</div>
+                            <div>Sep 15, 2025</div>
+                            <div><span class="status-badge status-pending">Pending</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <h2>Contact Space Owner</h2>
+                <p>Get in touch to discuss this space</p>
+            </div>
+            <div class="modal-body">
+                <div class="space-details">
+                    <h3 id="contactSpaceTitle">Secure Driveway Parking</h3>
+                    <p><strong>Location:</strong> <span id="contactSpaceLocation">Ponsonby, Auckland</span></p>
+                    <p><strong>Price:</strong> <span id="contactSpacePrice">$80/month</span></p>
+                </div>
+                
+                <div style="background: #e8f4fd; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <p><strong>How it works:</strong> Your contact request is free. The space owner pays a small lead fee when you contact them.</p>
+                </div>
+                
+                <form id="contactForm">
+                    <div style="margin-bottom: 15px;">
+                        <label>Your Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Your Email</label>
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Message to Owner</label>
+                        <!--<textarea class="form-control" rows="6" placeholder="Tell the owner about your needs..." required></textarea>-->
+						  <textarea class="form-control" rows="6" placeholder="Tell the host about your specific needs:
+										• What vehicle/item you need to park/store
+										• Preferred start date
+										• Any special requirements
+										• Questions for the host" style="min-height: 150px; resize: vertical;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+			<div style="background: #e8f4fd; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+				<p><strong>Lead Fee:</strong> A $5 fee will be charged to the space owner when you send this message. This ensures only serious inquiries contact them.</p>
+			</div>
+        </div>
+    </div>
+	
+	<!-- View Space Modal -->
+	<div id="viewSpaceModal" class="modal">
+		<div class="modal-content" style="max-width: 800px;">
+			<button class="close-modal" onclick="closeViewSpaceModal()">&times;</button>
+			
+			<div class="modal-header">
+				<h2 id="viewSpaceTitle">Secure Driveway Parking</h2>
+				<p id="viewSpaceLocationPrice">Ponsonby, Auckland • $80/month</p>
+			</div>
+			
+			<div class="modal-body">
+				<!-- Image Gallery -->
+				<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 20px;">
+					<div id="viewSpaceMainImage" style="height: 300px; background-size: cover; background-position: center; border-radius: 5px;"></div>
+					<div style="display: flex; flex-direction: column; gap: 10px;">
+						<div id="viewSpaceImage1" style="height: 145px; background-size: cover; background-position: center; border-radius: 5px;"></div>
+						<div id="viewSpaceImage2" style="height: 145px; background-size: cover; background-position: center; border-radius: 5px;"></div>
+					</div>
+				</div>
+				
+				<!-- Space Details -->
+				<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+					<div>
+						<h3>Space Details</h3>
+						<p><strong>Type:</strong> <span id="viewSpaceType">Parking Space</span></p>
+						<p><strong>Size:</strong> <span id="viewSpaceSize">5.2m x 2.4m</span></p>
+						<p><strong>Vehicle Type:</strong> <span id="viewSpaceVehicleType">Car, SUV, Small Van</span></p>
+						<p><strong>Access:</strong> <span id="viewSpaceAccess">24/7</span></p>
+					</div>
+					<div>
+						<h3>Amenities</h3>
+						<div id="viewSpaceAmenities">
+							<p><i class="fas fa-shield-alt"></i> Secure & Monitored</p>
+							<p><i class="fas fa-lightbulb"></i> Well Lit</p>
+							<p><i class="fas fa-camera"></i> CCTV</p>
+							<p><i class="fas fa-umbrella"></i> Covered</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Description -->
+				<div style="margin-bottom: 20px;">
+					<h3>Description</h3>
+					<p id="viewSpaceDescription">Secure driveway parking space available in central Ponsonby. Perfect for commuters or residents needing extra parking. The space is covered and well-lit with CCTV monitoring. Easy access and available immediately.</p>
+				</div>
+				
+				<!-- Owner Info -->
+				<div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+					<h3>About the Owner</h3>
+					<p><strong>Response time:</strong> <span id="viewSpaceResponseTime">Usually within 2 hours</span></p>
+					<p><strong>Listed:</strong> <span id="viewSpaceListedDate">3 months ago</span></p>
+					<p><strong>Verified:</strong> <i class="fas fa-check-circle" style="color: var(--success);"></i> <span id="viewSpaceVerified">Phone verified</span></p>
+				</div>
+				
+				<button class="btn btn-primary" style="width: 100%;" onclick="openContactModalFromView()">
+					<i class="fas fa-envelope"></i> Contact Owner to Rent
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ParknStore</h3>
+                    <p>Connecting communities through shared parking and storage solutions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="search.html">Find Spaces</a></li>
+                        <li><a href="list.html">List Your Space</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+                        <li><a href="TermsOfService.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@parknstore.co.nz</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ParknStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Database Simulation - This would normally come from a backend API
+        const spacesDatabase = [
+            {
+                spaceID: "P001",
+                type: "parking",
+                title: "Secure Driveway Parking",
+                location: "Ponsonby, Auckland",
+                price: 80,
+                image: 'SecureDrivewayParking.png', //"https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                features: {
+                    capacity: "1 Vehicle",
+                    dimensions: "5.2m x 2.4m"
+                },
+                description: "Secure driveway parking space available in central Ponsonby. Perfect for commuters or residents needing extra parking. The space is covered and well-lit with CCTV monitoring. Easy access and available immediately.",
+                amenities: ["Secure & Monitored", "Well Lit", "CCTV", "Covered"],
+                ownerInfo: {
+                    responseTime: "Usually within 2 hours",
+                    listedDate: "3 months ago",
+                    verified: "Phone verified"
+                },
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            {
+                spaceID: "S001",
+                type: "storage",
+                title: "Dry Garage Storage",
+                location: "Mount Eden, Auckland",
+                price: 120,
+                image: 'DryGarageStorage.png',//"https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                features: {
+                    capacity: "10m²",
+                    dimensions: "Lockable"
+                },
+                description: "Spacious and dry garage storage unit in Mount Eden. Perfect for storing household items, seasonal equipment, or business inventory. The unit is secure, dry, and easily accessible.",
+                amenities: ["Dry Environment", "Lockable", "Easy Access", "Secure"],
+                ownerInfo: {
+                    responseTime: "Usually within 4 hours",
+                    listedDate: "1 month ago",
+                    verified: "Email verified"
+                },
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            {
+                spaceID: "P002",
+                type: "parking",
+                title: "Carport Space",
+                location: "Grey Lynn, Auckland",
+                price: 65,
+                image: 'CarportSpace.png',//"https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                features: {
+                    capacity: "1 Vehicle",
+                    dimensions: "Covered"
+                },
+                description: "Convenient carport space in Grey Lynn. Provides protection from the elements while keeping your vehicle easily accessible. Ideal for daily commuters.",
+                amenities: ["Covered", "Well Lit", "Easy Access", "Secure"],
+                ownerInfo: {
+                    responseTime: "Usually within 1 hour",
+                    listedDate: "2 weeks ago",
+                    verified: "Phone verified"
+                },
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            {
+                spaceID: "S002",
+                type: "storage",
+                title: "Basement Storage Unit",
+                location: "Newmarket, Auckland",
+                price: 95,
+                image: 'BasementStorageUnit.png',//"https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                features: {
+                    capacity: "8m²",
+                    dimensions: "Dry and Secure"
+                },
+                description: "Clean and dry basement storage unit in Newmarket. Perfect for storing documents, seasonal items, or personal belongings. The unit is climate-controlled and secure.",
+                amenities: ["Climate Controlled", "Secure", "Dry", "Easy Access"],
+                ownerInfo: {
+                    responseTime: "Usually within 6 hours",
+                    listedDate: "5 months ago",
+                    verified: "Phone and email verified"
+                },
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            {
+                spaceID: "P003",
+                type: "parking",
+                title: "Off-Street Parking",
+                location: "CBD, Auckland",
+                price: 150,
+                image: 'OffStreetParking.png',//"https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                features: {
+                    capacity: "1 Vehicle",
+                    dimensions: "Secure Gated"
+                },
+                description: "Secure off-street parking in the Auckland CBD. Ideal for city workers or residents. The space is gated and monitored 24/7 for maximum security.",
+                amenities: ["Gated Access", "24/7 Monitoring", "Well Lit", "Secure"],
+                ownerInfo: {
+                    responseTime: "Usually within 3 hours",
+                    listedDate: "6 months ago",
+                    verified: "Phone verified"
+                },
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            {
+                spaceID: "S003",
+                type: "storage",
+                title: "Shed Storage Space",
+                location: "Onehunga, Auckland",
+                price: 75,
+                image: 'ShedStorageSpace.png',//"https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                features: {
+                    capacity: "6m²",
+                    dimensions: "Lockable Shed"
+                },
+                description: "Spacious shed storage in Onehunga. Perfect for garden equipment, tools, or outdoor furniture. The shed is lockable and protected from the elements.",
+                amenities: ["Lockable", "Weatherproof", "Spacious", "Easy Access"],
+                ownerInfo: {
+                    responseTime: "Usually within 8 hours",
+                    listedDate: "3 months ago",
+                    verified: "Email verified"
+                },
+                additionalImages: [
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                ]
+            }
+        ];
+
+        // Global variables
+        let currentSpaceID = "";
+        let filteredSpaces = [...spacesDatabase];
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('show');
+        });
+        
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Modal functionality
+        const contactModal = document.getElementById('contactModal');
+        const viewSpaceModal = document.getElementById('viewSpaceModal');
+        
+        // Open contact modal
+        function openContactModal(spaceID) {
+            currentSpaceID = spaceID;
+            const space = getSpaceByID(spaceID);
+            
+            if (space) {
+                document.getElementById('contactSpaceTitle').textContent = space.title;
+                document.getElementById('contactSpaceLocation').textContent = space.location;
+                document.getElementById('contactSpacePrice').textContent = `$${space.price}/month`;
+            }
+            
+            contactModal.style.display = 'block';
+        }
+        
+        // Open view space modal
+        function openViewSpaceModal(spaceID) {
+            currentSpaceID = spaceID;
+            const space = getSpaceByID(spaceID);
+            
+            if (space) {
+                document.getElementById('viewSpaceTitle').textContent = space.title;
+                document.getElementById('viewSpaceLocationPrice').textContent = `${space.location} • $${space.price}/month`;
+                document.getElementById('viewSpaceMainImage').style.backgroundImage = `url('${space.image}')`;
+                document.getElementById('viewSpaceImage1').style.backgroundImage = `url('${space.additionalImages[0]}')`;
+                document.getElementById('viewSpaceImage2').style.backgroundImage = `url('${space.additionalImages[1]}')`;
+                document.getElementById('viewSpaceType').textContent = space.type === 'parking' ? 'Parking Space' : 'Storage Space';
+                document.getElementById('viewSpaceSize').textContent = space.features.dimensions;
+                document.getElementById('viewSpaceVehicleType').textContent = space.type === 'parking' ? 'Car, SUV, Small Van' : 'Various Items';
+                document.getElementById('viewSpaceAccess').textContent = '24/7';
+                document.getElementById('viewSpaceDescription').textContent = space.description;
+                document.getElementById('viewSpaceResponseTime').textContent = space.ownerInfo.responseTime;
+                document.getElementById('viewSpaceListedDate').textContent = space.ownerInfo.listedDate;
+                document.getElementById('viewSpaceVerified').textContent = space.ownerInfo.verified;
+                
+                // Update amenities
+                const amenitiesContainer = document.getElementById('viewSpaceAmenities');
+                amenitiesContainer.innerHTML = '';
+                space.amenities.forEach(amenity => {
+                    const amenityElement = document.createElement('p');
+                    amenityElement.innerHTML = `<i class="fas fa-check"></i> ${amenity}`;
+                    amenitiesContainer.appendChild(amenityElement);
+                });
+            }
+            
+            viewSpaceModal.style.display = 'block';
+        }
+        
+        // Close view space modal
+        function closeViewSpaceModal() {
+            viewSpaceModal.style.display = 'none';
+        }
+        
+        // Open contact modal from view space modal
+        function openContactModalFromView() {
+            viewSpaceModal.style.display = 'none';
+            openContactModal(currentSpaceID);
+        }
+        
+        // Close modals when clicking X
+        document.querySelectorAll('.close-modal').forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+        
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent successfully.');
+            this.reset();
+            contactModal.style.display = 'none';
+        });
+        
+        // Search form handling
+        document.getElementById('searchButton').addEventListener('click', function() {
+            performSearch();
+        });
+        
+        // Function to perform search
+        function performSearch() {
+            const location = document.getElementById('locationSearch').value.toLowerCase();
+            const type = document.getElementById('typeSearch').value;
+            const price = document.getElementById('priceSearch').value;
+            
+            // Filter spaces based on search criteria
+            filteredSpaces = spacesDatabase.filter(space => {
+                // Location filter
+                const locationMatch = !location || space.location.toLowerCase().includes(location);
+                
+                // Type filter
+                const typeMatch = !type || space.type === type;
+                
+                // Price filter
+                let priceMatch = true;
+                if (price) {
+                    switch(price) {
+                        case '0-50':
+                            priceMatch = space.price <= 50;
+                            break;
+                        case '50-100':
+                            priceMatch = space.price > 50 && space.price <= 100;
+                            break;
+                        case '100-200':
+                            priceMatch = space.price > 100 && space.price <= 200;
+                            break;
+                        case '200+':
+                            priceMatch = space.price > 200;
+                            break;
+                    }
+                }
+                
+                return locationMatch && typeMatch && priceMatch;
+            });
+            
+            // Update search results
+            updateSearchResults();
+        }
+        
+        // Function to update search results display
+        function updateSearchResults() {
+            const listingsGrid = document.getElementById('listingsGrid');
+            const resultsTitle = document.getElementById('resultsTitle');
+            const resultsCount = document.getElementById('resultsCount');
+            const noResults = document.getElementById('noResults');
+            
+            // Clear current listings
+            listingsGrid.innerHTML = '';
+            
+            // Update results info
+            if (filteredSpaces.length === 0) {
+                resultsTitle.textContent = "No spaces found";
+                resultsCount.textContent = "0 spaces found";
+                noResults.style.display = 'block';
+            } else {
+                const location = document.getElementById('locationSearch').value || 'Auckland';
+                resultsTitle.textContent = `Available Spaces in ${location}`;
+                resultsCount.textContent = `${filteredSpaces.length} space${filteredSpaces.length !== 1 ? 's' : ''} found`;
+                noResults.style.display = 'none';
+                
+                // Generate listing cards
+                filteredSpaces.forEach(space => {
+                    const listingCard = createListingCard(space);
+                    listingsGrid.appendChild(listingCard);
+                });
+            }
+        }
+        
+        // Function to create a listing card
+        function createListingCard(space) {
+            const card = document.createElement('div');
+            card.className = 'listing-card';
+            card.setAttribute('data-listing-type', space.type);
+            card.setAttribute('data-space-id', space.spaceID);
+            
+            card.innerHTML = `
+                <div class="listing-image" style="background-image: url('${space.image}');"></div>
+                <div class="listing-content">
+                    <span class="listing-type ${space.type}">${space.type === 'parking' ? 'Parking' : 'Storage'}</span>
+                    <h3 class="listing-title">${space.title}</h3>
+                    <div class="listing-location">
+                        <i class="fas fa-map-marker-alt"></i> ${space.location}
+                    </div>
+                    <div class="listing-features">
+                        <span><i class="fas ${space.type === 'parking' ? 'fa-car' : 'fa-box'}"></i> ${space.features.capacity}</span>
+                        <span><i class="fas ${space.type === 'parking' ? 'fa-arrows-alt-h' : 'fa-key'}"></i> ${space.features.dimensions}</span>
+                    </div>
+                    <div class="listing-price">$${space.price}<span>/month</span></div>
+                    <button class="btn btn-outline ${space.type === 'parking' ? 'btn-parking' : 'btn-storage'}" style="width: 100%; margin-bottom: 10px;" onclick="openViewSpaceModal('${space.spaceID}')">
+                        <i class="fas fa-eye"></i> View Space
+                    </button>
+                    <button class="btn btn-primary ${space.type === 'parking' ? 'btn-primary-parking' : 'btn-primary-storage'}" style="width: 100%;" onclick="openContactModal('${space.spaceID}')">
+                        Contact Owner
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Function to get space by ID
+        function getSpaceByID(spaceID) {
+            return spacesDatabase.find(space => space.spaceID === spaceID);
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in copyright
+            document.querySelector('.copyright p').innerHTML = `&copy; ${new Date().getFullYear()} ParknStore. All rights reserved.`;
+            
+            // Add loading animation to search results
+            const searchBtn = document.getElementById('searchButton');
+            const originalText = searchBtn.innerHTML;
+            
+            searchBtn.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 1500);
+            });
+            
+            // Initialize with all spaces
+            updateSearchResults();
+        });
+    </script>
+</body>
+</html>
