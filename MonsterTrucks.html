@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Trucks Show Parking | ParknStore - Connect Homeowners with Drivers</title>
+    <!-- Favicon -->
+    <link rel="icon" href="ParknStore.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;  /* Blue */
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;    /* Green */
+            --warning: #f39c12;    /* Orange */
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+        }
+        
+        .logo-placeholder {
+            height: 80px;
+            width: 220px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 1.5rem;
+        }
+        
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logo-link:hover {
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background-color: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .btn-parking {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-parking:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-storage {
+            border-color: var(--warning);
+            color: var(--warning);
+        }
+
+        .btn-storage:hover {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        .btn-primary-parking {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary-parking:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-primary-storage {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        .btn-primary-storage:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--warning) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+        
+        /* Two-Sided CTA */
+        .two-sided-cta {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .cta-card {
+            background: #f8fafc;
+            padding: 50px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .cta-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        .cta-card.host:before {
+            background: var(--secondary);
+        }
+        
+        .cta-card.renter:before {
+            background: var(--warning);
+        }
+        
+        .cta-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .cta-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .cta-card p {
+            margin-bottom: 25px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .btn-large {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+        }
+        
+        /* How It Works - Lead Generation */
+        .process-section {
+            padding: 60px 0;
+            background: #f1f5f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .step-1 {
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .step-2 {
+            border-left: 4px solid var(--warning);
+        }
+        
+        .step-3 {
+            border-left: 4px solid var(--success);
+        }
+        
+        .step-number {
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .step-number-1 {
+            background: var(--secondary); /* Blue */
+        }
+        
+        .step-number-2 {
+            background: var(--warning); /* Orange */
+        }
+        
+        .step-number-3 {
+            background: var(--success); /* Green */
+        }
+        
+        .step h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Manual Process Notice */
+        .manual-process {
+            background: #e8f4fd;
+            border-left: 4px solid var(--secondary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+        
+        .manual-process h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Forms */
+        .form-section {
+            background: white;
+            padding: 60px 0;
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        
+        .form-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+        
+        /* Checkbox alignment styles */
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            margin: 0;
+            flex-shrink: 0;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 60px 0;
+            background: #f1f5f9;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .benefit {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--warning);
+        }
+        
+        .benefit h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: #f8fafc;
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .back-button:hover {
+            color: #2980b9;
+        }
+        
+        /* Success Message */
+        .success-message {
+            text-align: center;
+            padding: 30px;
+            background: #f8fff9;
+            border: 1px solid #e1f5e1;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .success-message i {
+            font-size: 48px;
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                 padding: 10px 20px;
+            }
+            
+            .logo {
+                height: 60px;
+            }
+            
+            .logo img {
+                max-width: 180px;
+            }
+            
+            .logo-placeholder {
+                height: 60px;
+                width: 180px;
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                margin-left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container {
+                padding: 25px 20px;
+                margin: 0 15px;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preview Notice Banner -->
+    <div style="background: linear-gradient(135deg, #ff8c00, #ffa500); color: white; padding: 12px 0; text-align: center; font-weight: 600;">
+        <i class="fas fa-car"></i> MONSTER TRUCKS SHOW PARKING: Connect with homeowners and drivers for the event at Eden Park
+    </div>
+
+    <!-- Header -->
+	<header>
+		<div class="container header-container">
+			<a href="HotWheels.html" class="logo-link">
+				<div class="logo">
+					<img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+					<div class="logo-placeholder" style="display: none;">
+						PARKNSTORE
+					</div>
+				</div>
+			</a>
+			<button class="mobile-menu-btn">☰</button>
+			<nav>
+				<ul id="menu">
+					<li><a href="#renter-cta"><i class="fas fa-search"></i> Find Parking</a></li>
+					<li><a href="#host-cta"><i class="fas fa-plus-circle"></i> List Your Space</a></li>
+					<li><a href="#process-section"><i class="fas fa-question-circle"></i> How It Works</a></li>
+					<li><a href="#faq-section"><i class="fas fa-comments"></i> FAQ</a></li>
+				</ul>
+			</nav>
+			<!--<div class="user-menu">
+				<a href="signin.html" class="btn btn-outline"><i class="fas fa-user"></i> Sign In</a>
+				<a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a>
+			</div>-->
+		</div>
+	</header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Monster Trucks Show Parking at Eden Park</h1>
+            <p>Connect with local space owners offering parking spaces or find drivers needing parking for the event</p>
+            <p>No fees. No commissions. Just direct connections.</p>
+        </div>
+    </section>
+
+    <!-- Two-Sided CTA -->
+    <section class="two-sided-cta">
+        <div class="container">
+            <div class="cta-grid">
+                <div class="cta-card host" id="host-cta">
+                    <h3>🏠 Have a Space?</h3>
+                    <p>List your driveway and connect with drivers needing parking for the Monster Trucks Show</p>
+                    <a class="btn btn-primary btn-large">List Your Space →</a>
+                </div>
+                
+                <div class="cta-card renter" id="renter-cta">
+                    <h3>🚗 Need Parking?</h3>
+                    <p>Find homeowners offering parking near Eden Park for the event</p>
+                    <a class="btn btn-primary-storage btn-large">Find Parking →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works - Lead Generation -->
+    <section class="process-section" id="process-section">
+        <div class="container">
+            <h2 class="section-title">How Our Connection Service Works</h2>
+            
+            <div class="process-steps">
+                <div class="step step-1">
+                    <div class="step-number step-number-1">1</div>
+                    <h3>Submit Your Details</h3>
+                    <p>Fill out our simple form with your space details or parking requirements</p>
+                </div>
+                <div class="step step-2">
+                    <div class="step-number step-number-2">2</div>
+                    <h3>We Connect You</h3>
+                    <p>We match you with potential partners and share contact information</p>
+                </div>
+                <div class="step step-3">
+                    <div class="step-number step-number-3">3</div>
+                    <h3>Make Arrangements</h3>
+                    <p>Contact each other directly to agree on price, timing, and payment</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; max-width: 800px; margin: 30px auto 0;">
+                <p><strong>Our Role:</strong> We facilitate the introduction. You handle the arrangements directly with each other.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host Form Section -->
+    <section id="host-form" class="form-section">
+        <div class="container">
+            <a class="back-button" id="back-from-host">
+                <i class="fas fa-arrow-left"></i> Back to options
+            </a>
+            <div class="form-container">
+                <h2 class="form-title">List Your Parking Space</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: var(--gray);">
+                    Connect with drivers needing parking for the Monster Trucks show
+                </p>
+                <!-- Manual Process Notice in Form -->
+                <div class="manual-process" style="margin-bottom: 30px;">
+                    <h4><i class="fas fa-info-circle"></i> Manual Connection Process</h4>
+                    <p><strong>During our validation phase:</strong> We'll manually review your submission and connect you with compatible drivers. This helps us validate demand before building our full automated platform.</p>
+                </div>
+				
+                <form id="hostForm" action="https://formspree.io/f/movlzobz" method="POST">
+                    <input type="hidden" name="_subject" value="ParknStore - New Host Lead for Monster Trucks Show">
+                    <input type="hidden" name="user_type" value="host">
+                    <input type="hidden" name="source" value="hot_wheels_show">
+                    
+                    <div class="form-group">
+                        <label for="host-name">Full Name *</label>
+                        <input type="text" id="host-name" name="name" required placeholder="John Smith">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="host-email">Email Address *</label>
+                        <input type="email" id="host-email" name="email" required placeholder="john@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="host-phone">Phone Number *</label>
+                        <input type="tel" id="host-phone" name="phone" required placeholder="021 123 4567">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="host-address">Full Address Near Eden Park *</label>
+                        <input type="text" id="host-address" name="address" required placeholder="e.g., 123 Mt Eden Road, Mt Eden">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="space-type">Type of Space *</label>
+                        <select id="space-type" name="space_type" required>
+                            <option value="">Select your space type</option>
+                            <option value="driveway">Driveway</option>
+                            <option value="garage">Garage</option>
+                            <option value="carport">Carport</option>
+                            <option value="off-street">Off-Street Parking</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="car-capacity">How many cars can you fit? *</label>
+                        <select id="car-capacity" name="car_capacity" required>
+                            <option value="">Select capacity</option>
+                            <option value="1">1 car</option>
+                            <option value="2">2 cars</option>
+                            <option value="3">3+ cars</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preferred-price">What price are you thinking? (Optional)</label>
+                        <input type="text" id="preferred-price" name="preferred_price" placeholder="e.g., $60 for the evening, negotiable, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="host-notes">Any additional details about your space?</label>
+                        <textarea id="host-notes" name="notes" rows="3" placeholder="e.g., 'Easy access from main road', 'Security camera', 'Available from 5-11pm', etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="agree_terms" required>
+                            I agree to have my contact details shared with potential parkers *
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">List My Space & Get Connected</button>
+                </form>
+                
+                <div id="host-success" class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You!</h3>
+                    <p>We've received your listing details. We'll connect you with potential parkers within 24 hours.</p>
+                </div>
+                
+                <p class="form-note">
+                    We'll share your details with interested drivers and connect you within 24 hours!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Renter Form Section -->
+    <section id="renter-form" class="form-section">
+        <div class="container">
+            <a class="back-button" id="back-from-renter">
+                <i class="fas fa-arrow-left"></i> Back to options
+            </a>
+            <div class="form-container">
+                <h2 class="form-title">Find Parking for Monster Trucks Show</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: var(--gray);">
+                    Get connected with homeowners offering parking spaces
+                </p>
+				
+				<!-- Manual Process Notice in Form -->
+                <div class="manual-process" style="margin-bottom: 30px;">
+                    <h4><i class="fas fa-info-circle"></i> Manual Connection Process</h4>
+                    <p><strong>During our validation phase:</strong> We'll manually review your request and connect you with compatible homeowners. This helps us validate demand before building our full automated platform.</p>
+                </div>
+                
+                <form id="renterForm" action="https://formspree.io/f/movlzobz" method="POST">
+                    <input type="hidden" name="_subject" value="ParknStore - New Renter Lead for Monster Trucks Show">
+                    <input type="hidden" name="user_type" value="renter">
+                    <input type="hidden" name="source" value="hot_wheels_show">
+                    
+                    <div class="form-group">
+                        <label for="renter-name">Full Name *</label>
+                        <input type="text" id="renter-name" name="name" required placeholder="Sarah Johnson">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="renter-email">Email Address *</label>
+                        <input type="email" id="renter-email" name="email" required placeholder="sarah@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="renter-phone">Phone Number *</label>
+                        <input type="tel" id="renter-phone" name="phone" required placeholder="021 987 6543">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="car-details">Car Details (Optional)</label>
+                        <input type="text" id="car-details" name="car_details" placeholder="e.g., Blue Toyota Corolla, SUV, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget-preference">What's your budget preference? (Optional)</label>
+                        <input type="text" id="budget-preference" name="budget_preference" placeholder="e.g., Around $50, Up to $80, Negotiable, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="renter-notes">Any specific requirements or timing?</label>
+                        <textarea id="renter-notes" name="notes" rows="3" placeholder="e.g., 'Need space for SUV', 'Arriving at 6pm', 'Prefer within 10 min walk', etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+						<label class="checkbox-label">
+							<input type="checkbox" name="agree_terms" required>
+							I agree to have my contact details shared with potential parkers *
+						</label>
+					</div>
+                    
+                    <button type="submit" class="submit-btn" style="background: var(--warning);">
+                        Find Parking & Get Connected
+                    </button>
+                </form>
+                
+                <div id="renter-success" class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You!</h3>
+                    <p>We've received your parking request. We'll connect you with potential hosts within 24 hours.</p>
+                </div>
+                
+                <p class="form-note">
+                    We'll share your details with matching homeowners and connect you within 24 hours!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Why Use Our Connection Service?</h2>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <h3>🏠 For Space owners</h3>
+                    <p>• <strong>Free to list</strong> - no fees or commissions</p>
+                    <p>• <strong>Control your terms</strong> - set your own price, rules & hours of use</p>
+                    <p>• <strong>Direct communication</strong> - talk to renters directly</p>
+                    <p>• <strong>Flexible arrangements</strong> - cash, bank transfer, whatever works</p>
+                </div>
+                <div class="benefit">
+                    <h3>🚗 For Drivers</h3>
+                    <p>• <strong>Convenient locations</strong> - find parking close to the event venue</p>
+                    <p>• <strong>Deal directly with owners</strong> - negotiate terms and pricing with no middleman</p>
+                    <p>• <strong>Compare multiple options</strong> - browse different spaces and choose what works best</p>
+                    <p>• <strong>No booking fees</strong> - pay only what you agree with the space owner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is ParknStore's role in the parking arrangements?</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>ParknStore acts solely as a connection service for the Monster Trucks Show at Eden Park.</strong> We:</p>
+                    <ul>
+                        <li>Connect homeowners with available parking spaces to drivers needing parking</li>
+                        <li>Facilitate the initial introduction by sharing contact information</li>
+                        <li>Help match based on location and requirements</li>
+                    </ul>
+                    <p><strong>We are not involved in:</strong></p>
+                    <ul>
+                        <li>Payment processing or financial transactions</li>
+                        <li>Space agreements or contracts between parties</li>
+                        <li>Dispute resolution between homeowners and drivers</li>
+                        <li>Verifying the condition or suitability of parking spaces</li>
+                    </ul>
+                    <p>All arrangements, payments, and agreements are made directly between homeowners and drivers.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does the connection process work?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>It's simple:</p>
+                    <ol>
+                        <li>You submit your details through our form</li>
+                        <li>We match you with potential partners based on location and needs</li>
+                        <li>We share contact information (with your permission) via email</li>
+                        <li>You connect directly to arrange price, timing, and payment</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Are there any fees or commissions?</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>No!</strong> ParknStore is completely free for both homeowners and drivers. We're building a community and validating demand. You keep 100% of what you agree on.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How are payments handled?</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>You arrange payments directly.</strong> This could be cash on the day, bank transfer, or any method you both agree on. We don't handle payments - we just make the introduction.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What happens after I submit my details?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We'll email you within 24 hours with contact information for potential matches. Then it's over to you to connect and make arrangements directly.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who is responsible for the parking agreement?</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>The parking agreement is solely between the homeowner and the driver.</strong> ParknStore is not party to any agreements and does not guarantee the condition, safety, or availability of parking spaces. We recommend that both parties:</p>
+                    <ul>
+                        <li>Discuss and agree on terms clearly before the event</li>
+                        <li>Confirm pricing, timing, and any specific requirements</li>
+                        <li>Exchange contact information and keep each other informed</li>
+                        <li>Resolve any issues directly with each other</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ParknStore</h3>
+                    <p>Connecting communities through shared parking solutions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+						<li><a href="#renter-cta"><i class="fas fa-search"></i> Find Parking</a></li>
+						<li><a href="#host-cta"><i class="fas fa-plus-circle"></i> List Your Space</a></li>
+						<li><a href="#process-section"><i class="fas fa-question-circle"></i> How It Works</a></li>
+						<li><a href="#faq-section"><i class="fas fa-comments"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                
+
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+                        <li><a href="TermsOfService-HotWheels.html">Terms of Service</a></li>
+                        <!--<li><a href="contact.html">Contact Us</a></li>-->
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> ParknStoreNZ@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ParknStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('show');
+        });
+
+        // Form visibility toggle
+        document.getElementById('host-cta').addEventListener('click', function() {
+            document.getElementById('process-section').style.display = 'none';
+            document.getElementById('benefits-section').style.display = 'none';
+            document.getElementById('faq-section').style.display = 'none';
+            document.getElementById('host-form').classList.add('active');
+            document.getElementById('renter-form').classList.remove('active');
+            
+            // Scroll to form
+            document.getElementById('host-form').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('renter-cta').addEventListener('click', function() {
+            document.getElementById('process-section').style.display = 'none';
+            document.getElementById('benefits-section').style.display = 'none';
+            document.getElementById('faq-section').style.display = 'none';
+            document.getElementById('renter-form').classList.add('active');
+            document.getElementById('host-form').classList.remove('active');
+            
+            // Scroll to form
+            document.getElementById('renter-form').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Back button functionality
+        document.getElementById('back-from-host').addEventListener('click', function() {
+            document.getElementById('host-form').classList.remove('active');
+            document.getElementById('process-section').style.display = 'block';
+            document.getElementById('benefits-section').style.display = 'block';
+            document.getElementById('faq-section').style.display = 'block';
+            
+            // Scroll back to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('back-from-renter').addEventListener('click', function() {
+            document.getElementById('renter-form').classList.remove('active');
+            document.getElementById('process-section').style.display = 'block';
+            document.getElementById('benefits-section').style.display = 'block';
+            document.getElementById('faq-section').style.display = 'block';
+            
+            // Scroll back to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Form submission handlers
+        document.getElementById('hostForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            // Create a simple FormData submission
+            const formData = new FormData(form);
+            
+            // Submit to Formspree using the form's action attribute
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - show success message
+                    form.style.display = 'none';
+                    document.getElementById('host-success').style.display = 'block';
+                    
+                    // Reset form and redirect after delay
+                    setTimeout(() => {
+                        form.reset();
+                        form.style.display = 'block';
+                        document.getElementById('host-success').style.display = 'none';
+                        document.getElementById('host-form').classList.remove('active');
+                        document.getElementById('process-section').style.display = 'block';
+                        document.getElementById('benefits-section').style.display = 'block';
+                        document.getElementById('faq-section').style.display = 'block';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 3000);
+                } else {
+                    // Handle non-OK response
+                    response.json().then(data => {
+                        console.error('Formspree error:', data);
+                        alert('There was an issue submitting your form. Please try again or contact us directly.');
+                    }).catch(() => {
+                        alert('There was an issue submitting your form. Please try again.');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Submission error:', error);
+                alert('Network error. Please check your connection and try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        document.getElementById('renterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            // Create a simple FormData submission
+            const formData = new FormData(form);
+            
+            // Submit to Formspree using the form's action attribute
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - show success message
+                    form.style.display = 'none';
+                    document.getElementById('renter-success').style.display = 'block';
+                    
+                    // Reset form and redirect after delay
+                    setTimeout(() => {
+                        form.reset();
+                        form.style.display = 'block';
+                        document.getElementById('renter-success').style.display = 'none';
+                        document.getElementById('renter-form').classList.remove('active');
+                        document.getElementById('process-section').style.display = 'block';
+                        document.getElementById('benefits-section').style.display = 'block';
+                        document.getElementById('faq-section').style.display = 'block';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 3000);
+                } else {
+                    // Handle non-OK response
+                    response.json().then(data => {
+                        console.error('Formspree error:', data);
+                        alert('There was an issue submitting your form. Please try again or contact us directly.');
+                    }).catch(() => {
+                        alert('There was an issue submitting your form. Please try again.');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Submission error:', error);
+                alert('Network error. Please check your connection and try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>
