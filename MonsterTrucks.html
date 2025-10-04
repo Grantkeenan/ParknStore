@@ -475,6 +475,35 @@
             flex-shrink: 0;
         }
         
+		
+		/* Validation Notice */
+		.validation-notice {
+			background: linear-gradient(135deg, #ff8c00, #ffa500);
+			color: white;
+			padding: 25px 0;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.validation-notice-content {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.validation-notice h3 {
+			font-size: 1.4rem;
+			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+		}
+
+		.validation-notice p {
+			font-size: 1.1rem;
+			opacity: 0.95;
+			margin-bottom: 0;
+		}
         /* Benefits Section */
         .benefits {
             padding: 60px 0;
@@ -733,6 +762,14 @@
             <h1>Monster Trucks Show Parking at Eden Park</h1>
             <p>Connect with local space owners offering parking spaces or find drivers needing parking for the event</p>
             <p>No fees. No commissions. Just direct connections.</p>
+        </div>
+    </section>
+	
+	<!-- Validation Notice -->
+    <section class="validation-notice">
+        <div class="container validation-notice-content">
+            <h3><i class="fas fa-flask"></i> ParknStore is Validating Demand</h3>
+            <p><strong>This is a manual connection service</strong> - We're currently validating demand for parking solutions in your area. During this phase, we manually connect homeowners with drivers. Once we validate sufficient demand, we'll launch our full automated platform!</p>
         </div>
     </section>
 
@@ -1090,7 +1127,7 @@
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul>
-						<li><a href="/PrivacyPolicy.HTML">Privacy Policy</a></li>
+                        <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
                         <li><a href="TermsOfService-MonsterTrucks.html">Terms of Service</a></li>
                         <!--<li><a href="contact.html">Contact Us</a></li>-->
                     </ul>
@@ -1289,5 +1326,3 @@
 </body>
 
 </html>
-
-
