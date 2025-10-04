@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParknStore - Terms of Service</title>
+	<!-- Favicon -->
+    <link rel="icon" href="ParknStore.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;  /* Blue */
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;    /* Orange */
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0; /* Reduced padding to make room for larger logo */
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 80px; /* Increased from 60px */
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 220px; /* Increased from 180px */
+            object-fit: contain;
+        }
+        
+        .logo-placeholder {
+			height: 80px; /* Increased from 60px */
+			width: 220px; /* Increased from 180px */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+			font-size: 1.5rem; /* Added to make text bigger */
+        }
+        
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logo-link:hover {
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background-color: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Terms of Service Specific Styles */
+        .page-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark);
+            border-left: 2px solid #ddd;
+            padding-left: 15px;
+            margin-left: 15px;
+        }
+        
+        .terms-container {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem auto;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .sidebar ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+		
+		/* Navigation Buttons - Match Privacy Policy Styling */
+		.policy-navigation {
+			display: flex;
+			gap: 1rem;
+			margin: 2rem auto 1rem;
+			justify-content: center;
+			flex-wrap: wrap;
+			max-width: 1200px;
+			padding: 0 20px;
+		}
+
+		.btn {
+			padding: 0.75rem 1.5rem;
+			border-radius: 6px;
+			font-weight: 500;
+			text-decoration: none;
+			transition: all 0.3s;
+			display: inline-block;
+			text-align: center;
+			min-height: 44px;
+			min-width: 44px;
+			cursor: pointer;
+			border: none;
+			font-size: 1rem;
+		}
+
+		.btn-primary {
+			background-color: var(--secondary);
+			color: white;
+		}
+
+		.btn-primary:hover {
+			background-color: #2980b9;
+			transform: translateY(-2px);
+		}
+
+		.btn-secondary {
+			background-color: white;
+			color: var(--secondary);
+			border: 2px solid var(--secondary);
+		}
+
+		.btn-secondary:hover {
+			background-color: #f0f7ff;
+			transform: translateY(-2px);
+		}
+
+		/* Mobile responsiveness */
+		@media (max-width: 768px) {
+			.policy-navigation {
+				flex-direction: column;
+				align-items: center;
+				margin: 1rem auto;
+			}
+			
+			.policy-navigation .btn {
+				width: 100%;
+				max-width: 300px;
+			}
+		}
+        .content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 2rem;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+        
+        .content-section h2 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            font-size: 1.5rem;
+        }
+        
+        .content-section h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .content-section p, .content-section ul {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        
+        .content-section ul {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background-color: #fff4e6;
+            padding: 1.5rem;
+            border-left: 4px solid var(--warning);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .disclaimer {
+            background-color: #ffe6e6;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .prelaunch-notice {
+            background-color: #e6f4ff;
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .refund-process {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .refund-step {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+        
+        .refund-step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .sidebar-toggle {
+            display: none;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .terms-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+            }
+            
+            .sidebar-toggle {
+                display: block;
+            }
+            
+            .sidebar.collapsed {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                padding: 10px 20px; /* Adjusted padding for mobile */
+            }
+            .logo {
+				height: 60px; /* Slightly smaller on mobile */
+			}
+			
+			.logo img {
+				max-width: 180px; /* Slightly smaller on mobile */
+			}
+			
+			.logo-placeholder {
+				height: 60px; /* Slightly smaller on mobile */
+				width: 180px; /* Slightly smaller on mobile */
+				font-size: 1.2rem; /* Slightly smaller text on mobile */
+			}
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            
+            .page-title {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 10px 0;
+                margin-top: 10px;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                z-index: 1000;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                padding: 12px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                display: block;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .content-section h3 {
+                font-size: 1.1rem;
+            }
+            
+            .highlight, .disclaimer, .prelaunch-notice, .refund-process {
+                padding: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                height: 50px;
+            }
+            
+            .logo-placeholder {
+                height: 50px;
+                width: 140px;
+                font-size: 0.9rem;
+            }
+            
+            .page-title {
+                font-size: 1rem;
+            }
+            
+            .terms-container {
+                margin: 1rem auto;
+                gap: 1rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .content-section {
+                margin-bottom: 2rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .refund-step h4 {
+                font-size: 1rem;
+            }
+            
+            footer {
+                padding: 2rem 0 1.5rem;
+            }
+        }
+        
+        /* Improved touch targets for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            nav ul li a, 
+            .sidebar ul li a,
+            .footer-column ul li a {
+                padding: 15px 20px;
+                min-height: 44px;
+            }
+            
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="MonsterTrucks.html" class="logo-link">
+                    <div class="logo">
+                        <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
+                        <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
+                            PARKNSTORE
+                        </div>
+                    </div>
+                </a>
+                <!--<div class="page-title">Terms of Service</div>-->
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <nav>
+                <ul id="menu">
+					<li><a href="MonsterTrucks.html?openModal=#renter-cta"><i class="fas fa-search"></i> Find Parking</a></li>
+					<li><a href="MonsterTrucks.html?openModal=#host-cta"><i class="fas fa-plus-circle"></i> List Your Space</a></li>
+					<li><a href="MonsterTrucks.html?openModal=#process-section"><i class="fas fa-question-circle"></i> How It Works</a></li>
+					<li><a href="MonsterTrucks.html?openModal=#faq-section"><i class="fas fa-comments"></i> FAQ</a></li>
+					
+                </ul>
+            </nav>
+            <!--<div class="user-menu">
+                <a href="signin.html" class="btn btn-outline"><i class="fas fa-user"></i> Sign In</a>
+                <a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>-->
+        </div>
+    </header>
+    
+	<!-- Navigation Buttons -->
+	<div class="policy-navigation">
+		<button onclick="window.history.back()" class="btn btn-primary">
+			← Back to Previous Page
+		</button>
+		<a href="MonsterTrucks.html" class="btn btn-secondary">
+			Return to Homepage
+		</a>
+	</div>
+	
+    <div class="container terms-container">
+        <button class="sidebar-toggle" id="sidebar-toggle">Show/Hide Table of Contents</button>
+        
+        <div class="sidebar" id="terms-sidebar">
+            <h3>Terms of Service</h3>
+            <ul>
+                <li><a href="#lead-generation-model" class="active">Connection Service Model</a></li>
+                <li><a href="#hot-wheel-event">Hot Wheel Event</a></li>
+                <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+                <li><a href="#definitions">2. Definitions</a></li>
+                <li><a href="#platform-role">3. Platform Role</a></li>
+                <li><a href="#user-responsibilities">4. User Responsibilities</a></li>
+                <li><a href="#prohibited-items">5. Prohibited Items</a></li>
+                <li><a href="#cancellation">6. Listing Management</a></li>
+                <li><a href="#liability">7. Liability Limitations</a></li>
+                <li><a href="#disputes">8. Dispute Resolution</a></li>
+                <li><a href="#changes">9. Changes to Terms</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <!-- CONNECTION SERVICE MODEL SECTION -->
+            <div class="content-section" id="lead-generation-model">
+                <h2>Connection Service Model</h2>
+                <p><i>Last Updated: October 03, 2025</i></p>
+                
+                <div class="prelaunch-notice">
+                    <p><strong>Important Notice:</strong> ParknStore operates as a connection service only. We connect space owners with potential renters but do not process payments, facilitate bookings, or charge any fees during this phase.</p>
+                </div>
+
+                <h3>1. Nature of Our Service</h3>
+                <p>ParknStore is a connection platform that connects space owners ("Hosts") with individuals seeking parking or storage solutions ("Seekers"). We provide a directory service where:</p>
+                <ul>
+                    <li><strong>For Seekers:</strong> Browse listings and contact Hosts directly with no fees</li>
+                    <li><strong>For Hosts:</strong> List your space for free and connect with potential renters</li>
+                    <li><strong>Direct Arrangements:</strong> All rental agreements, payments, and arrangements are made directly between Hosts and Seekers</li>
+                </ul>
+                
+                <h3>2. No Fees During This Phase</h3>
+                <p>During our current service phase:</p>
+                <ul>
+                    <li><strong>Free Listings:</strong> Hosts can list their spaces at no cost</li>
+                    <li><strong>Free Connections:</strong> No fees for connecting with potential renters</li>
+                    <li><strong>No Success Fees:</strong> We don't charge commissions on rental income</li>
+                    <li><strong>Free for Seekers:</strong> Seekers can browse and contact Hosts without any fees</li>
+                </ul>
+                
+                <h3>3. Platform as Connector Only</h3>
+                <p>ParknStore serves as an introduction service only. We are not involved in:</p>
+                <ul>
+                    <li>Payment processing between parties</li>
+                    <li>Rental agreement creation or enforcement</li>
+                    <li>Dispute resolution between Hosts and Seekers</li>
+                    <li>Insurance or liability coverage</li>
+                    <li>Refunds or financial transactions</li>
+                </ul>
+                
+                <h3>4. User-to-User Transactions</h3>
+                <p>All financial transactions, rental agreements, and arrangements are solely between Hosts and Seekers. ParknStore recommends that both parties:</p>
+                <ul>
+                    <li>Create written rental agreements</li>
+                    <li>Verify each other's identities</li>
+                    <li>Maintain appropriate insurance coverage</li>
+                    <li>Follow local regulations and bylaws</li>
+                </ul>
+            </div>
+            <!-- END CONNECTION SERVICE MODEL SECTION -->
+            
+            <!-- HOT WHEEL EVENT SECTION -->
+            <div class="content-section" id="hot-wheel-event">
+                <h2>Hot Wheel Event</h2>
+                
+                <div class="prelaunch-notice">
+                    <p><strong>Connection Service Phase:</strong> ParknStore is currently operating as a connection service only. During this period, including the Hot Wheel event, we facilitate connections between space owners and renters without any fees.</p>
+                </div>
+
+                <h3>Current Service Model</h3>
+                <p>During our connection service phase:</p>
+                <ul>
+                    <li><strong>No Fees:</strong> Hosts receive connections at no cost</li>
+                    <li><strong>Direct Communication:</strong> Users communicate and arrange rentals directly</li>
+                    <li><strong>No Payment Processing:</strong> We do not handle any financial transactions</li>
+                    <li><strong>User-Managed Arrangements:</strong> All rental terms and payments are managed between users</li>
+                </ul>
+                
+                <h3>Service Limitations</h3>
+                <p>As a connection service only:</p>
+                <ul>
+                    <li><strong>No Refunds:</strong> We do not process payments, therefore we do not offer refunds</li>
+                    <li><strong>No Dispute Resolution:</strong> Any issues between users must be resolved directly</li>
+                    <li><strong>No Guarantees:</strong> We do not guarantee the quality, safety, or availability of spaces</li>
+                    <li><strong>User Responsibility:</strong> Users are responsible for their own due diligence</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> Your participation in the Hot Wheel event acknowledges that ParknStore serves only as a connection service. All rental arrangements, payments, and dispute resolution are handled directly between space owners and renters.</p>
+                </div>
+            </div>
+            <!-- END HOT WHEEL EVENT SECTION -->
+            
+            <div class="content-section" id="acceptance">
+                <h2>1. Acceptance of Terms</h2>                
+                <p>Welcome to ParknStore! These Terms of Service govern your use of our connection platform connecting space owners ("Hosts") with those seeking parking and storage solutions ("Seekers").</p>
+                
+                <p>By accessing or using ParknStore.co.nz, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access our platform.</p>
+            </div>
+            
+            <div class="content-section" id="definitions">
+                <h2>2. Definitions</h2>
+                
+                <ul>
+                    <li><strong>ParknStore:</strong> The ParknStore.co.nz platform, operated as a connection service.</li>
+                    <li><strong>Host:</strong> A person or entity listing a parking or storage space on the ParknStore platform.</li>
+                    <li><strong>Seeker:</strong> A person or entity searching for parking or storage spaces through the ParknStore platform.</li>
+                    <li><strong>Connection:</strong> The facilitation of contact between a Seeker and a Host through the ParknStore platform.</li>
+                    <li><strong>Space:</strong> The specified parking or storage area at the Host's property.</li>
+                    <li><strong>Listing:</strong> A Host's advertisement for their space on the ParknStore platform.</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="platform-role">
+                <h2>3. Platform Role</h2>
+                
+                <p>ParknStore acts exclusively as a connection service. We provide a platform for Hosts to list their spaces and for Seekers to find and contact Hosts. We are not involved in the subsequent rental arrangements between users.</p>
+                
+                <div class="highlight">
+                    <p><strong>Connection Service Only:</strong> ParknStore facilitates introductions but does not process payments, create rental agreements, act as an intermediary in user transactions, or charge any fees for connections during this phase.</p>
+                </div>
+                
+                <h3>What We Do</h3>
+                <ul>
+                    <li>Provide a platform for Hosts to create listings</li>
+                    <li>Allow Seekers to search for and view available spaces</li>
+                    <li>Facilitate initial contact between Hosts and Seekers</li>
+                    <li>Provide connection services at no cost during this phase</li>
+                </ul>
+                
+                <h3>What We Don't Do</h3>
+                <ul>
+                    <li>Process payments between users</li>
+                    <li>Create or enforce rental agreements</li>
+                    <li>Provide insurance or guarantee space availability</li>
+                    <li>Resolve disputes between users</li>
+                    <li>Offer refunds or handle financial transactions</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="user-responsibilities">
+                <h2>4. User Responsibilities</h2>
+                
+                <h3>Host Responsibilities:</h3>
+                <ul>
+                    <li>Provide accurate and truthful descriptions of Spaces</li>
+                    <li>Ensure Spaces are safe, legal to rent, and comply with all local regulations</li>
+                    <li>Maintain appropriate insurance for their property</li>
+                    <li>Respond promptly to Seeker inquiries</li>
+                    <li>Handle all rental arrangements and payments directly with Seekers</li>
+                    <li>Resolve any disputes directly with Seekers</li>
+                </ul>
+                
+                <h3>Seeker Responsibilities:</h3>
+                <ul>
+                    <li>Verify that Spaces meet their needs before contacting Hosts</li>
+                    <li>Use Spaces only for lawful purposes</li>
+                    <li>Maintain insurance for stored vehicles or items</li>
+                    <li>Make all payments directly to Hosts according to mutually agreed terms</li>
+                    <li>Conduct due diligence on Hosts and spaces before entering agreements</li>
+                    <li>Resolve any disputes directly with Hosts</li>
+                </ul>
+                
+                <div class="disclaimer">
+                    <p><strong>Important:</strong> ParknStore does not verify the identity, reliability, or suitability of users. All interactions and agreements between Hosts and Seekers are at their own risk.</p>
+                </div>
+            </div>
+            
+            <div class="content-section" id="prohibited-items">
+                <h2>5. Prohibited Items & Activities</h2>
+                
+                <h3>Prohibited Storage Items</h3>
+                <p>Hosts should prohibit and Seekers should not store the following items:</p>
+                <ul>
+                    <li>Weapons, firearms, ammunition, explosives</li>
+                    <li>Hazardous, toxic, or flammable materials</li>
+                    <li>Live animals or plants</li>
+                    <li>Perishable food items</li>
+                    <li>Illegal or stolen goods</li>
+                    <li>Items that would void Host's insurance</li>
+                </ul>
+                
+                <h3>Prohibited Platform Use</h3>
+                <ul>
+                    <li>Creating fake or misleading listings</li>
+                    <li>Harassing other users</li>
+                    <li>Using the platform for illegal activities</li>
+                    <li>Attempting to circumvent the connection service</li>
+                </ul>
+                
+                <div class="disclaimer">
+                    <p>Violation of these prohibitions may result in immediate termination of your account.</p>
+                </div>
+            </div>
+            
+            <div class="content-section" id="cancellation">
+                <h2>6. Listing Management</h2>
+                
+                <h3>Listing Creation and Maintenance</h3>
+                <p>Hosts are responsible for maintaining accurate and current listings. ParknStore may remove listings that are inaccurate, inactive, or violate our policies.</p>
+                
+                <h3>Connection Service</h3>
+                <p>A connection is established when a Seeker submits a complete contact form through our platform. ParknStore facilitates this connection but is not responsible for the outcome.</p>
+                
+                <h3>No Refund Policy</h3>
+                <p>As ParknStore does not process payments between users, we do not offer refunds. Any financial disputes must be resolved directly between the Host and Seeker involved.</p>
+                
+                <h3>Account Termination</h3>
+                <p>ParknStore reserves the right to suspend or terminate accounts that violate these Terms or engage in fraudulent activity.</p>
+            </div>
+            
+            <div class="content-section" id="liability">
+                <h2>7. Liability Limitations</h2>
+                
+                <h3>No Warranty or Guarantee</h3>
+                <p>ParknStore provides the platform on an "as-is" basis. We do not warrant that connections will result in successful rentals or that users will find the platform meets their expectations.</p>
+                
+                <h3>Limited Platform Liability</h3>
+                <p>ParknStore's liability is limited to providing connection services only. We are not liable for any indirect, incidental, or consequential damages arising from user interactions.</p>
+                
+                <h3>User-to-User Transactions</h3>
+                <p>ParknStore is not responsible for disputes, damages, or issues arising from arrangements between Hosts and Seekers. Users interact at their own risk.</p>
+                
+                <div class="disclaimer">
+                    <p>Users are encouraged to obtain appropriate insurance and conduct due diligence before entering into rental agreements.</p>
+                </div>
+            </div>
+            
+            <div class="content-section" id="disputes">
+                <h2>8. Dispute Resolution</h2>
+                
+                <h3>User Disputes</h3>
+                <p>Disputes between users must be resolved directly between the parties involved. ParknStore is not obligated to mediate disputes and does not provide dispute resolution services.</p>
+                
+                <h3>Platform Disputes</h3>
+                <p>Any disputes with ParknStore will be resolved through binding arbitration in Auckland, New Zealand, rather than in court.</p>
+                
+                <h3>Governing Law</h3>
+                <p>These Terms are governed by the laws of New Zealand.</p>
+            </div>
+            
+            <div class="content-section" id="changes">
+                <h2>9. Changes to Terms</h2>
+                
+                <p>We may update these Terms from time to time. Significant changes will be communicated to users via email or platform notifications. Continued use of ParknStore after changes constitutes acceptance of the modified terms.</p>
+                
+                <div class="disclaimer">
+                    <p>Users are responsible for reviewing these Terms periodically for changes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ParknStore</h3>
+                    <p>Connecting communities through shared parking and storage solutions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="FindSpaces.html">Find Spaces</a></li>
+                        <li><a href="ListYourSpace.html">List Your Space</a></li>
+                        <li><a href="Howitworks.html">How It Works</a></li>
+                        <li><a href="FAQ.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+                        <li><a href="TermsOfService.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@parknstore.co.nz</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ParknStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('show');
+        });
+        
+        // Sidebar toggle for mobile
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const termsSidebar = document.getElementById('terms-sidebar');
+        
+        if (sidebarToggle && termsSidebar) {
+            sidebarToggle.addEventListener('click', function() {
+                termsSidebar.classList.toggle('collapsed');
+            });
+        }
+        
+        // Improved smooth scrolling for sidebar links
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (!targetElement) return;
+                
+                // Calculate the scroll position with proper offset
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const additionalOffset = 20; // Extra spacing
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update active class
+                document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update URL hash without scrolling
+                history.replaceState(null, null, targetId);
+                
+                // Auto-close sidebar on mobile after clicking a link
+                if (window.innerWidth <= 1024) {
+                    termsSidebar.classList.add('collapsed');
+                }
+            });
+        });
+        
+        // Adjust scroll offset for mobile header
+        function adjustScrollOffset() {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.scrollMarginTop = headerHeight + 20 + 'px';
+            });
+        }
+        
+        // Handle URL hash on page load
+        function handleInitialHash() {
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    // Small timeout to ensure DOM is fully rendered
+                    setTimeout(() => {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const additionalOffset = 20;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active class in sidebar
+                        document.querySelectorAll('.sidebar a').forEach(a => {
+                            a.classList.remove('active');
+                            if (a.getAttribute('href') === window.location.hash) {
+                                a.classList.add('active');
+                            }
+                        });
+                    }, 100);
+                }
+            }
+        }
+        
+        // Run on load and resize
+        window.addEventListener('load', function() {
+            adjustScrollOffset();
+            handleInitialHash();
+        });
+        window.addEventListener('resize', adjustScrollOffset);
+    </script>
+</body>
+</html>
