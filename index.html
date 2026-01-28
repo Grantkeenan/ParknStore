@@ -197,6 +197,18 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
+		.btn-outline.host-btn {
+			border-color: #ff8c00;
+			color: #ff8c00;
+		}
+
+		.btn-outline.host-btn:hover {
+			background-color: #ff8c00;
+			color: white;
+			transform: translateY(-3px);
+			box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+		}
+
         /* Forms Section */
         .forms-section {
             padding: 80px 0;
@@ -479,6 +491,105 @@
         .step h3 {
             margin-bottom: 15px;
             color: var(--primary);
+        }
+        
+        /* Validation Section Styles */
+        .validation-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .listing-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .listing-image {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-color: #f5f5f5;
+        }
+
+        .listing-content {
+            padding: 25px;
+        }
+
+        .listing-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .listing-content h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .listing-details {
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            min-width: 70px;
+            color: var(--dark);
+        }
+
+        .detail-value {
+            color: #666;
+            flex: 1;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 5px;
+        }
+
+        .listing-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .listing-actions .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            display: none;
+        }
+
+        .listings-grid.active {
+            display: grid;
         }
         
         /* New Value Bomb Section */
@@ -867,6 +978,384 @@
             cursor: pointer;
         }
         
+        /* Validation Modal Styles */
+		.validation-modal .modal-content {
+			max-width: 500px;
+			padding: 30px;
+			border-radius: 15px;
+			overflow: hidden;
+		}
+
+		.validation-modal h2 {
+			color: var(--primary);
+			margin-bottom: 15px;
+			text-align: center;
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 1.3;
+		}
+
+		.validation-modal .subtitle {
+			color: #666;
+			margin-bottom: 25px;
+			text-align: center;
+			font-size: 15px;
+			line-height: 1.5;
+			padding: 0 10px;
+		}
+
+		.validation-modal .lead-form {
+			margin-top: 20px;
+		}
+
+		.validation-modal .form-group {
+			margin-bottom: 22px;
+		}
+
+		.validation-modal .form-group label {
+			display: block;
+			margin-bottom: 8px;
+			font-weight: 600;
+			color: var(--dark);
+			font-size: 15px;
+		}
+
+		.validation-modal .form-control {
+			width: 100%;
+			padding: 14px 16px;
+			border: 2px solid #e1e5e9;
+			border-radius: 8px;
+			font-size: 15px;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			transition: all 0.3s ease;
+			background-color: #f9fafb;
+			color: #333;
+		}
+
+		.validation-modal .form-control:focus {
+			outline: none;
+			border-color: var(--secondary);
+			background-color: white;
+			box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+		}
+
+		.validation-modal textarea.form-control {
+			min-height: 100px;
+			resize: vertical;
+			line-height: 1.5;
+		}
+
+		/* Updated Frequency Options */
+		.validation-modal .frequency-options {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 10px;
+			margin-top: 8px;
+		}
+
+		.validation-modal .frequency-btn {
+			padding: 14px 12px;
+			background: #f8f9fa;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-weight: 500;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.validation-modal .frequency-btn:hover {
+			background: #e9ecef;
+			border-color: #ced4da;
+		}
+
+		.validation-modal .frequency-btn.selected {
+			background: var(--secondary);
+			color: white;
+			border-color: var(--secondary);
+			box-shadow: 0 3px 8px rgba(52, 152, 219, 0.2);
+		}
+
+		/* Updated Radio Group for Validation Modals */
+		.validation-modal .radio-group {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			gap: 10px;
+			margin-top: 8px;
+		}
+
+		.validation-modal .radio-option {
+			display: flex;
+			align-items: center;
+			padding: 12px 15px;
+			background: #f8f9fa;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.validation-modal .radio-option:hover {
+			background: #e9ecef;
+			border-color: #ced4da;
+		}
+
+		.validation-modal .radio-option input[type="radio"] {
+			margin-right: 10px;
+			transform: scale(1.1);
+		}
+
+		.validation-modal .radio-option label {
+			margin-bottom: 0;
+			cursor: pointer;
+			font-weight: 500;
+			flex: 1;
+		}
+
+		/* Submit Button Improvements */
+		.validation-modal .submit-btn {
+			background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
+			color: white;
+			border: none;
+			padding: 16px 24px;
+			border-radius: 10px;
+			font-size: 16px;
+			font-weight: 600;
+			cursor: pointer;
+			width: 100%;
+			transition: all 0.3s ease;
+			margin-top: 10px;
+			box-shadow: 0 4px 12px rgba(52, 152, 219, 0.25);
+			letter-spacing: 0.3px;
+		}
+
+		.validation-modal .submit-btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 16px rgba(52, 152, 219, 0.35);
+			background: linear-gradient(135deg, #2980b9 0%, var(--secondary) 100%);
+		}
+
+		.validation-modal .submit-btn:active {
+			transform: translateY(0);
+		}
+
+		.validation-modal .submit-btn[style*="orange"] {
+			background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+			box-shadow: 0 4px 12px rgba(243, 156, 18, 0.25);
+		}
+
+		.validation-modal .submit-btn[style*="orange"]:hover {
+			background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+			box-shadow: 0 6px 16px rgba(243, 156, 18, 0.35);
+		}
+
+		/* Form Section Improvements */
+		.validation-modal .form-section-title {
+			font-size: 16px;
+			font-weight: 600;
+			color: var(--primary);
+			margin-bottom: 15px;
+			padding-bottom: 8px;
+			border-bottom: 2px solid #eef2f7;
+		}
+
+		/* Required field indicator */
+		.validation-modal .required-field::after {
+			content: " *";
+			color: #e74c3c;
+		}
+
+		/* Loading state for buttons */
+		.validation-modal .submit-btn.loading {
+			opacity: 0.8;
+			cursor: not-allowed;
+		}
+
+		/* Success message styling */
+		.validation-modal .success-message {
+			background-color: #d4edda;
+			color: #155724;
+			padding: 15px;
+			border-radius: 8px;
+			margin-top: 20px;
+			text-align: center;
+			display: none;
+		}
+
+		.validation-modal .success-message.show {
+			display: block;
+		}
+
+		/* Mobile Optimizations */
+		@media (max-width: 768px) {
+			.validation-modal .modal-content {
+				margin: 10% auto;
+				width: 90%;
+				max-width: 95%;
+				padding: 25px 20px;
+				max-height: 85vh;
+				overflow-y: auto;
+			}
+			
+			.validation-modal h2 {
+				font-size: 22px;
+				margin-bottom: 12px;
+				padding: 0 5px;
+			}
+			
+			.validation-modal .subtitle {
+				font-size: 14px;
+				margin-bottom: 20px;
+				padding: 0;
+			}
+			
+			.validation-modal .form-group {
+				margin-bottom: 18px;
+			}
+			
+			.validation-modal .form-group label {
+				font-size: 14px;
+				margin-bottom: 6px;
+			}
+			
+			.validation-modal .form-control {
+				padding: 12px 14px;
+				font-size: 14px;
+			}
+			
+			.validation-modal textarea.form-control {
+				min-height: 90px;
+			}
+			
+			.validation-modal .frequency-options {
+				grid-template-columns: 1fr;
+				gap: 8px;
+			}
+			
+			.validation-modal .radio-group {
+				grid-template-columns: 1fr;
+				gap: 8px;
+			}
+			
+			.validation-modal .radio-option {
+				padding: 10px 12px;
+			}
+			
+			.validation-modal .submit-btn {
+				padding: 14px 20px;
+				font-size: 15px;
+			}
+			
+			.frequency-btn, .radio-option {
+				font-size: 13px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.validation-modal .modal-content {
+				padding: 20px 16px;
+				margin: 5% auto;
+				max-height: 90vh;
+			}
+			
+			.validation-modal h2 {
+				font-size: 20px;
+			}
+			
+			.validation-modal .subtitle {
+				font-size: 13px;
+			}
+			
+			.validation-modal .form-control {
+				padding: 11px 13px;
+			}
+			
+			.validation-modal .submit-btn {
+				padding: 13px 18px;
+				font-size: 14px;
+			}
+		}
+
+		/* Input placeholder styling */
+		.validation-modal .form-control::placeholder {
+			color: #95a5a6;
+			font-size: 14px;
+			opacity: 0.8;
+		}
+
+		/* Focus state improvements */
+		.validation-modal .form-control:focus::placeholder {
+			color: #bdc3c7;
+		}
+
+		/* Error state for form fields */
+		.validation-modal .form-control.error {
+			border-color: #e74c3c;
+			background-color: #fdf2f2;
+		}
+
+		.validation-modal .error-message {
+			color: #e74c3c;
+			font-size: 13px;
+			margin-top: 5px;
+			display: none;
+		}
+
+		.validation-modal .error-message.show {
+			display: block;
+		}
+
+		/* Spacing improvements */
+		.validation-modal .form-section {
+			margin-bottom: 25px;
+		}
+
+		.validation-modal .form-section:last-child {
+			margin-bottom: 0;
+		}
+
+		/* Character counter for textareas */
+		.validation-modal .char-counter {
+			text-align: right;
+			font-size: 12px;
+			color: #95a5a6;
+			margin-top: 5px;
+		}
+        .frequency-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .frequency-btn {
+            flex: 1;
+            min-width: 100px;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .frequency-btn:hover {
+            background: #e9ecef;
+            border-color: #ced4da;
+        }
+
+        .frequency-btn.selected {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
@@ -965,6 +1454,22 @@
             .guide-body {
                 padding: 20px;
                 max-height: 65vh;
+            }
+            
+            .listings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .listing-actions {
+                flex-direction: column;
+            }
+            
+            .listing-actions .btn {
+                width: 100%;
+            }
+            
+            .frequency-btn {
+                min-width: 80px;
             }
         }
 
@@ -1300,6 +1805,12 @@
         .value-card-btn .btn {
             width: 100%; /* Make buttons in value cards full width */
         }
+		.price-disclaimer {
+		  color: #666;
+		  font-size: 0.8em;
+		  margin-top: 4px;
+		  font-style: italic;
+		}
     </style>
 </head>
 <body>
@@ -1324,11 +1835,12 @@
                 <ul id="menu">
                     <li><a href="#forms">Get Started</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#validation-section">View Examples</a></li>
                     <li><a href="#value-bomb" id="openCalculatorLink">Explore Hosting</a></li>
                     <li><a href="#benefits">Benefits</a></li>
                     <li><a href="/FAQ.HTML" id="faq-link">FAQ</a></li>
                     <li><a href="#referral-section">Refer ParknStore</a></li>
-					<li><a href="/EdenPark.html">Event Parking</a></li>
+					<!--<li><a href="/EdenPark.html">Event Parking</a></li>-->
                 </ul>
             </nav>
         </div>
@@ -1589,6 +2101,372 @@
         </div>
     </section>
 
+    <!-- Validation Section with Example Listings -->
+    <section class="validation-section" id="validation-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Validation: Help Us Launch in Your Suburb</h2>
+                <p>We're currently validating demand in Auckland. These are example listings based on what locals have told us.</p>
+                <p class="cta-nudge" style="color: var(--primary); margin-top: 10px;">Click buttons below to tell us what interests you and help us prioritize your suburb.</p>
+            </div>
+            
+            <!-- Form Toggle for Validation -->
+            <div class="form-toggle-container">
+                <div class="form-toggle">
+                    <div class="toggle-option active" id="viewParkingToggle">
+                        <i class="fas fa-car"></i> Parking Examples
+                    </div>
+                    <div class="toggle-option" id="viewStorageToggle">
+                        <i class="fas fa-box"></i> Storage Examples
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Parking Examples Grid -->
+            <div class="listings-grid active" id="parkingExamples">
+                <!-- 1. Driveway Parking -->
+				<div class="listing-card">
+                    <!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>-->
+                    <div class="listing-image" style="background-image: url('images/SecureDrivewayParking.png');"></div>
+					<div class="listing-content">
+                        <div class="listing-icon">🚗</div>
+                        <h3>Driveway Parking:</h3>
+                        <div class="listing-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Uncovered Residential driveway</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Access:</div>
+                                <div class="detail-value">24/7</div>
+                            </div>
+							<div class="detail-item">
+								<div class="detail-label">Security:</div>
+								<div class="detail-value">Street view, well-lit</div>
+							</div>
+                            <div class="detail-item">
+                                <div class="detail-label">Ideal for:</div>
+                                <div class="detail-value">Daily commuters, event parking for nearby stadium</div>
+                            </div>
+                        </div>
+						
+						<div class="price-example-container">
+						  <div class="price">~$50–$70 per week</div>
+						  <div class="price-disclaimer">
+							<small>Example market rate. You set your own price when listing..</small>
+						  </div>
+						</div>
+                        <!--<div class="price">~$40–$50 per week</div>-->
+                        <div class="listing-actions">
+                            <button class="btn btn-primary interest-btn" data-type="driveway-parking">I'd rent something like this</button>
+                            <button class="btn btn-outline host-btn" data-type="driveway">I'd list my space like this</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2. Secure Garage -->
+                <div class="listing-card">
+                    <!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>-->
+                    <div class="listing-image" style="background-image: url('images/DryGarageStorage.png');"></div>
+					<div class="listing-content">
+                        <div class="listing-icon">🔐</div>
+                        <h3>Secure Garage:</h3>
+                        <div class="listing-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Single lock‑up garage</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Access:</div>
+                                <div class="detail-value">24/7 (key/code)</div>
+                            </div>
+                             <div class="detail-item">
+								<div class="detail-label">Security:</div>
+								<div class="detail-value">Lockable door, sheltered</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Ideal for:</div>
+								<div class="detail-value">Long-term vehicle storage, classic cars, secure parking</div>
+							</div>
+                        </div>
+						
+						<div class="price-example-container">
+						  <div class="price">~$250 per week</div>
+						  <div class="price-disclaimer">
+							<small>Example market rate. You set your own price when listing..</small>
+						  </div>
+						</div>
+                        <!--<div class="price">~$120 per week</div>-->
+                        <div class="listing-actions">
+                            <button class="btn btn-primary interest-btn" data-type="secure-garage">I'd rent something like this</button>
+                            <button class="btn btn-outline host-btn" data-type="garage">I'd list my space like this</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3. Carport -->
+                <div class="listing-card">
+                    <!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1551524165-6b6e5a6166f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>-->
+                    <div class="listing-image" style="background-image: url('images/CoveredCarport.png');"></div>
+					<div class="listing-content">
+                        <div class="listing-icon">🛡️</div>
+                        <h3>Covered Carport:</h3>
+                        <div class="listing-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Type:</div>
+                                <div class="detail-value">Covered carport</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Access:</div>
+                                <div class="detail-value">24/7</div>
+                            </div>
+							<div class="detail-item">
+								<div class="detail-label">Protection:</div>
+								<div class="detail-value">Sheltered from rain and sun</div>
+							</div>
+                            <div class="detail-item">
+                                <div class="detail-label">Ideal for:</div>
+                                <div class="detail-value">Students, residents, long‑term parking</div>
+                            </div>
+                        </div>
+						<div class="price-example-container">
+						  <div class="price">~$35–$55 per week</div>
+						  <div class="price-disclaimer">
+							<small>Example market rate. You set your own price when listing..</small>
+						  </div>
+						</div>
+                        <!--<div class="price">~$35–$55 per week</div>-->
+                        <div class="listing-actions">
+                            <button class="btn btn-primary interest-btn" data-type="carport">I'd rent something like this</button>
+                            <button class="btn btn-outline host-btn" data-type="carport">I'd list my space like this</button>
+                        </div>
+                    </div>
+                </div>
+				<!-- 4. Parking Space/Lot (NEW) -->
+				<div class="listing-card">
+					<!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>-->
+					<div class="listing-image" style="background-image: url('images/ParkingSpaceLot.png');"></div>
+					<div class="listing-content">
+						<div class="listing-icon">🅿️</div>
+						<h3>Parking Space/Lot</h3>
+						<div class="listing-subtitle">Commercial • Dedicated • Marked Bay</div>
+						<div class="listing-details">
+							<div class="detail-item">
+								<div class="detail-label">Type:</div>
+								<div class="detail-value">Marked parking bay in lot</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Access:</div>
+								<div class="detail-value">Business hours or 24/7</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Location:</div>
+								<div class="detail-value">Near commercial areas, offices</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Ideal for:</div>
+								<div class="detail-value">Work commuters, business visitors, regular parking</div>
+							</div>
+						</div>
+						<div class="price-example-container">
+							<div class="price">~$50–$70 per week</div>
+							<div class="price-disclaimer">
+							  <small>Example market rate. You set your own price when listing.</small>
+							</div>
+						</div>
+						<div class="listing-actions">
+							<button class="btn btn-primary interest-btn" data-type="parking-lot">
+								<!--<i class="fas fa-search"></i>--> I'd rent something like this
+							</button>
+							<button class="btn btn-outline host-btn" data-type="parking-lot">
+								<!--<i class="fas fa-dollar-sign"></i>--> I'd list my space like this
+							</button>
+						</div>
+					</div>
+				</div>
+				
+            </div>
+            
+			<!-- Storage Examples Grid - ALL 5 TYPES -->
+			<div class="listings-grid" id="storageExamples">
+				<!-- 1. Storage Unit (NEW) -->
+				<div class="listing-card">
+					<!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>-->
+					<div class="listing-image" style="background-image: url('images/storageunit.png');"></div>
+					<div class="listing-content">
+						<div class="listing-icon">📦</div>
+						<h3>Storage Unit</h3>
+						<div class="listing-subtitle">Standard • Lockable • Climate Controlled</div>
+						<div class="listing-details">
+							<div class="detail-item">
+								<div class="detail-label">Type:</div>
+								<div class="detail-value">Standard storage unit</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Size:</div>
+								<div class="detail-value">5-20m² (various sizes available)</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Features:</div>
+								<div class="detail-value">Climate control, 24/7 security</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Ideal for:</div>
+								<div class="detail-value">Household goods, business inventory, seasonal items</div>
+							</div>
+						</div>
+						<div class="price-example-container">
+							<div class="price">~$60–$90 per week</div>
+							<div class="price-disclaimer">
+							  <small>Example market rate. You set your own price when listing.</small>
+							</div>
+						</div>
+						<!--<div class="price">~$60–$90 per week</div>-->
+						<div class="listing-actions">
+							<button class="btn btn-primary interest-btn" data-type="storage-unit">
+								<!--<i class="fas fa-search"></i>--> I'd rent something like this
+							</button>
+							<button class="btn btn-outline host-btn" data-type="storage-unit">
+								<!--<i class="fas fa-dollar-sign"></i>--> I'd list my space like this
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 2. Warehouse -->
+				<div class="listing-card">
+					<!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>-->
+					<div class="listing-image" style="background-image: url('images/Warehousespace.png');"></div>
+					<div class="listing-content">
+						<div class="listing-icon">🏭</div>
+						<h3>Warehouse Space</h3>
+						<div class="listing-subtitle">Commercial • Pallet Storage • Business Use</div>
+						<div class="listing-details">
+							<div class="detail-item">
+								<div class="detail-label">Type:</div>
+								<div class="detail-value">Shared warehouse space</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Size:</div>
+								<div class="detail-value">20-50m² (pallet storage available)</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Access:</div>
+								<div class="detail-value">Business hours (7am-7pm)</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Ideal for:</div>
+								<div class="detail-value">Small businesses, inventory storage, trade materials, equipment</div>
+							</div>
+						</div>
+						<div class="price-example-container">
+							<div class="price">~$80–$120 per week</div>
+							<div class="price-disclaimer">
+							  <small>Example market rate. You set your own price when listing.</small>
+							</div>
+						</div>
+						<!--<div class="price">~$80–$120 per week</div>-->
+						<div class="listing-actions">
+							<button class="btn btn-primary interest-btn" data-type="warehouse">
+								<!--<i class="fas fa-search"></i>--> I'd rent something like this
+							</button>
+							<button class="btn btn-outline host-btn" data-type="warehouse">
+								<!--<i class="fas fa-dollar-sign"></i>--> I'd list my space like this
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 3. Basement -->
+				<div class="listing-card">
+					<!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1589674781753-1c2125844cc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>-->
+					<div class="listing-image" style="background-image: url('images/BasementStorageunit.png');"></div>
+					<div class="listing-content">
+						<div class="listing-icon">🏠</div>
+						<h3>Basement Storage</h3>
+						<div class="listing-subtitle">Dry • Temperature Controlled • Secure</div>
+						<div class="listing-details">
+							<div class="detail-item">
+								<div class="detail-label">Type:</div>
+								<div class="detail-value">Indoor basement space</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Size:</div>
+								<div class="detail-value">10-20m² (temperature controlled)</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Access:</div>
+								<div class="detail-value">Weekdays 9am-6pm, appointment preferred</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Ideal for:</div>
+								<div class="detail-value">Wine collection, furniture, archives, sensitive items</div>
+							</div>
+						</div>
+						<div class="price-example-container">
+							<div class="price">~$45–$65 per week</div>
+							<div class="price-disclaimer">
+							  <small>Example market rate. You set your own price when listing.</small>
+							</div>
+						</div>
+						<!--<div class="price">~$45–$65 per week</div>-->
+						<div class="listing-actions">
+							<button class="btn btn-primary interest-btn" data-type="basement">
+								<!--<i class="fas fa-search"></i>--> I'd rent something like this
+							</button>
+							<button class="btn btn-outline host-btn" data-type="basement">
+								<!--<i class="fas fa-dollar-sign"></i>--> I'd list my space like this
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 4. Shed -->
+				<div class="listing-card">
+					<!--<div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1576086961372-5d5c3b8f6d7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>-->
+					<div class="listing-image" style="background-image: url('images/ShedStorageSpace.png');"></div>
+					<div class="listing-content">
+						<div class="listing-icon">🔨</div>
+						<h3>Garden Shed</h3>
+						<div class="listing-subtitle">Secure • Dry • Outdoor Storage</div>
+						<div class="listing-details">
+							<div class="detail-item">
+								<div class="detail-label">Type:</div>
+								<div class="detail-value">Lockable garden shed</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Size:</div>
+								<div class="detail-value">8-12m² (furniture, boxes, gear)</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Access:</div>
+								<div class="detail-value">By arrangement with host</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-label">Ideal for:</div>
+								<div class="detail-value">Gardening tools, bicycles, seasonal items, hobby equipment</div>
+							</div>
+						</div>
+						<div class="price-example-container">
+							<div class="price">~$35–$55 per week</div>
+							<div class="price-disclaimer">
+							  <small>Example market rate. You set your own price when listing.</small>
+							</div>
+						</div>
+						<!--<div class="price">~$35–$55 per week</div>-->
+						<div class="listing-actions">
+							<button class="btn btn-primary interest-btn" data-type="spare-room">
+								<!--<i class="fas fa-search"></i>--> I'd rent something like this
+							</button>
+							<button class="btn btn-outline host-btn" data-type="spare-room">
+								<!--<i class="fas fa-dollar-sign"></i>--> I'd list my space like this
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
     <!-- New Value Bomb Section -->
     <section class="value-bomb" id="value-bomb">
         <div class="container">
@@ -1710,6 +2588,7 @@
                     <ul>
                         <li><a href="#forms">Join Waitlist</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#validation-section">View Examples</a></li>
                         <li><a href="#value-bomb" id="openCalculatorLink">Explore Hosting</a></li>
                         <li><a href="#benefits">Benefits</a></li>
                     </ul>
@@ -2031,6 +2910,112 @@
         </div>
     </div>
 
+    <!-- Renter Interest Modal -->
+    <div id="renterInterestModal" class="modal validation-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Tell Us About Your Interest</h2>
+            <p class="subtitle">Help us validate demand for spaces like this in your area</p>
+            
+            <form id="renterInterestForm" class="lead-form">
+                <input type="hidden" name="interest_type" id="interestType" value="">
+                <input type="hidden" name="user_type" value="renter">
+                
+                <div class="form-group">
+                    <label for="interest-name">Name</label>
+                    <input type="text" id="interest-name" name="name" class="form-control" placeholder="Your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest-email">Email</label>
+                    <input type="email" id="interest-email" name="email" class="form-control" placeholder="Your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest-suburb">Which suburb do you need this in?</label>
+                    <input type="text" id="interest-suburb" name="suburb" class="form-control" placeholder="Your suburb" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>How often would you need this space?</label>
+                    <div class="frequency-options">
+                        <div class="frequency-btn" data-value="daily">Daily</div>
+                        <div class="frequency-btn selected" data-value="weekly">Weekly</div>
+                        <div class="frequency-btn" data-value="monthly">Monthly</div>
+                        <div class="frequency-btn" data-value="occasional">Occasional</div>
+                    </div>
+                    <input type="hidden" id="frequency-input" name="frequency" value="weekly">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest-challenge">What's your biggest challenge with parking/storage right now?</label>
+                    <textarea id="interest-challenge" name="challenge" class="form-control" placeholder="Tell us about your current parking or storage challenges..." rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Join Renter Waitlist</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Host Interest Modal -->
+    <div id="hostInterestModal" class="modal validation-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Start Earning from Your Space</h2>
+            <p class="subtitle">Tell us about your space to get personalized insights</p>
+            
+            <form id="hostInterestForm" class="lead-form" style="display: flex; flex-direction: column; height: 100%;">
+                <input type="hidden" name="space_type" id="hostSpaceType" value="">
+                <input type="hidden" name="user_type" value="host">
+                
+                <div class="form-group">
+                    <label for="host-interest-name">Name</label>
+                    <input type="text" id="host-interest-name" name="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="host-interest-email">Email</label>
+                    <input type="email" id="host-interest-email" name="email" class="form-control" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="host-interest-suburb">Which suburb is your space in?</label>
+                    <input type="text" id="host-interest-suburb" name="suburb" class="form-control" placeholder="Where is your space located?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="host-space-size">What size is your space? (optional)</label>
+                    <input type="text" id="host-space-size" name="space_size" class="form-control" placeholder="e.g., 10m², 2 car spaces, etc.">
+                </div>
+                
+                <div class="form-group">
+                    <label>How would you prefer to make your space available?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="availability-247" name="availability" value="24/7" checked>
+                            <label for="availability-247">24/7 Access</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="availability-scheduled" name="availability" value="scheduled">
+                            <label for="availability-scheduled">Scheduled Times</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="availability-flexible" name="availability" value="flexible">
+                            <label for="availability-flexible">Flexible/On Request</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="host-concerns">Any concerns about renting out your space? (optional)</label>
+                    <textarea id="host-concerns" name="concerns" class="form-control" placeholder="Security, insurance, access, etc." rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" style="background-color: var(--orange);">Validate Your Space's Potential</button>
+            </form>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script>
         // Mobile menu toggle
@@ -2235,6 +3220,98 @@
         const guideAlreadySubmitted = document.getElementById('guideAlreadySubmitted');
         const calcSpaceTypeInput = document.getElementById('calcSpaceType');
         
+        // Validation Section Toggle
+        document.getElementById('viewParkingToggle').addEventListener('click', function() {
+            document.getElementById('viewParkingToggle').classList.add('active');
+            document.getElementById('viewStorageToggle').classList.remove('active');
+            document.getElementById('parkingExamples').classList.add('active');
+            document.getElementById('storageExamples').classList.remove('active');
+        });
+
+        document.getElementById('viewStorageToggle').addEventListener('click', function() {
+            document.getElementById('viewStorageToggle').classList.add('active');
+            document.getElementById('viewParkingToggle').classList.remove('active');
+            document.getElementById('storageExamples').classList.add('active');
+            document.getElementById('parkingExamples').classList.remove('active');
+        });
+
+        // Modal variables for validation
+        const renterInterestModal = document.getElementById('renterInterestModal');
+        const hostInterestModal = document.getElementById('hostInterestModal');
+        const interestTypeInput = document.getElementById('interestType');
+        const hostSpaceTypeInput = document.getElementById('hostSpaceType');
+        const frequencyInput = document.getElementById('frequency-input');
+
+        // "I'd rent something like this" button functionality
+        document.querySelectorAll('.interest-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const spaceType = this.getAttribute('data-type');
+                interestTypeInput.value = spaceType;
+                renterInterestModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // "I have a space like this" button functionality
+        document.querySelectorAll('.host-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const spaceType = this.getAttribute('data-type');
+                hostSpaceTypeInput.value = spaceType;
+                hostInterestModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+				
+				// Focus on the first input and scroll into view on desktop
+        setTimeout(() => {
+            const firstNameInput = document.getElementById('host-interest-name');
+            if (firstNameInput) {
+                firstNameInput.focus();
+                
+						// For desktop screens, ensure the modal content is visible
+						if (window.innerWidth > 768) {
+							// Scroll the modal content to show the submit button
+							const modalContent = hostInterestModal.querySelector('.modal-content');
+							if (modalContent) {
+								// Calculate position to show submit button
+								const submitBtn = hostInterestModal.querySelector('.submit-btn');
+								if (submitBtn) {
+									// Scroll to the bottom of the modal content
+									modalContent.scrollTop = modalContent.scrollHeight;
+									
+									// Alternative: scroll the button into view within the modal
+									submitBtn.scrollIntoView({ 
+										behavior: 'smooth', 
+										block: 'end',
+										inline: 'nearest'
+									});
+								}
+							}
+						}
+					}
+				}, 100);
+			});
+		});
+
+
+        // Frequency selection
+        document.querySelectorAll('.frequency-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.frequency-btn').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                frequencyInput.value = this.getAttribute('data-value');
+            });
+        });
+
+        // Close validation modals
+        renterInterestModal.querySelector('.close-modal').addEventListener('click', function() {
+            renterInterestModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        hostInterestModal.querySelector('.close-modal').addEventListener('click', function() {
+            hostInterestModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
         // Open guide modal
         openGuideBtn.addEventListener('click', function() {
             if (checkIfGuideSubmitted()) {
@@ -2261,6 +3338,8 @@
                 calculatorModal.style.display = 'none';
                 calculatorLeadModal.style.display = 'none';
                 guideLeadModal.style.display = 'none';
+                renterInterestModal.style.display = 'none';
+                hostInterestModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             });
         });
@@ -2299,6 +3378,14 @@
             }
             if (event.target == guideLeadModal) {
                 guideLeadModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target == renterInterestModal) {
+                renterInterestModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target == hostInterestModal) {
+                hostInterestModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
@@ -2538,6 +3625,90 @@
             });
         });
 
+        // Renter Interest Form Submission
+        document.getElementById('renterInterestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            submitBtn.disabled = true;
+            
+            // Create FormData
+            const formData = new FormData(this);
+            formData.append('_replyto', document.getElementById('interest-email').value);
+            
+            // Submit to Formspree
+            fetch('https://formspree.io/f/movlzobz', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you! Your interest helps us prioritize which suburbs to launch in first. You\'ll be the first to know when spaces become available near you.');
+                    renterInterestModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    this.reset();
+                    // Reset frequency selection
+                    document.querySelectorAll('.frequency-btn').forEach(btn => btn.classList.remove('selected'));
+                    document.querySelector('.frequency-btn[data-value="weekly"]').classList.add('selected');
+                    frequencyInput.value = 'weekly';
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                alert('Submission failed. Please check your connection and try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Host Interest Form Submission
+        document.getElementById('hostInterestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            submitBtn.disabled = true;
+            
+            // Create FormData
+            const formData = new FormData(this);
+            formData.append('_replyto', document.getElementById('host-interest-email').value);
+            
+            // Submit to Formspree
+            fetch('https://formspree.io/f/movlzobz', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you! Welcome to the ParknStore host community. We\'ll contact you with next steps and to answer any questions.');
+                    hostInterestModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    this.reset();
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                alert('Submission failed. Please check your connection and try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
         // Check on page load if user has already submitted for the guide
         document.addEventListener('DOMContentLoaded', function() {
             if (checkIfGuideSubmitted()) {
@@ -2553,11 +3724,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
