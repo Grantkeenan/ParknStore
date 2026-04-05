@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — ParknStore</title>
+    <!-- Favicon -->
+    <link rel="icon" href="ParknStore.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL & RESET (consistent with index) ===== */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --orange: #f39c12;
+            --green: #27ae60;
+            --blue: #3498db;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .beta-banner {
+            background-color: var(--blue);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        /* Header (exactly matching index) */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+        }
+        
+        .logo-placeholder {
+            height: 80px;
+            width: 220px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 1.5rem;
+        }
+        
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .logo-link:hover {
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero / page title (light, brand-consistent) */
+        .page-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Hero image.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+			display: flex;
+            align-items: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* section styles (reused from index) */
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        /* Mission & values cards */
+        .mission-grid {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .mission-text {
+            flex: 1.2;
+        }
+        
+        .mission-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .mission-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .mission-stats {
+            flex: 0.8;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            padding: 35px 25px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 25px;
+        }
+        
+        .help-blocks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .help-card {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .help-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .help-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .help-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .help-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .help-card li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .help-card li:before {
+            content: "✓";
+            color: var(--green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .eco-system {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+        
+        .eco-system h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .fee-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0 20px;
+        }
+        
+        .fee-item {
+            background: var(--light);
+            border-radius: 40px;
+            padding: 12px 28px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* CTA banner */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 30px;
+            margin: 40px 0;
+        }
+        
+        .cta-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            min-width: 180px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--secondary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer (exact match) */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 20px;
+            }
+            .logo {
+                height: 60px;
+            }
+            .logo-placeholder {
+                height: 60px;
+                width: 180px;
+                font-size: 1.2rem;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+                z-index: 99;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            .mission-grid {
+                flex-direction: column;
+            }
+            .help-blocks {
+                flex-direction: column;
+            }
+            .fee-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Beta Banner (same as index) -->
+    <div class="beta-banner">
+        BETA: We're validating demand in your area! Join our waitlist to help bring ParknStore to your community.
+    </div>
+
+    <!-- Header (exact copy from index) -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo">
+                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="logo-placeholder" style="display: none;">
+                        PARKNSTORE
+                    </div>
+                </div>
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html#forms">Get Started</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#validation-section">View Examples</a></li>
+                    <li><a href="index.html#value-bomb">Explore Hosting</a></li>
+                    <li><a href="index.html#benefits">Benefits</a></li>
+                    <li><a href="FAQ.HTML">FAQ</a></li>
+					<li><a href="About Us.html">About Us</a></li>
+                    <li><a href="index.html#referral-section">Refer ParknStore</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero (distinct but on-brand) -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Solving New Zealand’s Hidden Space Problem</h1>
+            <p>Making parking and storage accessible, affordable, and local — while helping homeowners earn extra income from the space they already have.</p>
+        </div>
+    </section>
+
+    <!-- Mission + core stats -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-text">
+                    <h3>Our Mission</h3>
+                    <p>Across Auckland and other growing cities, homes are getting smaller, driveways are disappearing, and storage is becoming harder to find. Medium‑density housing, townhouses, and apartments often come with limited or no parking, and almost no room for the things people actually own — boats, trailers, tools, or even the extra boxes that come with moving house.</p>
+                    <p>At the same time, thousands of homeowners across the region have unused driveways, empty garages, spare sheds, and open land sitting idle. <strong>ParknStore</strong> was created to connect these two groups through a safe, managed, and reliable platform that makes renting space simple for everyone.</p>
+                    <p>We aim to provide a trusted marketplace where both sides benefit — and where the platform is actively maintained, supported, and improved to keep the experience smooth and secure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why this matters (positioning) -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why This Matters Right Now</h2>
+                <p>Demand for parking and storage continues to rise while supply shrinks. We bridge the gap.</p>
+            </div>
+            <div class="help-blocks">
+                <div class="help-card">
+                    <i class="fas fa-city"></i>
+                    <h3>For Guests</h3>
+                    <p>Whether you need:</p>
+                    <ul>
+                        <li>A parking spot close to work</li>
+                        <li>Secure place to store your boat</li>
+                        <li>Temporary storage while moving</li>
+                        <li>Long‑term space for a trailer, caravan or classic car</li>
+                    </ul>
+                    <p>ParknStore helps you find affordable, nearby options from real people in your community — with the confidence of a platform that handles bookings, payments, and support.</p>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-home"></i>
+                    <h3>For Hosts</h3>
+                    <p>If you have:</p>
+                    <ul>
+                        <li>A driveway</li>
+                        <li>A garage or carport</li>
+                        <li>A spare shed or basement</li>
+                        <li>A patch of unused land</li>
+                    </ul>
+                    <p>Turn it into passive income by renting it out to people who genuinely need it. We provide the tools, visibility, and support to make hosting simple — and our platform fees help us maintain a safe, reliable service for everyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community marketplace: professionally supported -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="eco-system">
+                <h3>A Community Marketplace — Professionally Supported</h3>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">ParknStore isn’t just a listing site. It’s a managed ecosystem designed to help New Zealanders make better use of the space we already have. Our platform fees allow us to:</p>
+                <div class="fee-grid">
+                    <span class="fee-item">🔐 Maintain secure payments</span>
+                    <span class="fee-item">🎧 Provide customer support</span>
+                    <span class="fee-item">📱 Improve the technology</span>
+                    <span class="fee-item">🛡️ Keep marketplace safe & trustworthy</span>
+                    <span class="fee-item">🌱 Grow the community</span>
+                </div>
+                <p style="text-align: center; margin-top: 30px;">Together, we’re building a smarter, more sustainable way to park and store in New Zealand.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How ParknStore helps at a glance (short summary) -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>How ParknStore Helps</h2>
+                <p>A platform designed for real-life needs, from daily parking to long-term storage.</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
+                <div style="flex: 1; min-width: 260px; background: white; border-radius: 20px; padding: 30px; text-align: center;">
+                    <i class="fas fa-map-pin" style="font-size: 2.2rem; color: var(--secondary); margin-bottom: 15px; display: block;"></i>
+                    <h3>Nearby & affordable</h3>
+                    <p>Find parking or storage within your suburb, not across the city. Save time and money.</p>
+                </div>
+                <div style="flex: 1; min-width: 260px; background: white; border-radius: 20px; padding: 30px; text-align: center;">
+                    <i class="fas fa-shield-alt" style="font-size: 2.2rem; color: var(--secondary); margin-bottom: 15px; display: block;"></i>
+                    <h3>Trust & safety</h3>
+                    <p>Verified users, secure payments, and host protection guidance make sharing simple and safe.</p>
+                </div>
+                <div style="flex: 1; min-width: 260px; background: white; border-radius: 20px; padding: 30px; text-align: center;">
+                    <i class="fas fa-hand-holding-usd" style="font-size: 2.2rem; color: var(--secondary); margin-bottom: 15px; display: block;"></i>
+                    <h3>Earn extra income</h3>
+                    <p>Turn idle space into a reliable source of passive income — many hosts could earn $200–$600+ per month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action: join waitlist / learn more -->
+    <div class="container">
+        <div class="cta-banner">
+            <h2>Ready to be part of the solution?</h2>
+            <p style="margin-bottom: 25px;">Join our waitlist today — help us bring ParknStore to your neighbourhood and get early access when we launch.</p>
+            <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#forms" class="btn btn-primary">Join Waitlist</a>
+                <a href="index.html#validation-section" class="btn btn-outline">View example spaces</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (exactly matching index for consistency) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ParknStore</h3>
+                    <p>"Unlocking the hidden value in every property."</p>
+                    <p>"Earn from your empty space, or find affordable parking or storage nearby."</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61579723498240" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#forms">Join Waitlist</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#validation-section">View Examples</a></li>
+                        <li><a href="index.html#value-bomb">Explore Hosting</a></li>
+                        <li><a href="index.html#benefits">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="FAQ.HTML">FAQ</a></li>
+                        <li><a href="PrivacyPolicy.HTML">Privacy Policy</a></li>
+                        <li><a href="TermsOfService.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> ParknStoreNZ@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ParknStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple mobile menu toggle (reused from index) -->
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            if (menu) menu.classList.toggle('show');
+        });
+
+        // Smooth scroll for any anchor links inside about page (optional, keeps consistency)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === "#" || href === "#") return;
+                const targetElem = document.querySelector(href);
+                if (targetElem && href.startsWith("#")) {
+                    e.preventDefault();
+                    targetElem.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
