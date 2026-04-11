@@ -1811,12 +1811,24 @@
 		  margin-top: 4px;
 		  font-style: italic;
 		}
+		
+		.dynamic-field {
+			background: #f9f9f9;
+			padding: 15px;
+			border-radius: 8px;
+			margin-bottom: 20px;
+		}
+
+		small {
+			display: block;
+			margin-top: 5px;
+		}
     </style>
 </head>
 <body>
     <!-- Beta Notice Banner -->
     <div class="beta-banner">
-        BETA: We're validating demand in your area! Join our waitlist to help bring ParknStore to your community.
+        BETA: Validating demand in your area. List your unused parking or storage space – we'll hold your details until renters are ready.
     </div>
 
     <!-- Header -->
@@ -1853,10 +1865,10 @@
             <h1>Rent or List Parking & Storage Spaces</h1>
             <p>Connect with people in your community to rent unused parking spots and storage spaces, or earn money by listing your own.</p>
             <div class="cta-buttons">
-                <a href="#forms" class="btn btn-primary">Join Waitlist</a>
+                <a href="#forms" class="btn btn-primary">List or Rent a Space</a>
                 <a href="#how-it-works" class="btn btn-outline">Learn More</a>
             </div>
-            <p class="cta-nudge">We're validating demand before launch. By sharing your interest, you'll help shape ParknStore and get early access when we go live.</p>
+            <p class="cta-nudge">Have unused space? Need affordable parking or storage? Get started below.</p>
         </div>
     </section>
 
@@ -1889,7 +1901,7 @@
                     <p class="form-cta" id="form-subtitle">Turn Your Unused Space into $500+/Month.</p>
                     <div id="formAlert" class="alert"></div>
                     
-                    <!-- Host Form -->
+                    <!-- Host Form 
                     <form action="https://formspree.io/f/movlzobz" method="POST" id="unifiedLeadForm" class="form-host active">
                         <input type="hidden" name="user_type" value="host" id="userType">
                         <input type="hidden" name="_replyto" id="emailReply">
@@ -1978,8 +1990,180 @@
                         </div>
                         
                         <button type="submit" class="submit-btn" id="submitBtn">Join the Waitlist!</button>
-                    </form>
+                    </form> -->
+					
+					<!-- Host Form -->
+					<form action="https://formspree.io/f/movlzobz" method="POST" id="unifiedLeadForm" class="form-host active">
+						<input type="hidden" name="user_type" value="host" id="userType">
+						<input type="hidden" name="_replyto" id="emailReply">
+						
+						<!-- Basic Info -->
+						<div class="form-group">
+							<label for="name"><strong>Name *</strong></label>
+							<input type="text" id="name" name="name" class="form-control" placeholder="e.g. John Smith" required>
+						</div>
+						
+						<div class="form-group">
+							<label for="email"><strong>Email *</strong></label>
+							<input type="email" id="email" name="email" class="form-control" placeholder="e.g. john.smith@example.com" required>
+						</div>
+						
+						<!-- Space Type (Parking OR Storage) -->
+						<div class="form-group">
+							<label><strong>Space Type *</strong></label>
+							<div class="radio-group">
+								<div class="radio-option">
+									<input type="radio" id="space-parking" name="space_type" value="parking" required>
+									<label for="space-parking">Parking</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="space-storage" name="space_type" value="storage">
+									<label for="space-storage">Storage</label>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Dynamic Sub-type: Parking Options -->
+						<div class="form-group dynamic-field" id="parking-options" style="display: none;">
+							<label><strong>What type of parking space?</strong></label>
+							<div class="checkbox-group">
+								<div class="checkbox-option">
+									<input type="checkbox" name="parking_type" value="carport"> 
+									<label>Carport</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="parking_type" value="driveway">
+									<label>Driveway</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="parking_type" value="garage">
+									<label>Garage</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="parking_type" value="parking_lot">
+									<label>Parking Lot / Space</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="parking_type" value="other">
+									<label>Other</label>
+								</div>
+							</div>
+							<input type="text" name="parking_type_other" class="form-control" placeholder="If other, please specify" style="margin-top: 8px; display: none;">
+						</div>
+						
+						<!-- Dynamic Sub-type: Storage Options -->
+						<div class="form-group dynamic-field" id="storage-options" style="display: none;">
+							<label><strong>What type of storage space?</strong></label>
+							<div class="checkbox-group">
+								<div class="checkbox-option">
+									<input type="checkbox" name="storage_type" value="storage_unit">
+									<label>Storage Unit</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="storage_type" value="warehouse">
+									<label>Warehouse</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="storage_type" value="basement">
+									<label>Basement</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="storage_type" value="shed">
+									<label>Shed</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="storage_type" value="other">
+									<label>Other</label>
+								</div>
+							</div>
+							<input type="text" name="storage_type_other" class="form-control" placeholder="If other, please specify" style="margin-top: 8px; display: none;">
+						</div>
+						
+						<!-- Location Details -->
+						<div class="form-group">
+							<label><strong>Location Details *</strong></label>
+							<input type="text" name="suburb" class="form-control" placeholder="Suburb (e.g. Gate Pa)" required>
+							<input type="text" name="postcode" class="form-control" placeholder="Postcode (e.g. 3112)" style="margin-top: 8px;" required>
+							<input type="text" name="street_address" class="form-control" placeholder="Street address (optional - for validation)" style="margin-top: 8px;">
+						</div>
+						
+						<!-- Size -->
+						<div class="form-group">
+							<label><strong>Space Size (metres) *</strong></label>
+							<div style="display: flex; gap: 10px;">
+								<input type="number" name="width_metres" class="form-control" placeholder="Width (m)" step="0.1" required style="width: 50%;">
+								<input type="number" name="length_metres" class="form-control" placeholder="Length (m)" step="0.1" required style="width: 50%;">
+							</div>
+							<small style="color: #666; font-size: 12px;">e.g. 2.5m x 3.0m = 7.5m²</small>
+						</div>
+						
+						<!-- Number of Spaces -->
+						<div class="form-group">
+							<label><strong>Number of spaces available *</strong></label>
+							<input type="number" name="spaces_available" class="form-control" placeholder="e.g. 1, 2, 5" min="1" value="1" required>
+						</div>
+						
+						<!-- Access Type -->
+						<div class="form-group">
+							<label><strong>Access Type *</strong></label>
+							<div class="checkbox-group">
+								<div class="checkbox-option">
+									<input type="checkbox" name="access_type" value="24/7">
+									<label>24/7 Access</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="access_type" value="scheduled">
+									<label>Scheduled Access</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="access_type" value="gated">
+									<label>Gated Access</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="access_type" value="by_appointment">
+									<label>By Appointment Only</label>
+								</div>
+								<div class="checkbox-option">
+									<input type="checkbox" name="access_type" value="business_hours">
+									<label>Mon-Fri 9am - 5pm</label>
+								</div>
+							</div>
+							<input type="text" name="access_type_other" class="form-control" placeholder="Other access details" style="margin-top: 8px;">
+						</div>
+						
+						<!-- Space Description -->
+						<div class="form-group">
+							<label><strong>Space Description</strong></label>
+							<textarea name="space_description" class="form-control" rows="3" placeholder="Describe your space (e.g. secure, under cover, well-lit, easy street access...)"></textarea>
+						</div>
+						
+						<!-- Pricing -->
+						<div class="form-group">
+							<label><strong>Preferred Pricing *</strong></label>
+							<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+								<select name="price_frequency" class="form-control" style="width: auto; flex: 1;" required>
+									<option value="">Frequency</option>
+									<option value="daily">Daily</option>
+									<option value="weekly">Weekly</option>
+									<option value="monthly">Monthly</option>
+									<option value="events">Per Event</option>
+								</select>
+								<input type="number" name="rough_price" class="form-control" placeholder="Rough price" step="0.01" style="width: auto; flex: 1;" required>
+							</div>
+							<small style="color: #666; font-size: 12px;">e.g. Weekly / $50</small>
+						</div>
+						
+						<!-- Restrictions / Rules -->
+						<div class="form-group">
+							<label><strong>Restrictions or Rules (optional)</strong></label>
+							<textarea name="restrictions_rules" class="form-control" rows="2" placeholder="e.g. No chemicals, no overnight parking, must have own lock..."></textarea>
+						</div>
+						
+						<button type="submit" class="submit-btn" id="submitBtn">Submit Space for Validation</button>
+					</form>
+					
                     
+
                     <!-- Renter Form -->
                     <form action="https://formspree.io/f/movlzobz" method="POST" id="renterLeadForm" class="form-renter">
                         <input type="hidden" name="user_type" value="renter">
@@ -3023,7 +3207,66 @@
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('menu').classList.toggle('show');
         });
+		
+		// Dynamic field visibility for Space Type
+		const parkingRadio = document.getElementById('space-parking');
+		const storageRadio = document.getElementById('space-storage');
+		const parkingDiv = document.getElementById('parking-options');
+		const storageDiv = document.getElementById('storage-options');
 
+		function toggleSpaceFields() {
+			if (parkingRadio && parkingRadio.checked) {
+				if (parkingDiv) parkingDiv.style.display = 'block';
+				if (storageDiv) storageDiv.style.display = 'none';
+				// Clear storage checkboxes when hidden
+				document.querySelectorAll('#storage-options input[type="checkbox"]').forEach(cb => cb.checked = false);
+			} else if (storageRadio && storageRadio.checked) {
+				if (parkingDiv) parkingDiv.style.display = 'none';
+				if (storageDiv) storageDiv.style.display = 'block';
+				// Clear parking checkboxes when hidden
+				document.querySelectorAll('#parking-options input[type="checkbox"]').forEach(cb => cb.checked = false);
+			} else {
+				if (parkingDiv) parkingDiv.style.display = 'none';
+				if (storageDiv) storageDiv.style.display = 'none';
+			}
+		}
+
+		if (parkingRadio && storageRadio) {
+			parkingRadio.addEventListener('change', toggleSpaceFields);
+			storageRadio.addEventListener('change', toggleSpaceFields);
+		}
+
+		// "Other" text field for Parking
+		const parkingOtherCheckbox = document.querySelector('#parking-options input[value="other"]');
+		const parkingOtherText = document.querySelector('#parking-options input[name="parking_type_other"]');
+		if (parkingOtherCheckbox && parkingOtherText) {
+			parkingOtherCheckbox.addEventListener('change', function() {
+				parkingOtherText.style.display = this.checked ? 'block' : 'none';
+				if (!this.checked) parkingOtherText.value = '';
+			});
+		}
+
+		// "Other" text field for Storage
+		const storageOtherCheckbox = document.querySelector('#storage-options input[value="other"]');
+		const storageOtherText = document.querySelector('#storage-options input[name="storage_type_other"]');
+		if (storageOtherCheckbox && storageOtherText) {
+			storageOtherCheckbox.addEventListener('change', function() {
+				storageOtherText.style.display = this.checked ? 'block' : 'none';
+				if (!this.checked) storageOtherText.value = '';
+			});
+		}
+
+		// Ensure _replyto gets email value
+		const hostForm = document.getElementById('unifiedLeadForm');
+		if (hostForm) {
+			hostForm.addEventListener('submit', function() {
+				const emailField = document.getElementById('email');
+				const emailReply = document.getElementById('emailReply');
+				if (emailField && emailReply) {
+					emailReply.value = emailField.value;
+				}
+			});
+		}
 		// === Direct Link to Calculator via URL Hash === //
 		document.addEventListener('DOMContentLoaded', function() {
 			// Check the URL when the page loads
@@ -3725,6 +3968,5 @@
     </script>
 </body>
 </html>
-
 
 
