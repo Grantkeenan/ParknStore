@@ -1467,16 +1467,6 @@
             .listing-actions .btn {
                 width: 100%;
             }
-			/*Add for legal requirements section*/
-			.submit-btn:disabled {
-			    opacity: 0.7;
-			    cursor: not-allowed;
-			    transform: none;
-			}
-			
-			@keyframes spinner-border {
-			    to { transform: rotate(360deg); }
-			}
 			
 			/* Confirmation Box Styles */
 			.confirmation-section {
@@ -1531,7 +1521,11 @@
 			.terms-note a:hover {
 			    text-decoration: underline;
 			}
-
+			@media (max-width: 768px) {
+			    .confirmation-section {
+			        padding: 15px;
+			    }
+			}
 			
             .frequency-btn {
                 min-width: 80px;
