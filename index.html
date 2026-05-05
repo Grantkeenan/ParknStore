@@ -2057,6 +2057,8 @@
 					<form action="https://formspree.io/f/mpqbdrbr" method="POST" id="unifiedLeadForm" class="form-host active">
 						<input type="hidden" name="user_type" value="host" id="userType">
 						<input type="hidden" name="_replyto" id="emailReply">
+						<input type="hidden" name="legal_agreed_timestamp" id="legalTimestamp">
+    					<input type="hidden" name="legal_agreed" value="no" id="legalAgreedHidden">
 						
 						<!-- Basic Info -->
 						<div class="form-group">
@@ -4051,6 +4053,22 @@
             e.preventDefault();
             window.location.href = 'FAQ.HTML';
         });
+		
+	// Set timestamp for legal confirmation when form submits
+	const hostFormForTimestamp = document.getElementById('unifiedLeadForm');
+	if (hostFormForTimestamp) {
+		hostFormForTimestamp.addEventListener('submit', function() {
+			const checkbox = document.getElementById('legal-confirmation');
+			if (checkbox && checkbox.checked) {
+				const timestamp = new Date().toISOString();
+				const timestampField = document.getElementById('legalTimestamp');
+				if (timestampField) {
+					timestampField.value = timestamp;
+					console.log('Legal agreement recorded at:', timestamp);
+				}
+			}
+		});
+	}
     </script>
 </body>
 </html>
