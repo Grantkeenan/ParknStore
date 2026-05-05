@@ -1467,7 +1467,72 @@
             .listing-actions .btn {
                 width: 100%;
             }
-            
+			/*Add for legal requirements section*/
+			.submit-btn:disabled {
+			    opacity: 0.7;
+			    cursor: not-allowed;
+			    transform: none;
+			}
+			
+			@keyframes spinner-border {
+			    to { transform: rotate(360deg); }
+			}
+			
+			/* Confirmation Box Styles */
+			.confirmation-section {
+			    margin: 25px 0 20px;
+			    padding: 20px;
+			    background-color: #f8f9fa;
+			    border-radius: 10px;
+			    border-left: 4px solid var(--secondary);
+			}
+			
+			.confirmation-box h3 {
+			    color: var(--primary);
+			    margin-bottom: 15px;
+			    font-size: 18px;
+			}
+			
+			.confirmation-box ul {
+			    margin: 1rem 0;
+			    padding-left: 1.5rem;
+			}
+			
+			.confirmation-box li {
+			    margin-bottom: 8px;
+			}
+			
+			.confirmation-checkbox {
+			    margin: 15px 0;
+			}
+			
+			.confirmation-checkbox input {
+			    margin-right: 10px;
+			    transform: scale(1.1);
+			}
+			
+			.confirmation-checkbox label {
+			    font-weight: 500;
+			    cursor: pointer;
+			}
+			
+			.terms-note {
+			    display: block;
+			    color: #666;
+			    font-size: 12px;
+			    margin-top: 10px;
+			}
+			
+			.terms-note a {
+			    color: var(--secondary);
+			    text-decoration: none;
+			}
+			
+			.terms-note a:hover {
+			    text-decoration: underline;
+			}
+
+			
             .frequency-btn {
                 min-width: 80px;
             }
@@ -2158,6 +2223,30 @@
 							<label><strong>Restrictions or Rules (optional)</strong></label>
 							<textarea name="restrictions_rules" class="form-control" rows="2" placeholder="e.g. No chemicals, no overnight parking, must have own lock..."></textarea>
 						</div>
+						
+						<!-- LEGAL REQUIREMENTS CONFIRMATION SECTION -->
+						<div class="confirmation-section">
+						    <div class="confirmation-box">
+						        <h3><i class="fas fa-gavel"></i> Legal Requirements</h3>
+						        <p style="margin-bottom: 10px;">Before listing your space, please confirm:</p>
+						        <ul>
+						            <li>You are the lawful owner or have authority to rent this space</li>
+						            <li>The space complies with all local council regulations and bylaws</li>
+						            <li>You have appropriate insurance coverage</li>
+						            <li>You will maintain accurate and current listing information</li>
+						        </ul>
+						        <div class="confirmation-checkbox">
+						            <input type="checkbox" id="legal-confirmation" required>
+						            <label for="legal-confirmation" style="font-weight: 500;">I confirm I have read and agree to the above legal requirements</label>
+						        </div>
+						        <small class="terms-note">
+						            By checking this box, you agree to our 
+						            <a href="/TermsOfService.html" target="_blank">Terms of Service</a> and 
+						            <a href="/PrivacyPolicy.HTML" target="_blank">Privacy Policy</a>
+						        </small>
+						    </div>
+						</div>
+
 						
 						<button type="submit" class="submit-btn" id="submitBtn">Submit Space for Validation</button>
 					</form>
