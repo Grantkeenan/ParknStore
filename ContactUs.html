@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParknStore - Contact Us</title>
+    <!-- Favicon -->
+    <link rel="icon" href="ParknStore.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #ffbe0b;
+            --accent: #ff006e;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+        
+        .logo-placeholder {
+            height: 60px;
+            width: 160px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+       
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+        }
+        
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logo-link:hover {
+            text-decoration: none;
+        }
+        
+        .page-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark);
+            border-left: 2px solid #ddd;
+            padding-left: 15px;
+            margin-left: 15px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+            padding: 8px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .sidebar ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 2rem;
+        }
+        
+        .content-section {
+            margin-bottom: 2rem;
+            scroll-margin-top: 100px;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            font-size: 1.8rem;
+        }
+        
+        .content-section p {
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+        
+        /* Contact Form Styles */
+        .contact-form {
+            margin-top: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--accent);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #fafafa;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(58,134,255,0.1);
+            background-color: white;
+        }
+        
+        textarea {
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        .char-count {
+            font-size: 12px;
+            color: var(--gray);
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        .char-count.warning {
+            color: #ff9800;
+        }
+        
+        .char-count.danger {
+            color: var(--accent);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(58,134,255,0.3);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .alert.show {
+            display: block;
+        }
+        
+        .info-box {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .info-box h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+            max-width: 1200px;
+            margin: 20px auto 0;
+        }
+        
+        /* Mobile Navigation Styles */
+        .mobile-nav-container {
+            display: none;
+            width: 100%;
+        }
+        
+        .sidebar-toggle {
+            display: none;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+            }
+            
+            .sidebar-toggle {
+                display: block;
+            }
+            
+            .sidebar.collapsed {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                padding: 10px;
+            }
+            
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            
+            .page-title {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 10px 0;
+                margin-top: 10px;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                z-index: 1000;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                padding: 12px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                display: block;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                height: 50px;
+            }
+            
+            .logo-placeholder {
+                height: 50px;
+                width: 140px;
+                font-size: 0.9rem;
+            }
+            
+            .page-title {
+                font-size: 1rem;
+            }
+            
+            .container {
+                margin: 1rem auto;
+                gap: 1rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Improved touch targets for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            nav ul li a, 
+            .sidebar ul li a,
+            .footer-column ul li a,
+            .submit-btn {
+                min-height: 44px;
+            }
+            
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            input, select, textarea {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <div class="logo">
+                        <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
+                        <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
+                            PARKNSTORE
+                        </div>
+                    </div>
+                </a>
+                <div class="page-title">Contact Us</div>
+                <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobile-menu-toggle">☰</button>
+            </div>
+            
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html?openModal=forms">Join the Waitlist</a></li>
+                    <li><a href="index.html?openModal=how-it-works">How It Works</a></li>
+                    <li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
+                    <li><a href="index.html?openModal=benefits">Benefits</a></li>
+                    <li><a href="/FAQ.HTML">FAQ</a></li>
+                    <li><a href="About Us.html">About Us</a></li>
+                    <li><a href="index.html?openModal=referral-section">Refer ParknStore</a></li>  
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <button class="sidebar-toggle" id="sidebar-toggle">Show/Hide Menu</button>
+        
+        <div class="sidebar" id="contact-sidebar">
+            <h3>Contact Info</h3>
+            <ul>
+                <li><a href="#contact-form-section" class="active">Contact Form</a></li>
+                <li><a href="#email-us">Email Us</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#response-time">Response Time</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <div class="content-section" id="contact-form-section">
+                <h2>Get in Touch</h2>
+                <p>Let us know if you have any questions, comments or concerns by filling out the form below. We'll get back to you as soon as possible!</p>
+                
+                <div id="alert" class="alert"></div>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="required">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hearAbout" class="required">How did you hear about us?</label>
+                        <select id="hearAbout" name="hearAbout" required>
+                            <option value="">Select an option</option>
+                            <option value="google_search">Google Search</option>
+                            <option value="advertising">Advertising</option>
+                            <option value="another_user">Another User</option>
+                            <option value="social_media">Social Media</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="otherFieldGroup" style="display: none;">
+                        <label for="otherText">Please specify</label>
+                        <input type="text" id="otherText" name="otherText" placeholder="Tell us how you found us">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="required">Message</label>
+                        <textarea id="message" name="message" rows="5" maxlength="500" placeholder="Please enter your message here..." required></textarea>
+                        <div class="char-count">
+                            <span id="charCount">0</span>/500 characters
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+            
+            <div class="content-section" id="email-us">
+                <h2>Email Us Directly</h2>
+                <p>Prefer to send an email? You can reach us directly at:</p>
+                <div class="info-box">
+                    <p><strong><i class="fas fa-envelope" style="color: var(--primary); margin-right: 10px;"></i> ParknStoreNZ@gmail.com</strong></p>
+                    <p style="margin-top: 10px;">We typically respond within 24-48 hours.</p>
+                </div>
+            </div>
+            
+            <div class="content-section" id="faqs">
+                <h2>Frequently Asked Questions</h2>
+                <div class="info-box">
+                    <h3>❓ How quickly will I receive a response?</h3>
+                    <p>We aim to respond to all inquiries within 24-48 hours during business days.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏠 Can I become a Host immediately?</h3>
+                    <p>Sign up through our waitlist, and we'll contact you when we launch in your area!</p>
+                </div>
+                <div class="info-box">
+                    <h3>💰 Is ParknStore free to use?</h3>
+                    <p>We charge a small service fee for bookings. Hosting is free to list your space!</p>
+                </div>
+            </div>
+            
+            <div class="content-section" id="response-time">
+                <h2>Our Response Commitment</h2>
+                <p>At ParknStore, we value every message we receive. Our customer support team is dedicated to providing timely and helpful responses to all inquiries.</p>
+                <div class="info-box">
+                    <p><strong>⏱️ Response Times:</strong></p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Email inquiries: 24-48 hours</li>
+                        <li>Form submissions: 24-48 hours</li>
+                        <li>Urgent matters: Please mark "URGENT" in your message</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>ParknStore</h3>
+                <p>Connecting communities through shared parking and storage solutions.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61579723498240" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html?openModal=forms">Join the Waitlist</a></li>
+                    <li><a href="index.html?openModal=how-it-works">How It Works</a></li>
+                    <li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
+                    <li><a href="index.html?openModal=benefits">Benefits</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="/FAQ.HTML">FAQ</a></li>
+                    <li><a href="PrivacyPolicy.HTML">Privacy Policy</a></li>
+                    <li><a href="TermsOfService.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> ParknStoreNZ@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 ParknStore. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // REPLACE THIS WITH YOUR FORMSPREE ENDPOINT
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgzbnzr';
+        
+        const form = document.getElementById('contactForm');
+        const alertDiv = document.getElementById('alert');
+        const messageField = document.getElementById('message');
+        const charCountSpan = document.getElementById('charCount');
+        const hearAboutSelect = document.getElementById('hearAbout');
+        const otherFieldGroup = document.getElementById('otherFieldGroup');
+        const otherText = document.getElementById('otherText');
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const menu = document.getElementById('menu');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        }
+        
+        // Sidebar toggle for mobile
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const contactSidebar = document.getElementById('contact-sidebar');
+        
+        if (sidebarToggle && contactSidebar) {
+            sidebarToggle.addEventListener('click', function() {
+                contactSidebar.classList.toggle('collapsed');
+            });
+        }
+        
+        // Sidebar navigation
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (!targetElement) return;
+                
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const additionalOffset = 20;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                
+                history.replaceState(null, null, targetId);
+                
+                if (window.innerWidth <= 1024) {
+                    contactSidebar.classList.add('collapsed');
+                }
+            });
+        });
+        
+        // Show/hide "Other" text field
+        if (hearAboutSelect) {
+            hearAboutSelect.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    otherFieldGroup.style.display = 'block';
+                    otherText.required = true;
+                } else {
+                    otherFieldGroup.style.display = 'none';
+                    otherText.required = false;
+                    otherText.value = '';
+                }
+            });
+        }
+        
+        // Character counter
+        function updateCharCount() {
+            if (!messageField) return;
+            const count = messageField.value.length;
+            charCountSpan.textContent = count;
+            
+            const charCountDiv = document.querySelector('.char-count');
+            charCountDiv.classList.remove('warning', 'danger');
+            
+            if (count > 450) {
+                charCountDiv.classList.add('danger');
+            } else if (count > 400) {
+                charCountDiv.classList.add('warning');
+            }
+        }
+        
+        if (messageField) {
+            messageField.addEventListener('input', updateCharCount);
+            updateCharCount();
+        }
+        
+        // Show alert message
+        function showAlert(message, type) {
+            alertDiv.textContent = message;
+            alertDiv.className = `alert ${type} show`;
+            setTimeout(() => {
+                alertDiv.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Form submission to Formspree
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                let formData = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    hearAbout: hearAboutSelect.value,
+                    message: messageField.value
+                };
+                
+                if (hearAboutSelect.value === 'other') {
+                    formData.hearAbout = `Other: ${otherText.value}`;
+                }
+                
+                // Submit to Formspree
+                try {
+                    const response = await fetch(FORMSPREE_ENDPOINT, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    if (response.ok) {
+                        showAlert('Thank you! Your message has been sent successfully. We\'ll get back to you within 24-48 hours.', 'success');
+                        form.reset();
+                        updateCharCount();
+                        otherFieldGroup.style.display = 'none';
+                    } else {
+                        const errorData = await response.json();
+                        showAlert(errorData.error || 'Something went wrong. Please try again.', 'error');
+                    }
+                } catch (error) {
+                    showAlert('Network error. Please check your connection and try again.', 'error');
+                }
+            });
+        }
+        
+        // Handle URL hash on page load
+        function handleInitialHash() {
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    setTimeout(() => {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const additionalOffset = 20;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        document.querySelectorAll('.sidebar a').forEach(a => {
+                            a.classList.remove('active');
+                            if (a.getAttribute('href') === window.location.hash) {
+                                a.classList.add('active');
+                            }
+                        });
+                    }, 100);
+                }
+            }
+        }
+        
+        window.addEventListener('load', handleInitialHash);
+    </script>
+</body>
+</html>
