@@ -1467,71 +1467,72 @@
             .listing-actions .btn {
                 width: 100%;
             }
-			
-			/* Confirmation Box Styles */
-			.confirmation-section {
-			    margin: 25px 0 20px;
-			    padding: 20px;
-			    background-color: #f8f9fa;
-			    border-radius: 10px;
-			    border-left: 4px solid var(--secondary);
-			}
-			
-			.confirmation-box h3 {
-			    color: var(--primary);
-			    margin-bottom: 15px;
-			    font-size: 18px;
-			}
-			
-			.confirmation-box ul {
-			    margin: 1rem 0;
-			    padding-left: 1.5rem;
-			}
-			
-			.confirmation-box li {
-			    margin-bottom: 8px;
-			}
-			
-			.confirmation-checkbox {
-			    margin: 15px 0;
-			}
-			
-			.confirmation-checkbox input {
-			    margin-right: 10px;
-			    transform: scale(1.1);
-			}
-			
-			.confirmation-checkbox label {
-			    font-weight: 500;
-			    cursor: pointer;
-			}
-			
-			.terms-note {
-			    display: block;
-			    color: #666;
-			    font-size: 12px;
-			    margin-top: 10px;
-			}
-			
-			.terms-note a {
-			    color: var(--secondary);
-			    text-decoration: none;
-			}
-			
-			.terms-note a:hover {
-			    text-decoration: underline;
-			}
-			@media (max-width: 768px) {
-			    .confirmation-section {
-			        padding: 15px;
-			    }
-			}
-			
             .frequency-btn {
                 min-width: 80px;
             }
         }
+		/* Confirmation Box Styles - CORRECT! At global level */
+		.confirmation-section {
+		    margin: 25px 0 20px;
+		    padding: 20px;
+		    background-color: #f8f9fa;
+		    border-radius: 10px;
+		    border-left: 4px solid var(--secondary);
+		}
+		
+		.confirmation-box h3 {
+		    color: var(--primary);
+		    margin-bottom: 15px;
+		    font-size: 18px;
+		}
+		
+		.confirmation-box ul {
+		    margin: 1rem 0;
+		    padding-left: 1.5rem;
+		}
+		
+		.confirmation-box li {
+		    margin-bottom: 8px;
+		}
+		
+		.confirmation-checkbox {
+		    margin: 15px 0;
+		}
+		
+		.confirmation-checkbox input {
+		    margin-right: 10px;
+		    transform: scale(1.1);
+		}
+		
+		.confirmation-checkbox label {
+		    font-weight: 500;
+		    cursor: pointer;
+		}
+		
+		.terms-note {
+		    display: block;
+		    color: #666;
+		    font-size: 12px;
+		    margin-top: 10px;
+		}
+		
+		.terms-note a {
+		    color: var(--secondary);
+		    text-decoration: none;
+		}
+		
+		.terms-note a:hover {
+		    text-decoration: underline;
+		}
+		
+		/* Then the responsive version for mobile */
+		@media (max-width: 768px) {
+		    .confirmation-section {
+		        padding: 15px;
+		    }
+		}
 
+		
         /* Additional styles */
         .cta-nudge {
             text-align: center;
