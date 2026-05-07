@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParknStore - FAQ</title>
-	<!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="ParknStore.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -31,16 +31,6 @@
             color: var(--dark);
             line-height: 1.6;
             padding-bottom: env(safe-area-inset-bottom);
-        }
-        
-        .beta-banner {
-            background-color: var(--blue);
-            color: white;
-            text-align: center;
-            padding: 12px 0;
-            font-weight: 600;
-            font-size: 0.9rem;
-            position: relative;
         }
         
         /* Header Styles */
@@ -137,7 +127,7 @@
             color: var(--primary);
         }
         
-        /* Close Button Container - Outside of header */
+        /* Close Button */
         .close-btn-container {
             display: flex;
             justify-content: flex-end;
@@ -180,6 +170,7 @@
             padding: 1.5rem 1rem;
         }
         
+        /* Tabs */
         .tabs {
             display: flex;
             justify-content: center;
@@ -212,6 +203,7 @@
             color: white;
         }
         
+        /* FAQ Section */
         .faq-section {
             background: white;
             border-radius: 10px;
@@ -248,135 +240,87 @@
         
         .faq-answer.active {
             padding: 0 1.2rem 1.2rem;
-            max-height: 1000px;
+            max-height: 2000px;
         }
         
-        .highlight {
-            color: var(--primary);
-            font-weight: 600;
+        /* Content Box Styles - Consistent */
+        .info-box {
+            background-color: #e6f4ff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
         }
         
-        .warning {
+        .warning-box {
             background-color: #fff4e6;
             border-left: 4px solid var(--secondary);
             padding: 1rem;
             margin: 1rem 0;
-            font-size: 0.95rem;
+            border-radius: 8px;
         }
         
-        .disclaimer {
+        .disclaimer-box {
             background-color: #ffe6e6;
             border-left: 4px solid var(--accent);
             padding: 1rem;
             margin: 1rem 0;
-            border-radius: 4px;
-            font-size: 0.95rem;
+            border-radius: 8px;
         }
-
+        
+        .tip-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        /* Section divider for Host/Guest sections */
+        .role-section {
+            margin: 1.5rem 0;
+        }
+        
+        .role-header {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .role-header i {
+            font-size: 1.2rem;
+        }
+        
+        /* Consistent list styling */
+        .faq-answer ul, .faq-answer ol {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 0.75rem;
+        }
+        
+        .faq-answer strong {
+            color: var(--dark);
+        }
+        
         .prelaunch-notice {
             background-color: #e6f4ff;
             border-left: 4px solid var(--primary);
             padding: 1rem;
             margin: 1rem 0;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 0.95rem;
-        }
-        
-        /* New styles for service fee section */
-        .audience-section {
-            margin: 20px 0;
-            padding-left: 15px;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .audience-header {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-        }
-        
-        .example-box {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            border-left: 3px solid var(--secondary);
-        }
-        
-        .calculator {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-        
-        .calculator h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .input-group {
-            margin-bottom: 15px;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .input-group input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        
-        .slider-container {
-            margin: 20px 0;
-        }
-        
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 8px;
-            border-radius: 5px;
-            background: #e2e8f0;
-            outline: none;
-        }
-        
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-        }
-        
-        .slider-value {
-            text-align: center;
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 10px;
-        }
-        
-        .result {
-            background: #f0f9ff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            text-align: center;
-            border: 2px dashed var(--primary);
-        }
-        
-        .result-value {
-            font-size: 1.3rem;
-            font-weight: 700;
         }
         
         /* Footer */
@@ -407,6 +351,7 @@
         
         .footer-column ul {
             list-style: none;
+            padding-left: 0;
         }
         
         .footer-column ul li {
@@ -433,16 +378,7 @@
             color: #aaa;
         }
         
-        .guide-footer {
-            background-color: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-top: 1px solid #dee2e6;
-        }
-        
-        /* Mobile-specific styles */
+        /* Mobile Styles */
         @media (max-width: 768px) {
             .header-container {
                 padding: 0 0.8rem;
@@ -470,32 +406,23 @@
             .logo-placeholder {
                 height: 50px;
                 width: 140px;
-                font-size: 16px;
+                font-size: 14px;
             }
             
             .page-title {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 border-left: none;
                 padding-left: 0;
                 margin-left: 0;
-                border-top: none;
-                padding-top: 0;
-                margin-top: 0;
-                width: auto;
                 text-align: right;
-                flex-grow: 1;
-                padding-right: 10px;
             }
             
             .mobile-menu-btn {
                 display: block;
-                order: 3;
-                margin-left: auto;
             }
             
             nav {
                 width: 100%;
-                order: 4;
             }
             
             nav ul {
@@ -514,58 +441,29 @@
             
             nav ul li {
                 margin: 0;
-                width: 100%;
             }
             
             nav ul li a {
                 padding: 12px 20px;
-                border-bottom: 1px solid #f0f0f0;
             }
             
             .close-btn-container {
                 justify-content: center;
-                margin: 15px 0;
-                padding: 0 10px;
-            }
-            
-            .close-btn {
-                padding: 12px 20px;
-                font-size: 0.95rem;
-                width: 100%;
-                max-width: 200px;
-            }
-            
-            .tagline {
-                font-size: 0.95rem;
-                padding: 0.8rem 0.5rem;
-            }
-            
-            .container {
-                padding: 1rem 0.5rem;
             }
             
             .tabs {
-                margin-bottom: 1.2rem;
                 gap: 0.4rem;
-                padding: 0 5px;
             }
             
             .tab-button {
-                padding: 0.7rem 0.9rem;
-                font-size: 0.85rem;
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
                 flex: 1;
-                min-width: calc(50% - 10px);
                 text-align: center;
             }
             
             .faq-question {
                 padding: 1rem;
-                font-size: 0.95rem;
-                min-height: 50px;
-            }
-            
-            .faq-answer {
-                padding: 0 1rem;
                 font-size: 0.95rem;
             }
             
@@ -573,68 +471,16 @@
                 padding: 0 1rem 1rem;
             }
             
-            .warning, .disclaimer, .prelaunch-notice {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-                margin: 0.8rem 0;
-            }
-            
             .footer-content {
                 flex-direction: column;
-                gap: 30px;
-            }
-            
-            .footer-column {
-                min-width: 100%;
                 text-align: center;
-            }
-            
-            /* Mobile adjustments for calculator */
-            .calculator {
-                padding: 15px;
-            }
-            
-            .result-value {
-                font-size: 1.1rem;
             }
         }
         
         @media (max-width: 480px) {
-            .header-container {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            .logo-container {
-                width: 100%;
-            }
-            
-            .tabs {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
             .tab-button {
-                width: calc(50% - 5px);
-                min-width: calc(50% - 5px);
-                margin-bottom: 5px;
-            }
-            
-            .page-title {
-                font-size: 1rem;
-            }
-            
-            .logo img {
-                max-width: 120px;
-            }
-            
-            .logo-placeholder {
-                width: 120px;
-                font-size: 14px;
-            }
-            
-            nav ul li a {
-                font-size: 15px;
+                font-size: 0.75rem;
+                padding: 0.5rem 0.6rem;
             }
         }
         
@@ -643,49 +489,30 @@
             overflow-x: hidden;
             width: 100%;
         }
-        
-        /* Improved touch targets for mobile */
-        @media (hover: none) {
-            .faq-question:hover {
-                background-color: inherit;
-            }
-            
-            .tab-button:hover {
-                transform: none;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-            
-            .tab-button:active {
-                background: var(--primary);
-                color: white;
-            }
-        }
     </style>
 </head>
 <body>
-   <!-- Header -->
+    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo-container">
-			<a href="index.html" class="logo-link">
-                <div class="logo">
-                    <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
-                    <div id="logo-placeholder" class="logo-placeholder" style="display: none;">
-                        PARKNSTORE
+                <a href="index.html" class="logo-link">
+                    <div class="logo">
+                        <img src="ParknStore.png" alt="ParknStore Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="logo-placeholder" style="display: none;">PARKNSTORE</div>
                     </div>
-                </div>
-			</a>
+                </a>
                 <div class="page-title">Frequently Asked Questions</div>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
             <nav>
                 <ul id="menu">
                     <li><a href="index.html?openModal=forms">Join the Waitlist</a></li>
-					<li><a href="index.html?openModal=how-it-works">How It Works</a></li>
-					<li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
-					<li><a href="index.html?openModal=benefits">Benefits</a></li>
-					<li><a href="FAQ.HTML" id="faq-link">FAQ</a></li>
-					<li><a href="About Us.html">About Us</a></li>
+                    <li><a href="index.html?openModal=how-it-works">How It Works</a></li>
+                    <li><a href="index.html?openModal=value-bomb">Explore Hosting</a></li>
+                    <li><a href="index.html?openModal=benefits">Benefits</a></li>
+                    <li><a href="FAQ.HTML">FAQ</a></li>
+                    <li><a href="About Us.html">About Us</a></li>
                     <li><a href="index.html?openModal=referral-section">Refer ParknStore</a></li>
                 </ul>
             </nav>
@@ -693,7 +520,7 @@
     </header>
     
     <div class="container">
-        <div class="tagline">Connecting space owners with those who need parking/ storage solutions. We provide the platform - you make the agreement.</div>
+        <div class="tagline">Connecting space owners with those who need parking/storage solutions. We provide the platform - you make the agreement.</div>
         
         <div class="tabs">
             <button class="tab-button active" data-category="all">All Questions</button>
@@ -702,11 +529,13 @@
             <button class="tab-button" data-category="guests">For Guests</button>
             <button class="tab-button" data-category="legal">Legal & Safety</button>
         </div>
-		<div class="close-btn-container">
-			<button class="close-btn" onclick="closeFAQ()">Close</button>
-		</div>
+        
+        <div class="close-btn-container">
+            <button class="close-btn" onclick="closeFAQ()">Close</button>
+        </div>
+        
         <div class="prelaunch-notice">
-            <strong>MVP Phase Notice:</strong> ParknStore is currently in our initial launch phase with manual facilitation. We are not a party to rental agreements between Hosts and Guests. All users are solely responsible for their agreements, compliance with laws, and resolving any disputes.
+            <strong>📢 MVP Phase Notice:</strong> ParknStore is currently in our initial launch phase with manual facilitation. We are not a party to rental agreements between Hosts and Guests. All users are solely responsible for their agreements, compliance with laws, and resolving any disputes.
         </div>
         
         <div class="faq-section">
@@ -716,7 +545,7 @@
                     What is ParknStore? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>ParknStore is currently in our MVP (Minimum Viable Product) launch phase. We're manually connecting space owners ("Hosts") with those needing parking / storage ("Guests") as we build our full automated platform. During this phase, our team personally facilitates introductions and helps coordinate agreements between users.</p>
+                    <p>ParknStore is currently in our MVP (Minimum Viable Product) launch phase. We're manually connecting space owners ("Hosts") with those needing parking/storage ("Guests") as we build our full automated platform. During this phase, our team personally facilitates introductions and helps coordinate agreements between users.</p>
                 </div>
             </div>
             
@@ -731,9 +560,9 @@
                         <li>Test our processes and systems with a small group of early adopters</li>
                         <li>Gather feedback to improve before building our full automated platform</li>
                     </ul>
-                    <p>During this phase, you'll work directly with our team who will personally facilitate connections and payments. This hands-on approach helps us ensure everything works smoothly before scaling up.</p>
-                    <div class="warning">
-                        <strong>Please note:</strong> As an MVP user, you might experience occasional manual processes as we refine our systems. We appreciate your patience and feedback!
+                    <p>During this phase, you'll work directly with our team who will personally facilitate connections and payments.</p>
+                    <div class="warning-box">
+                        <strong>⚠️ Please note:</strong> As an MVP user, you might experience occasional manual processes as we refine our systems. We appreciate your patience and feedback!
                     </div>
                 </div>
             </div>
@@ -745,17 +574,23 @@
                 <div class="faq-answer">
                     <p>During our MVP launch phase, we are waiving all service fees to validate our platform and build our community.</p>
                     
-                    <div class="audience-section">
-                        <div class="audience-header">For Guests:</div>
+                    <div class="role-section">
+                        <div class="role-header">
+                            <i class="fas fa-search"></i> For Guests:
+                        </div>
                         <p>The price you agree on with the Host is the price you pay. You will not be charged any additional fees by ParknStore during our MVP phase.</p>
                     </div>
                     
-                    <div class="audience-section">
-                        <div class="audience-header">For Hosts:</div>
-                        <p>We are currently charging <strong>0% service fees</strong> during our MVP phase. The full amount agreed with your Guest will be disbursed to you (minus only any actual payment processing costs we incur). After launch, we plan to introduce a competitive service fee or base the platform on lead generations for your unused space.</p>
+                    <div class="role-section">
+                        <div class="role-header">
+                            <i class="fas fa-home"></i> For Hosts:
+                        </div>
+                        <p>We are currently charging <strong>0% service fees</strong> during our MVP phase. The full amount agreed with your Guest will be paid to you (minus only any actual payment processing costs).</p>
                     </div>
                     
-                    <p class="warning"><strong>Important:</strong> Once we launch our automated platform, ParknStore will introduce service or lead generation fees. Any changes will be prominently communicated in advance to all users.</p>
+                    <div class="warning-box">
+                        <strong>📢 Important:</strong> Once we launch our automated platform, ParknStore will introduce service or lead generation fees. Any changes will be communicated in advance.
+                    </div>
                 </div>
             </div>
             
@@ -764,7 +599,10 @@
                     What is ParknStore's role in the rental? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>ParknStore will facilitate connections on our platform. We do not own, lease, manage, or insure any of the spaces listed on our site. The rental contract is a private agreement between the Host and the Guest. We are not responsible for the condition, safety, or legality of the space, or for any disputes that arise between users.</p>
+                    <p>ParknStore facilitates connections on our platform. We do not own, lease, manage, or insure any of the spaces listed on our site. The rental contract is a private agreement between the Host and the Guest.</p>
+                    <div class="disclaimer-box">
+                        <strong>⚠️ Disclaimer:</strong> We are not responsible for the condition, safety, or legality of the space, or for any disputes that arise between users.
+                    </div>
                 </div>
             </div>
             
@@ -774,7 +612,13 @@
                     How do I list my space? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>You can create a listing through our website or app once fully developed. You will need to provide accurate details, including size, location, access instructions, and any specific rules for Guests.</p>
+                    <p>You can submit your space details through our website. You will need to provide accurate information including:</p>
+                    <ul>
+                        <li>Size and location of your space</li>
+                        <li>Access instructions and availability</li>
+                        <li>Any specific rules for Guests</li>
+                        <li>Photos of the space</li>
+                    </ul>
                 </div>
             </div>
             
@@ -787,7 +631,7 @@
                     <ul>
                         <li>Providing an accurate and truthful description of your space</li>
                         <li>Ensuring your space is safe, legal to rent out, and complies with all local laws</li>
-                        <li>Setting clear rules for access, usage, and vehicle restrictions</li>
+                        <li>Setting clear rules for access, usage, and restrictions</li>
                         <li>Maintaining appropriate insurance for your property</li>
                         <li>Handling any issues or disputes directly with your Guest</li>
                     </ul>
@@ -799,20 +643,42 @@
                     What fees will I pay as a Host? <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>During our MVP phase: <strong>You pay 0% in service fees</strong>. We're waiving all fees to build our community and test our systems. Fees will be clearly displayed before you confirm any booking.</p>
-                   <!-- <p>After launch: We plan to introduce a competitive service fee of <strong>15% or less</strong> on completed bookings or a lead generation fee. This fee will be clearly displayed before you confirm any booking.</p>-->
+                    <p>During our MVP phase: <strong>You pay 0% in service fees</strong>. We're waiving all fees to build our community and test our systems.</p>
+                    <div class="info-box">
+                        <strong>💡 Note:</strong> Any future fees will be clearly displayed before you confirm any booking.
+                    </div>
                 </div>
             </div>
             
             <!-- For Guests -->
             <div class="faq-item" data-category="guests">
-                <div class="faq-question">
-                    How do I rent a space? <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Browse listings on our website or app once fully developed. When you find a suitable space, you can contact the Host through our platform to ask questions and finalize the booking details.</p>
-                </div>
-            </div>
+				<div class="faq-question">
+					How do I rent a space? <span>+</span>
+				</div>
+				<div class="faq-answer">
+					<p>During our MVP (validation) phase, here's how it works:</p>
+					
+					<div class="info-box">
+						<strong>📋 Current process:</strong>
+						<ol style="margin-top: 0.5rem;">
+							<li>Tell us what you need via the <strong>"Find a Space"</strong> form on our website</li>
+							<li>Our team manually matches you with suitable Hosts in your area</li>
+							<li>We facilitate the introduction and help coordinate details</li>
+							<li>You and the Host agree on terms directly</li>
+						</ol>
+					</div>
+					
+					<p>We don't have an automated booking system yet - we're personally connecting people to validate demand. Once we have Hosts in your desired area, we'll reach out to make the connection.</p>
+					
+					<div class="tip-box">
+						<strong>💡 Tip:</strong> The more details you provide about your needs (suburb, space type, frequency), the faster we can match you with a Host.
+					</div>
+					
+					<div class="warning-box">
+						<strong>⚠️ Note:</strong> We're currently building our Host network. If we don't have spaces in your area yet, we'll notify you as soon as we do.
+					</div>
+				</div>
+			</div>
             
             <div class="faq-item" data-category="guests">
                 <div class="faq-question">
@@ -830,32 +696,7 @@
                 </div>
             </div>
             
-            <!-- Updated Refund Policy FAQ Item -->
-            <!--<div class="faq-item" data-category="guests">
-                <div class="faq-question">
-                    What is your refund policy? <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We offer a 24-hour grace period after booking confirmation during which both Hosts and Guests may cancel without penalty.</p>
-                    
-                    <p>After this period, cancellations require 30 days' written notice. Guests are responsible for payment for the entire notice period even if they vacate early.</p>
-                    
-                    <p><strong>For refunds after funds have been disbursed to the Host:</strong></p>
-                    <ol>
-                        <li>Host and Guest must first mutually agree to the refund</li>
-                        <li>We will contact the Host to request repayment of the refund amount</li>
-                        <li>Once we receive funds from the Host, we process the refund to the Guest</li>
-                        <li>If the Host is unresponsive, we may deduct the refund from their future payouts</li>
-                    </ol>
-                    
-                    <p><strong>During our MVP phase:</strong> All refund requests will be handled manually by our team. </p>
-                    
-                    <div class="warning">
-                        <strong>Important:</strong> ParknStore's ability to process a refund is contingent on the Host's cooperation or their future use of our platform.
-                    </div>
-                </div>
-            </div> -->
-            
+            <!-- Legal & Safety -->
             <div class="faq-item" data-category="legal">
                 <div class="faq-question">
                     What items are prohibited from storage? <span>+</span>
@@ -872,14 +713,12 @@
                         <li>Items producing odors or fumes</li>
                         <li>Any items that would void Host's insurance</li>
                     </ul>
-                    
-                    <div class="disclaimer">
-                        <p>Storage of prohibited items will result in immediate termination of your account and may lead to legal action.</p>
+                    <div class="disclaimer-box">
+                        <strong>⚠️ Warning:</strong> Storage of prohibited items will result in immediate termination of your account and may lead to legal action.
                     </div>
                 </div>
             </div>
             
-             <!-- Legal & Safety - UPDATED INSURANCE SECTION -->
             <div class="faq-item" data-category="legal">
                 <div class="faq-question">
                     Does ParknStore provide insurance? <span>+</span>
@@ -887,18 +726,22 @@
                 <div class="faq-answer">
                     <p>ParknStore doesn't provide insurance directly, but we want you to be protected. Here's what you need to know:</p>
                     
-                    <div class="insurance-guide">
-                        <h4><i class="fas fa-home"></i> For Hosts (space owners):</h4>
+                    <div class="role-section">
+                        <div class="role-header">
+                            <i class="fas fa-home"></i> For Hosts (space owners):
+                        </div>
                         <ul>
                             <li>Standard home insurance typically <strong>doesn't cover commercial use</strong> (renting your space for money)</li>
                             <li>You'll likely need to add <strong>"business use"</strong> or <strong>"home sharing"</strong> coverage to your policy</li>
-                            <li>Call your insurer and ask: <em>"Does my policy cover me if I rent my unused space (eg: garage/driveway) to someone?"</em></li>
-                            <li>Some NZ insurers may offer this: <strong>always confirm with your provider</strong></li>
+                            <li>Call your insurer and ask: <em>"Does my policy cover me if I rent my unused space (e.g., garage/driveway) to someone?"</em></li>
+                            <li>Some NZ insurers may offer this - <strong>always confirm with your provider</strong></li>
                         </ul>
                     </div>
                     
-                    <div class="insurance-guide">
-                        <h4><i class="fas fa-car"></i> For Guests (using a space):</h4>
+                    <div class="role-section">
+                        <div class="role-header">
+                            <i class="fas fa-car"></i> For Guests (using a space):
+                        </div>
                         <ul>
                             <li>Your <strong>contents insurance</strong> may cover items stored off-site (check your policy)</li>
                             <li>Your <strong>vehicle insurance</strong> should cover parking anywhere (but confirm with your provider)</li>
@@ -906,32 +749,56 @@
                         </ul>
                     </div>
                     
-                    <div class="insurance-tip">
-                        <i class="fas fa-lightbulb"></i> <strong>Pro tip:</strong> Take photos of your space/items before rental begins. This helps with any potential insurance claims.
+                    <div class="tip-box">
+                        <strong>💡 Pro tip:</strong> Take photos of your space/items before rental begins. This helps with any potential insurance claims.
                     </div>
                     
                     <p><strong>Bottom line:</strong> Talk to your insurance provider. Every policy is different. We're here to connect people, but protecting your property is your responsibility.</p>
                     
-                    <div class="disclaimer">
-                        <strong>Disclaimer:</strong> ParknStore does not provide any insurance coverage for stored items, vehicles, or properties. It is the sole responsibility of the Host to insure their property and the sole responsibility of the Guest to insure their belongings or vehicle.
+                    <div class="disclaimer-box">
+                        <strong>⚠️ Disclaimer:</strong> ParknStore does not provide any insurance coverage for stored items, vehicles, or properties. It is the sole responsibility of the Host to insure their property and the sole responsibility of the Guest to insure their belongings or vehicle.
                     </div>
                 </div>
             </div>
             
-			<div class="faq-item" data-category="legal">
-				<div class="faq-question">
-					What happens if my items are damaged or stolen? <span>+</span>
-				</div>
-				<div class="faq-answer">
-					<p><strong class="highlight">ParknStore is not liable for any damage, loss, or theft</strong> that occurs before, during, or after a rental period.</p>
-					
-					<p>Any claims must be handled directly between the Host and Guest, typically through their respective insurance policies. As stated in our Terms of Service, users are solely responsible for securing appropriate insurance for their property and stored items.</p>
-					
-					<div class="disclaimer">
-						<strong>Important:</strong> ParknStore acts solely as a facilitation platform. We are not a party to the rental agreement and assume no liability for the condition, safety, or security of spaces or items stored within them.
-					</div>
-				</div>
-			</div>
+            <div class="faq-item" data-category="legal">
+                <div class="faq-question">
+                    What happens if my items are damaged or stolen? <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>First, don't panic.</strong> Here's what you should do:</p>
+                    
+                    <div class="info-box">
+                        <strong>📋 Step-by-step guide:</strong>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Document everything</strong> - Take photos of the damage immediately</li>
+                            <li><strong>Contact the other party</strong> - Communicate openly with your Host/Guest</li>
+                            <li><strong>Check your insurance</strong> - Review your policy to see if you're covered</li>
+                            <li><strong>File a claim</strong> - With your insurance provider if applicable</li>
+                            <li><strong>Contact us</strong> - We'll help facilitate communication if needed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="role-section">
+                        <div class="role-header">
+                            <i class="fas fa-shield-alt"></i> Who is responsible?
+                        </div>
+                        <p>ParknStore doesn't provide insurance coverage for damage, loss, or theft. However, we're here to help:</p>
+                        <ul>
+                            <li>We'll work with both parties to understand what happened</li>
+                            <li>We may temporarily suspend listings during dispute resolution</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>💡 Prevention tip:</strong> Before renting, take time-stamped photos of your space or items. This simple step makes insurance claims much easier.
+                    </div>
+                    
+                    <div class="disclaimer-box">
+                        <strong>⚠️ Important:</strong> ParknStore acts solely as a facilitation platform. We are not a party to rental agreements and assume no liability for spaces or items stored within them. Users are solely responsible for securing appropriate insurance.
+                    </div>
+                </div>
+            </div>
             
             <div class="faq-item" data-category="legal">
                 <div class="faq-question">
@@ -939,9 +806,7 @@
                 </div>
                 <div class="faq-answer">
                     <p>We take your privacy seriously. We implement appropriate security measures to protect your personal information, including SSL encryption and secure servers.</p>
-                    
                     <p>We collect information necessary to facilitate your bookings and improve our services. We do not sell your personal information to third parties.</p>
-                    
                     <p>For more details, please see our <a href="PrivacyPolicy.HTML" style="color: var(--primary);">Privacy Policy</a>.</p>
                 </div>
             </div>
@@ -955,10 +820,12 @@
                     <ul>
                         <li>List fraudulent, inaccurate, or illegal spaces</li>
                         <li>Harass other users or misrepresent spaces</li>
-                        <li>Attempt to bypass ParknStore's fees (e.g., arranging off-platform payments to avoid commissions)</li>
+                        <li>Attempt to bypass ParknStore's fees (e.g., arranging off-platform payments)</li>
                         <li>Store prohibited items as outlined in our Terms of Service</li>
                     </ul>
-                    <p class="warning">We reserve the right to suspend or terminate accounts that violate these terms.</p>
+                    <div class="warning-box">
+                        <strong>⚠️ Note:</strong> We reserve the right to suspend or terminate accounts that violate these terms.
+                    </div>
                 </div>
             </div>
         </div>
@@ -986,9 +853,9 @@
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul>
-						<li><a href="FAQ.HTML" id="faq-link">FAQ</a></li>
-						<li><a href="PrivacyPolicy.HTML">Privacy Policy</a></li>
-						<li><a href="TermsOfService.html">Terms of Service</a></li>
+                        <li><a href="FAQ.HTML">FAQ</a></li>
+                        <li><a href="PrivacyPolicy.HTML">Privacy Policy</a></li>
+                        <li><a href="TermsOfService.html">Terms of Service</a></li>
                     </ul>
                 </div>
                 
@@ -1002,43 +869,24 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 ParknStore. All rights reserved.</p>
+                <p>&copy; 2025 ParknStore. All rights reserved.</p>
             </div>
         </div>
     </footer>
-	
+    
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('menu').classList.toggle('show');
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            document.getElementById('menu')?.classList.toggle('show');
         });
         
         // Close FAQ function
         function closeFAQ() {
-            // For demonstration - in a real scenario, this might close a modal or redirect
             if (document.referrer) {
                 window.history.back();
             } else {
-                window.location.href = 'index.html'; // Replace with your actual homepage URL
+                window.location.href = 'index.html';
             }
-        }
-        
-        // Fee calculator function
-        function calculateFee() {
-            // Get values from inputs
-            const monthlyRate = parseFloat(document.getElementById('monthly-rate').value) || 0;
-            const feePercentage = parseFloat(document.getElementById('fee-percentage').value);
-            
-            // Update percentage display
-            document.getElementById('percentage-value').textContent = feePercentage;
-            
-            // Calculate fee and payout
-            const feeAmount = (monthlyRate * feePercentage / 100).toFixed(2);
-            const payoutAmount = (monthlyRate - feeAmount).toFixed(2);
-            
-            // Update result displays
-            document.getElementById('fee-amount').textContent = feeAmount;
-            document.getElementById('payout-amount').textContent = payoutAmount;
         }
         
         document.addEventListener('DOMContentLoaded', function() {
@@ -1096,46 +944,7 @@
                     }
                 });
             });
-            
-            // Initialize calculator functionality
-            const monthlyRateInput = document.getElementById('monthly-rate');
-            const feePercentageSlider = document.getElementById('fee-percentage');
-            
-            if (monthlyRateInput && feePercentageSlider) {
-                monthlyRateInput.addEventListener('input', calculateFee);
-                feePercentageSlider.addEventListener('input', calculateFee);
-                
-                // Initial calculation
-                calculateFee();
-            }
-            
-            // Handle touch events for better mobile responsiveness
-            document.addEventListener('touchstart', function() {}, {passive: true});
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
