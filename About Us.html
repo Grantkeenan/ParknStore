@@ -19,6 +19,11 @@
             --orange: #f39c12;
             --green: #27ae60;
             --blue: #3498db;
+            --icon-red: #e74c3c;
+            --icon-teal: #1abc9c;
+            --icon-purple: #9b59b6;
+            --icon-guest: #1abc9c;      /* Teal for Guests (city icon) */
+            --icon-host: #e67e22;        /* Orange/Coral for Space Owners (home icon) */
         }
         
         * {
@@ -244,10 +249,25 @@
             transform: translateY(-8px);
         }
         
-        .help-card i {
+        /* Guest icon (city) - Teal color */
+        .help-card .fa-city {
             font-size: 2.5rem;
-            color: var(--secondary);
+            color: var(--icon-guest);
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Space Owner icon (home) - Orange/Coral color */
+        .help-card .fa-home {
+            font-size: 2.5rem;
+            color: var(--icon-host);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .help-card:hover .fa-city,
+        .help-card:hover .fa-home {
+            transform: scale(1.1);
         }
         
         .help-card h3 {
@@ -273,6 +293,95 @@
             font-weight: bold;
             position: absolute;
             left: 0;
+        }
+        
+        /* New styles for How ParknStore Helps cards with colored icons */
+        .help-highlight-card {
+            flex: 1;
+            min-width: 260px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .help-highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Icon 1: Nearby & affordable - RED */
+        .help-highlight-card .icon-nearby {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(231, 76, 60, 0.12);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            color: var(--icon-red);
+            transition: all 0.3s;
+        }
+        
+        .help-highlight-card:hover .icon-nearby {
+            background: var(--icon-red);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Icon 2: Trust & safety - BLUE (kept original brand color) */
+        .help-highlight-card .icon-trust {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.12);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            color: var(--secondary);
+            transition: all 0.3s;
+        }
+        
+        .help-highlight-card:hover .icon-trust {
+            background: var(--secondary);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Icon 3: Earn extra income - GREEN */
+        .help-highlight-card .icon-income {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(39, 174, 96, 0.12);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            color: var(--green);
+            transition: all 0.3s;
+        }
+        
+        .help-highlight-card:hover .icon-income {
+            background: var(--green);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .help-highlight-card h3 {
+            font-size: 1.5rem;
+            margin: 15px 0 12px;
+            color: var(--primary);
+        }
+        
+        .help-highlight-card p {
+            color: #555;
+            line-height: 1.5;
         }
         
         .eco-system {
@@ -479,6 +588,14 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .help-highlight-card .icon-nearby,
+            .help-highlight-card .icon-trust,
+            .help-highlight-card .icon-income {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -516,29 +633,29 @@
         </div>
     </header>
 
-    <!-- About Hero (distinct but on-brand) -->
+    <!-- About Hero (updated to focus on space owners) -->
     <section class="page-hero">
         <div class="container">
             <h1>Solving New Zealand’s Hidden Space Problem</h1>
-            <p>Making parking and storage accessible, affordable, and local — while helping homeowners earn extra income from the space they already have.</p>
+            <p>Making parking and storage accessible, affordable, and local — while helping space owners earn extra income from underutilized areas they already have.</p>
         </div>
     </section>
 
-    <!-- Mission + core stats -->
+    <!-- Mission + core stats (updated to be inclusive of all space owners) -->
     <section class="section-padding">
         <div class="container">
             <div class="mission-grid">
                 <div class="mission-text">
                     <h3>Our Mission</h3>
                     <p>Across Auckland and other growing cities, homes are getting smaller, driveways are disappearing, and storage is becoming harder to find. Medium‑density housing, townhouses, and apartments often come with limited or no parking, and almost no room for the things people actually own — boats, trailers, tools, or even the extra boxes that come with moving house.</p>
-                    <p>At the same time, thousands of homeowners across the region have unused driveways, empty garages, spare sheds, and open land sitting idle. <strong>ParknStore</strong> was created to connect these two groups through a safe, managed, and reliable platform that makes renting space simple for everyone.</p>
+                    <p>At the same time, thousands of people across the region have unused driveways, parking lots, empty garages, spare sheds, storage units and open land sitting idle — whether they own their property, rent, or manage a commercial site. <strong>ParknStore</strong> was created to connect these two groups through a safe, managed, and reliable platform that makes renting space simple for everyone.</p>
                     <p>We aim to provide a trusted marketplace where both sides benefit — and where the platform is actively maintained, supported, and improved to keep the experience smooth and secure.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why this matters (positioning) -->
+    <!-- Why this matters (positioning) - Updated with colored icons for Guests (teal) and Space Owners (orange) -->
     <section class="section-padding bg-light">
         <div class="container">
             <div class="section-title">
@@ -560,26 +677,26 @@
                 </div>
                 <div class="help-card">
                     <i class="fas fa-home"></i>
-                    <h3>For Hosts</h3>
-                    <p>If you have:</p>
+                    <h3>For Space Owners</h3>
+                    <p>If you have access to:</p>
                     <ul>
-                        <li>A driveway</li>
-                        <li>A garage or carport</li>
-                        <li>A spare shed or basement</li>
-                        <li>A patch of unused land</li>
+                        <li>A driveway or off-street parking</li>
+                        <li>A garage, carport, or shed</li>
+                        <li>A basement, spare room, or warehouse corner</li>
+                        <li>Any unused land or paved area</li>
                     </ul>
-                    <p>Turn it into passive income by renting it out to people who genuinely need it. We provide the tools, visibility, and support to make hosting simple — and our platform fees help us maintain a safe, reliable service for everyone.</p>
+                    <p>Turn that idle space into passive income — whether you own your property, rent with permission, or manage a commercial site. We provide the tools, visibility, and support to make hosting simple, and our platform fees help us maintain a safe, reliable service for everyone.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Community marketplace: professionally supported -->
+    <!-- Community marketplace: professionally supported (minor inclusive tweak) -->
     <section class="section-padding">
         <div class="container">
             <div class="eco-system">
                 <h3>A Community Marketplace — Professionally Supported</h3>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">ParknStore isn’t just a listing site. It’s a managed ecosystem designed to help New Zealanders make better use of the space we already have. Our platform fees allow us to:</p>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">ParknStore isn’t just a listing site. It’s a managed ecosystem designed to help New Zealanders make better use of the space we already have — for property owners, renters, and business operators alike. Our platform fees allow us to:</p>
                 <div class="fee-grid">
                     <span class="fee-item">🔐 Maintain secure payments</span>
                     <span class="fee-item">🎧 Provide customer support</span>
@@ -592,7 +709,7 @@
         </div>
     </section>
 
-    <!-- How ParknStore helps at a glance (short summary) -->
+    <!-- How ParknStore helps at a glance - With RED pin icon (nearby) and GREEN income icon -->
     <section class="section-padding bg-light">
         <div class="container">
             <div class="section-title">
@@ -600,20 +717,26 @@
                 <p>A platform designed for real-life needs, from daily parking to long-term storage.</p>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
-                <div style="flex: 1; min-width: 260px; background: white; border-radius: 20px; padding: 30px; text-align: center;">
-                    <i class="fas fa-map-pin" style="font-size: 2.2rem; color: var(--secondary); margin-bottom: 15px; display: block;"></i>
+                <div class="help-highlight-card">
+                    <div class="icon-nearby">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
                     <h3>Nearby & affordable</h3>
                     <p>Find parking or storage within your suburb, not across the city. Save time and money.</p>
                 </div>
-                <div style="flex: 1; min-width: 260px; background: white; border-radius: 20px; padding: 30px; text-align: center;">
-                    <i class="fas fa-shield-alt" style="font-size: 2.2rem; color: var(--secondary); margin-bottom: 15px; display: block;"></i>
+                <div class="help-highlight-card">
+                    <div class="icon-trust">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <h3>Trust & safety</h3>
                     <p>Verified users, secure payments, and host protection guidance make sharing simple and safe.</p>
                 </div>
-                <div style="flex: 1; min-width: 260px; background: white; border-radius: 20px; padding: 30px; text-align: center;">
-                    <i class="fas fa-hand-holding-usd" style="font-size: 2.2rem; color: var(--secondary); margin-bottom: 15px; display: block;"></i>
+                <div class="help-highlight-card">
+                    <div class="icon-income">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
                     <h3>Earn extra income</h3>
-                    <p>Turn idle space into a reliable source of passive income — many hosts could earn $200–$600+ per month.</p>
+                    <p>Turn idle driveways, garages, or land into a reliable source of passive income — many space owners could earn $200–$600+ per month.</p>
                 </div>
             </div>
         </div>
