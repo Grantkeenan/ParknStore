@@ -22,8 +22,10 @@
             --icon-red: #e74c3c;
             --icon-teal: #1abc9c;
             --icon-purple: #9b59b6;
-            --icon-guest: #1abc9c;      /* Teal for Guests (city icon) */
-            --icon-host: #e67e22;        /* Orange/Coral for Space Owners (home icon) */
+            --icon-guest: #1abc9c;
+            --icon-host: #e67e22;
+            --icon-b2b2c: #8e44ad;
+            --icon-infra: #f39c12;
         }
         
         * {
@@ -142,7 +144,7 @@
             padding: 100px 0;
             text-align: center;
             color: white;
-			display: flex;
+            display: flex;
             align-items: center;
         }
         
@@ -295,6 +297,115 @@
             left: 0;
         }
         
+        /* Strategic Pillars Styling (No phase numbers) */
+        .pillars-section {
+            background: white;
+        }
+        
+        .pillars-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .pillar-card {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 24px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.12);
+        }
+        
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.1);
+            width: 85px;
+            height: 85px;
+            line-height: 85px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .pillar-card:nth-child(1) .pillar-icon {
+            background: rgba(142, 68, 173, 0.12);
+            color: var(--icon-b2b2c);
+        }
+        
+        .pillar-card:nth-child(2) .pillar-icon {
+            background: rgba(243, 156, 18, 0.12);
+            color: var(--icon-infra);
+        }
+        
+        .pillar-card:hover .pillar-icon {
+            transform: scale(1.08);
+        }
+        
+        .pillar-card h3 {
+            font-size: 1.7rem;
+            margin: 15px 0 12px;
+            color: var(--primary);
+        }
+        
+        .pillar-card .pillar-sub {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .pillar-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        
+        .pillar-list {
+            text-align: left;
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .pillar-list li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .pillar-list li:before {
+            content: "→";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
         /* New styles for How ParknStore Helps cards with colored icons */
         .help-highlight-card {
             flex: 1;
@@ -422,11 +533,6 @@
             padding: 60px 20px;
             border-radius: 30px;
             margin: 40px 0;
-        }
-        
-        .cta-banner h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
         }
         
         .btn {
@@ -588,6 +694,9 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .pillars-grid {
+                flex-direction: column;
+            }
             .help-highlight-card .icon-nearby,
             .help-highlight-card .icon-trust,
             .help-highlight-card .icon-income {
@@ -601,12 +710,12 @@
 </head>
 <body>
 
-    <!-- Beta Banner (same as index) -->
+    <!-- Beta Banner -->
     <div class="beta-banner">
         BETA: We're validating demand in your area! Join our waitlist to help bring ParknStore to your community.
     </div>
 
-    <!-- Header (exact copy from index) -->
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo-link">
@@ -626,14 +735,14 @@
                     <li><a href="index.html#value-bomb">Explore Hosting</a></li>
                     <li><a href="index.html#benefits">Benefits</a></li>
                     <li><a href="FAQ.HTML">FAQ</a></li>
-					<li><a href="About Us.html">About Us</a></li>
+                    <li><a href="About Us.html">About Us</a></li>
                     <li><a href="index.html#referral-section">Refer ParknStore</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- About Hero (updated to focus on space owners) -->
+    <!-- About Hero -->
     <section class="page-hero">
         <div class="container">
             <h1>Solving New Zealand’s Hidden Space Problem</h1>
@@ -641,7 +750,7 @@
         </div>
     </section>
 
-    <!-- Mission + core stats (updated to be inclusive of all space owners) -->
+    <!-- Mission -->
     <section class="section-padding">
         <div class="container">
             <div class="mission-grid">
@@ -655,7 +764,51 @@
         </div>
     </section>
 
-    <!-- Why this matters (positioning) - Updated with colored icons for Guests (teal) and Space Owners (orange) -->
+    <!-- STRATEGIC PILLARS: Cleaned (No Phase Numbers) -->
+    <section class="section-padding pillars-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Strategic Approach</h2>
+                <p>Built on smart, proven models that unlock real value — not just another listing site.</p>
+            </div>
+            <div class="pillars-grid">
+                <!-- Card 1: Partner-First Model (B2B2C) -->
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partner-First Model</h3>
+                    <div class="pillar-sub">B2B2C approach</div>
+                    <p>Instead of relying only on homeowners, we partner with trusted commercial and semi‑commercial space owners first: churches, local businesses, schools, and small office blocks with underutilised paved areas. This builds reliable, vetted inventory fast and solves the classic chicken‑and‑egg problem of sharing economy platforms.</p>
+                    <ul class="pillar-list">
+                        <li>Instant density in key suburbs</li>
+                        <li>Clear legal ownership & liability</li>
+                        <li>Faster launch with trusted B2B anchors</li>
+                        <li>Proven model used globally</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2: Vehicle-First Infrastructure -->
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Vehicle-First Infrastructure</h3>
+                    <div class="pillar-sub">Focus on "Infrastructure" over "Storage"</div>
+                    <p>Commercial storage is for boxes and furniture — but most P2P spaces are better suited for vehicles. We prioritise parking for cars, boats, RVs, caravans, and trailers. A quiet suburban driveway is often superior to a distant commercial lot for boat or campervan owners. This clear differentiation gives us a competitive edge and faster liquidity.</p>
+                    <ul class="pillar-list">
+                        <li>Vehicle parking (cars, boats, RVs)</li>
+                        <li>Better utilisation of driveways & garages</li>
+                        <li>Avoid direct battle with big storage boxes</li>
+                        <li>Leverage real local convenience</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 1rem; color: #4a5568;">These strategic pillars guide our roadmap — moving from targeted commercial partnerships to a vehicle‑first marketplace that serves both everyday commuters and weekend boat owners alike.</p>
+        </div>
+    </section>
+
+    <!-- Why this matters (Guests & Space Owners) -->
     <section class="section-padding bg-light">
         <div class="container">
             <div class="section-title">
@@ -669,11 +822,11 @@
                     <p>Whether you need:</p>
                     <ul>
                         <li>A parking spot close to work</li>
-                        <li>Secure place to store your boat</li>
+                        <li>Secure place to store your boat or caravan</li>
                         <li>Temporary storage while moving</li>
-                        <li>Long‑term space for a trailer, caravan or classic car</li>
+                        <li>Long‑term space for a trailer or classic car</li>
                     </ul>
-                    <p>ParknStore helps you find affordable, nearby options from real people in your community — with the confidence of a platform that handles bookings, payments, and support.</p>
+                    <p>ParknStore helps you find affordable, nearby options from real people and local businesses in your community — with the confidence of a platform that handles bookings, payments, and support.</p>
                 </div>
                 <div class="help-card">
                     <i class="fas fa-home"></i>
@@ -683,7 +836,7 @@
                         <li>A driveway or off-street parking</li>
                         <li>A garage, carport, or shed</li>
                         <li>A basement, spare room, or warehouse corner</li>
-                        <li>Any unused land or paved area</li>
+                        <li>Any unused land, paved area, or business parking lot</li>
                     </ul>
                     <p>Turn that idle space into passive income — whether you own your property, rent with permission, or manage a commercial site. We provide the tools, visibility, and support to make hosting simple, and our platform fees help us maintain a safe, reliable service for everyone.</p>
                 </div>
@@ -691,7 +844,7 @@
         </div>
     </section>
 
-    <!-- Community marketplace: professionally supported (minor inclusive tweak) -->
+    <!-- Community marketplace: professionally supported -->
     <section class="section-padding">
         <div class="container">
             <div class="eco-system">
@@ -709,7 +862,7 @@
         </div>
     </section>
 
-    <!-- How ParknStore helps at a glance - With RED pin icon (nearby) and GREEN income icon -->
+    <!-- How ParknStore helps at a glance -->
     <section class="section-padding bg-light">
         <div class="container">
             <div class="section-title">
@@ -742,7 +895,7 @@
         </div>
     </section>
 
-    <!-- Call to action: join waitlist / learn more -->
+    <!-- Call to action -->
     <div class="container">
         <div class="cta-banner">
             <h2>Ready to be part of the solution?</h2>
@@ -754,7 +907,7 @@
         </div>
     </div>
 
-    <!-- Footer (exactly matching index for consistency) -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -798,15 +951,13 @@
         </div>
     </footer>
 
-    <!-- Simple mobile menu toggle (reused from index) -->
+    <!-- Mobile menu toggle -->
     <script>
-        // Mobile menu toggle
         document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
             const menu = document.getElementById('menu');
             if (menu) menu.classList.toggle('show');
         });
 
-        // Smooth scroll for any anchor links inside about page (optional, keeps consistency)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
