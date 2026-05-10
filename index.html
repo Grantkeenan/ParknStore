@@ -2380,77 +2380,61 @@
         </div>
     </section>
 	<!-- ============================================= -->
-    <!-- LEAD STATISTICS: TOTAL, HOST/RENTER, TOP LOCATIONS -->
-    <!-- ============================================= -->
-    <section class="lead-stats-section" style="background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%); padding: 60px 0;">
-        <div class="container">
-            <div class="section-title">
-                <h2>📊 Community Interest So Far</h2>
-                <p>Real people have already shown interest in ParknStore — see what your neighbours want</p>
+<!-- HOST LEADERBOARD - DYNAMIC (from rawLeadData) -->
+<!-- Centered title & subtitle, identical to original -->
+<!-- ============================================= -->
+<section class="lead-stats-section" style="background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%); padding: 60px 0;">
+    <div class="container">
+        <!-- Centered Title & Subtitle (same style as original) -->
+        <div class="section-title">
+            <h2>🏆 Host Leaderboard</h2>
+            <p>Real people are already listing spaces. Be the first in your suburb.</p>
+        </div>
+
+        <!-- Stats Summary Cards (auto-populated by JS) -->
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-bottom: 50px;">
+            
+            <!-- Total Supporters Card -->
+            <div style="background: white; border-radius: 24px; padding: 30px 40px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); flex: 1; min-width: 180px;">
+                <div style="font-size: 3rem; font-weight: 800; color: #2c3e50;" id="dynamicTotalLeads">0</div>
+                <div style="color: #4b5563; margin-top: 8px; font-weight: 500;">Early supporters</div>
+                <div style="font-size: 0.8rem; color: #10b981; margin-top: 8px;">✅ Validated interest</div>
             </div>
 
-            <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-bottom: 50px;">
-                
-                <!-- TOTAL LEADS CARD -->
-                <div style="background: white; border-radius: 24px; padding: 30px 40px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); flex: 1; min-width: 200px;">
-                    <div style="font-size: 3rem; font-weight: 800; color: #2c3e50;" id="totalLeadsCount">0</div>
-                    <div style="color: #4b5563; margin-top: 8px; font-weight: 500;">Early supporters</div>
-                    <div style="font-size: 0.8rem; color: #10b981; margin-top: 8px;">✅ Validated interest</div>
-                </div>
-
-                <!-- HOST VS RENTER BREAKDOWN CARD -->
-                <div style="background: white; border-radius: 24px; padding: 25px 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); flex: 1; min-width: 240px;">
-                    <h3 style="margin-bottom: 20px; color: #1e293b; text-align: center;">📈 Supply vs Demand</h3>
-                    <div style="display: flex; gap: 20px; justify-content: space-around; flex-wrap: wrap;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; font-weight: 800; color: #f39c12;" id="hostCount">0</div>
-                            <div style="color: #4b5563; font-weight: 500;">Hosts</div>
-                            <div style="font-size: 0.7rem; color: #10b981;">(including "Both")</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; font-weight: 800; color: #3498db;" id="renterCount">0</div>
-                            <div style="color: #4b5563; font-weight: 500;">Renters</div>
-                            <div style="font-size: 0.7rem; color: #10b981;">(including "Both")</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: 800; color: #8b5cf6;" id="bothCount">0</div>
-                            <div style="color: #4b5563; font-weight: 500;">Both</div>
-                            <div style="font-size: 0.7rem; color: #6c757d;">(host & renter)</div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #e2e8f0;">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
-                            <span>⚡ Total supply-ready:</span>
-                            <strong id="totalSupplyReady">0</strong>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-top: 6px;">
-                            <span>🎯 Total demand-ready:</span>
-                            <strong id="totalDemandReady">0</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOP LOCATIONS CARD -->
-                <div style="background: white; border-radius: 24px; padding: 25px 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); flex: 1.5; min-width: 260px;">
-                    <h3 style="margin-bottom: 16px; color: #1e293b;">📍 Top locations</h3>
-                    <div id="topLocationsStats" style="display: flex; flex-wrap: wrap; gap: 12px;">
-                        <!-- dynamic list -->
-                    </div>
-                    <div style="margin-top: 20px; background: #fef9e3; padding: 12px; border-radius: 12px; font-size: 0.75rem;">
-                        <i class="fas fa-chart-line"></i> <strong>Insight:</strong> 
-                        <span id="marketInsight">Loading...</span>
-                    </div>
-                </div>
+            <!-- Hosts Count Card (highlighted) -->
+            <div style="background: white; border-radius: 24px; padding: 30px 40px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); flex: 1; min-width: 180px; border-bottom: 4px solid #f39c12;">
+                <div style="font-size: 3rem; font-weight: 800; color: #f39c12;" id="dynamicHostCount">0</div>
+                <div style="color: #4b5563; margin-top: 8px; font-weight: 500;">Hosts signed up</div>
+                <div style="font-size: 0.8rem; color: #f39c12; margin-top: 8px;">💰 Ready to earn</div>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="#forms" class="btn btn-primary" style="background: #2c3e50;">Join the waitlist →</a>
-                <p style="font-size: 0.8rem; margin-top: 12px; color: #4b5563;">
-                    🚀 Help us launch faster in your suburb
-                </p>
+            <!-- Renters Waiting Card -->
+            <div style="background: white; border-radius: 24px; padding: 30px 40px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); flex: 1; min-width: 180px;">
+                <div style="font-size: 3rem; font-weight: 800; color: #3498db;" id="dynamicRenterCount">0</div>
+                <div style="color: #4b5563; margin-top: 8px; font-weight: 500;">Renters waiting</div>
+                <div style="font-size: 0.8rem; color: #3498db; margin-top: 8px;">🎯 Demand ready</div>
             </div>
         </div>
-    </section>
+
+        <!-- Host Leaderboard Table (auto-populated) -->
+        <div style="max-width: 650px; margin: 0 auto 30px; background: white; border-radius: 24px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+            <div id="dynamicLeaderboard">
+                <!-- Table will be populated by JavaScript -->
+                <div style="text-align: center; padding: 20px; color: #94a3b8;">Loading leaderboard...</div>
+            </div>
+        </div>
+
+        <!-- Call to Action - Host Focused -->
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="#forms" class="btn btn-primary" style="background: #f39c12; color: white; font-weight: 700; padding: 14px 35px; border-radius: 40px; text-decoration: none; display: inline-block;">
+                ➕ List Your Space — Become a Host
+            </a>
+            <p style="font-size: 0.75rem; margin-top: 12px; color: #6c757d;">
+                ⚡ Help us launch faster in your suburb — supply creates demand
+            </p>
+        </div>
+    </div>
+</section>
     <!-- Validation Section with Example Listings -->
     <section class="validation-section" id="validation-section">
         <div class="container">
@@ -4148,124 +4132,225 @@
 		});
 	}
 
-	
+
 (function() {
-            // ----- RAW LEAD DATA (exactly as provided) -----
-            const rawLeadData = [
-                { user: "x", location: "Auckland", interest: "Host" },
-                { user: "x", location: "Newmarket", interest: "renting" },
-                { user: "x", location: "St Johns", interest: "renting" },
-                { user: "x", location: "Remuera", interest: "renting" },
-                { user: "x", location: "Mt Eden", interest: "both" },
-                { user: "x", location: "Remuera", interest: "renting" },
-                { user: "x", location: "Auckland", interest: "renter" },
-                { user: "x", location: "Queenstown", interest: "renter" },
-                { user: "x", location: "Mt Eden", interest: "Host" },
-                { user: "x", location: "Bay of Islands/ Opua", interest: "Host" },
-                { user: "x", location: "Eden Park", interest: "renter" },
-                { user: "x", location: "Eden Park", interest: "renter" },
-                { user: "x", location: "75 valley road Mount Eden", interest: "Host" },
-                { user: "x", location: "Freemans Bay, Auckland", interest: "Host" },
-                { user: "x", location: "Rangiora", interest: "Host" },
-                { user: "x", location: "Eden Park", interest: "renter" },
-                { user: "x", location: "New lynn/avondale area", interest: "renter" },
-                { user: "x", location: "Papakura", interest: "renter" },
-                { user: "x", location: "Auckland", interest: "renter" },
-                { user: "x", location: "Gate Pa, Cameron Road, Tauranga", interest: "host" },
-                { user: "x", location: "Auckland", interest: "renter" },
-                { user: "x", location: "Not Specified", interest: "Host" },
-                { user: "x", location: "Red Beach", interest: "renter" },
-                { user: "x", location: "Grey Lynn", interest: "renter" }
-            ];
+    // =============================================
+    // RAW LEAD DATA (exactly as provided)
+    // Add new leads here and the leaderboard updates
+    // =============================================
+    const rawLeadData = [
+        { user: "x", location: "Auckland", interest: "Host" },
+        { user: "x", location: "Newmarket", interest: "renting" },
+        { user: "x", location: "St Johns", interest: "renting" },
+        { user: "x", location: "Remuera", interest: "renting" },
+        { user: "x", location: "Mt Eden", interest: "both" },
+        { user: "x", location: "Remuera", interest: "renting" },
+        { user: "x", location: "Auckland", interest: "renter" },
+        { user: "x", location: "Queenstown", interest: "renter" },
+        { user: "x", location: "Mt Eden", interest: "Host" },
+        { user: "x", location: "Bay of Islands", interest: "Host" },
+        { user: "x", location: "Eden Park", interest: "renter" },
+        { user: "x", location: "Eden Park", interest: "renter" },
+        { user: "x", location: "Mount Eden", interest: "Host" },
+        { user: "x", location: "Auckland", interest: "Host" },
+        { user: "x", location: "Rangiora", interest: "Host" },
+        { user: "x", location: "Eden Park", interest: "renter" },
+        { user: "x", location: "New lynn/Avondale", interest: "renter" },
+        { user: "x", location: "Papakura", interest: "renter" },
+        { user: "x", location: "Auckland", interest: "renter" },
+        { user: "x", location: "Tauranga", interest: "Host" },
+        { user: "x", location: "Auckland", interest: "renter" },
+        { user: "x", location: "Not Specified", interest: "Host" },
+        { user: "x", location: "Red Beach", interest: "renter" },
+        { user: "x", location: "Grey Lynn", interest: "renter" }
+    ];
 
-            // Normalize interest types
-            function normalizeInterest(raw) {
-                const lower = raw.toLowerCase().trim();
-                if (lower === "host" || lower === "hosting") return "Host";
-                if (lower === "renter" || lower === "renting") return "Renter";
-                if (lower === "both") return "Both";
-                return "Other";
+    // Normalize interest types (host, renter, both)
+    function normalizeInterest(raw) {
+        const lower = raw.toLowerCase().trim();
+        if (lower === "host" || lower === "hosting") return "Host";
+        if (lower === "renter" || lower === "renting") return "Renter";
+        if (lower === "both") return "Both";
+        return "Other";
+    }
+
+    // Count totals and track hosts by suburb
+    let totalLeads = rawLeadData.length;
+    let hostCount = 0;
+    let renterCount = 0;
+    let bothCount = 0;
+    const hostsBySuburb = new Map();
+    let unspecifiedHostCount = 0;
+
+    rawLeadData.forEach(item => {
+        const normalized = normalizeInterest(item.interest);
+        if (normalized === "Host") hostCount++;
+        else if (normalized === "Renter") renterCount++;
+        else if (normalized === "Both") bothCount++;
+        
+        // Track hosts by suburb (Host or Both)
+        if (normalized === "Host" || normalized === "Both") {
+            let suburb = item.location.trim();
+            
+            // Handle "Not Specified" separately
+            if (suburb === "Not Specified") {
+                unspecifiedHostCount++;
+                return; // Don't add to regular suburb map
             }
+            
+            // Clean up suburb names for grouping (expanded to include all suburbs)
+            const lowerSuburb = suburb.toLowerCase();
+            if (lowerSuburb.includes("mount eden") || lowerSuburb.includes("mt eden") || lowerSuburb.includes("75 valley road")) {
+                suburb = "Mount Eden";
+            } else if (lowerSuburb.includes("eden park")) {
+                suburb = "Eden Park";
+            } else if (lowerSuburb.includes("freemans bay")) {
+                suburb = "Freemans Bay";
+            } else if (lowerSuburb.includes("bay of islands")) {
+                suburb = "Bay of Islands";
+            } else if (lowerSuburb.includes("rangiora")) {
+                suburb = "Rangiora";
+            } else if (lowerSuburb.includes("tauranga")) {
+                suburb = "Tauranga";
+            } else if (lowerSuburb.includes("auckland") && suburb.length < 15 && !lowerSuburb.includes("freemans")) {
+                suburb = "Auckland Central";
+            } else if (lowerSuburb.includes("new lynn") || lowerSuburb.includes("avondale")) {
+                suburb = "New Lynn / Avondale";
+            } else if (lowerSuburb === "Remuera") {
+                suburb = "Remuera";
+            } else if (lowerSuburb === "Grey Lynn") {
+                suburb = "Grey Lynn";
+            } else if (lowerSuburb === "Papakura") {
+                suburb = "Papakura";
+            } else if (lowerSuburb === "Red Beach") {
+                suburb = "Red Beach";
+            } else if (lowerSuburb === "St Johns") {
+                suburb = "St Johns";
+            } else if (lowerSuburb === "Newmarket") {
+                suburb = "Newmarket";
+            }
+            // Otherwise keep the suburb as-is
+            
+            hostsBySuburb.set(suburb, (hostsBySuburb.get(suburb) || 0) + 1);
+        }
+    });
 
-            // Count totals
-            let totalLeads = rawLeadData.length;
-            let hostCount = 0;
-            let renterCount = 0;
-            let bothCount = 0;
+    // Calculate supply and demand
+    const supplyReady = hostCount + bothCount;
+    const demandReady = renterCount + bothCount;
 
-            rawLeadData.forEach(item => {
-                const normalized = normalizeInterest(item.interest);
-                if (normalized === "Host") hostCount++;
-                else if (normalized === "Renter") renterCount++;
-                else if (normalized === "Both") bothCount++;
-            });
+    // Update summary cards
+    const totalEl = document.getElementById('dynamicTotalLeads');
+    const hostEl = document.getElementById('dynamicHostCount');
+    const renterEl = document.getElementById('dynamicRenterCount');
+    
+    if (totalEl) totalEl.innerText = totalLeads;
+    if (hostEl) hostEl.innerText = supplyReady;
+    if (renterEl) renterEl.innerText = demandReady;
 
-            // Supply-ready = hosts + both
-            const supplyReady = hostCount + bothCount;
-            // Demand-ready = renters + both
-            const demandReady = renterCount + bothCount;
-
-            // Top locations (exclude "Not Specified")
-            const locationCount = new Map();
-            rawLeadData.forEach(item => {
-                let loc = item.location.trim();
-                if (loc === "Not Specified") return;
-                // Clean up "75 valley road Mount Eden" -> show as "Mount Eden" for grouping
-                if (loc.toLowerCase().includes("mount eden") || loc.toLowerCase().includes("mt eden")) {
-                    loc = "Mount Eden / Mt Eden";
+    // Build Host Leaderboard Table
+    const leaderboardContainer = document.getElementById('dynamicLeaderboard');
+    if (leaderboardContainer) {
+        // Sort suburbs by host count (descending)
+        const sortedSuburbs = Array.from(hostsBySuburb.entries())
+            .sort((a, b) => b[1] - a[1]);
+        
+        // Collection of all suburbs with hosts (for the leaderboard)
+        const allSuburbsWithHosts = [...sortedSuburbs];
+        
+        // Add "Not Specified" as an entry if there are any
+        if (unspecifiedHostCount > 0) {
+            allSuburbsWithHosts.push(["📍 Not Specified / Other", unspecifiedHostCount]);
+        }
+        
+        // Priority target suburbs to show as opportunities (even if 0 hosts)
+        const targetSuburbs = ["Remuera", "Grey Lynn", "Ponsonby", "Takapuna", "Newmarket", "Eden Park", "St Johns", "Papakura", "Red Beach"];
+        
+        const displayedSuburbs = [];
+        const leaderboardRows = [];
+        
+        // Table header
+        leaderboardRows.push(`
+            <div style="display: flex; justify-content: space-between; padding: 12px 8px; border-bottom: 2px solid #e2e8f0; font-weight: 700; color: #2c3e50;">
+                <span style="flex: 2;">Suburb</span>
+                <span style="flex: 1; text-align: center;">Hosts</span>
+                <span style="flex: 1.5; text-align: right;">Status</span>
+            </div>
+        `);
+        
+        // First, show suburbs that actually have hosts (all of them, up to 8)
+        let rank = 0;
+        for (const [suburb, count] of allSuburbsWithHosts) {
+            if (rank < 6) {  // Show top 6 suburbs with hosts
+                let status = "";
+                let statusColor = "";
+                if (rank === 0) {
+                    status = "👑 Leading";
+                    statusColor = "#10b981";
+                } else if (rank === 1) {
+                    status = "🔥 Growing";
+                    statusColor = "#f39c12";
+                } else {
+                    status = "🌱 Emerging";
+                    statusColor = "#3498db";
                 }
-                if (loc.toLowerCase().includes("eden park")) {
-                    loc = "Eden Park";
-                }
-                locationCount.set(loc, (locationCount.get(loc) || 0) + 1);
-            });
-
-            const sortedLocations = Array.from(locationCount.entries())
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 6);
-
-            // Generate market insight
-            let insightText = "";
-            const totalWithLocation = supplyReady + demandReady - bothCount;
-            if (supplyReady > demandReady) {
-                insightText = `More supply (${supplyReady} hosts) than demand — great for renters!`;
-            } else if (demandReady > supplyReady) {
-                insightText = `Strong demand (${demandReady} renters) — hosts can earn well here.`;
-            } else {
-                insightText = `Balanced marketplace — perfect for launching!`;
+                // Clean up display for Not Specified
+                const displaySuburb = suburb === "📍 Not Specified / Other" ? "📍 Not Specified / Other" : `📍 ${suburb}`;
+                leaderboardRows.push(`
+                    <div style="display: flex; justify-content: space-between; padding: 14px 8px; border-bottom: 1px solid #e2e8f0; align-items: center;">
+                        <span style="flex: 2; font-weight: 600;">${displaySuburb}</span>
+                        <span style="flex: 1; text-align: center; font-weight: 800; color: #f39c12;">${count}</span>
+                        <span style="flex: 1.5; text-align: right; color: ${statusColor};">${status}</span>
+                    </div>
+                `);
+                displayedSuburbs.push(suburb);
+                rank++;
             }
-
-            // Update DOM
-            document.getElementById('totalLeadsCount').innerText = totalLeads;
-            document.getElementById('hostCount').innerText = hostCount;
-            document.getElementById('renterCount').innerText = renterCount;
-            document.getElementById('bothCount').innerText = bothCount;
-            document.getElementById('totalSupplyReady').innerText = supplyReady;
-            document.getElementById('totalDemandReady').innerText = demandReady;
-            document.getElementById('marketInsight').innerHTML = insightText;
-
-            const topLocationsContainer = document.getElementById('topLocationsStats');
-            if (topLocationsContainer) {
-                topLocationsContainer.innerHTML = sortedLocations.map(([loc, count]) => {
-                    const percentage = Math.round((count / totalLeads) * 100);
-                    return `<div style="background: #eef2ff; padding: 8px 18px; border-radius: 40px; font-weight: 500; color: #1e3a8a; display: inline-flex; align-items: center; gap: 6px;">
-                                📍 ${loc} 
-                                <span style="background: white; border-radius: 20px; padding: 2px 8px; font-size: 0.75rem; font-weight: 600;">${count} (${percentage}%)</span>
-                            </div>`;
-                }).join('');
+        }
+        
+        // Then fill remaining slots with target suburbs that have 0 hosts
+        let opportunitySlotsFilled = 0;
+        for (const suburb of targetSuburbs) {
+            const hasHosts = Array.from(hostsBySuburb.keys()).some(s => s === suburb);
+            if (!hasHosts && leaderboardRows.length < 8 && opportunitySlotsFilled < 3) {
+                leaderboardRows.push(`
+                    <div style="display: flex; justify-content: space-between; padding: 14px 8px; border-bottom: 1px solid #e2e8f0; align-items: center; background-color: #fefce8;">
+                        <span style="flex: 2; font-weight: 600;">📍 ${suburb}</span>
+                        <span style="flex: 1; text-align: center; font-weight: 700; color: #94a3b8;">0</span>
+                        <span style="flex: 1.5; text-align: right; color: #f39c12;">🚀 Be first →</span>
+                    </div>
+                `);
+                opportunitySlotsFilled++;
             }
+        }
+        
+        // If still not enough rows, add a "Your suburb here" call to action
+        if (leaderboardRows.length < 6) {
+            leaderboardRows.push(`
+                <div style="display: flex; justify-content: space-between; padding: 14px 8px; align-items: center; background-color: #fefce8; border-radius: 0 0 8px 8px;">
+                    <span style="flex: 2; font-weight: 600;">📍 Your suburb</span>
+                    <span style="flex: 1; text-align: center; font-weight: 700; color: #94a3b8;">0</span>
+                    <span style="flex: 1.5; text-align: right; color: #f39c12;">🚀 Be first →</span>
+                </div>
+            `);
+        }
+        
+        leaderboardContainer.innerHTML = leaderboardRows.join('');
+    }
 
-            // Console log for verification
-            console.log("📊 Lead Stats Dashboard:", {
-                totalLeads: totalLeads,
-                hosts: hostCount,
-                renters: renterCount,
-                both: bothCount,
-                supplyReady: supplyReady,
-                demandReady: demandReady,
-                topLocations: sortedLocations
-            });
-        })();
+    // Verify totals match
+    const totalHostsInLeaderboard = Array.from(hostsBySuburb.values()).reduce((a, b) => a + b, 0) + unspecifiedHostCount;
+    console.log("📊 Host Leaderboard Updated:", {
+        totalLeads: totalLeads,
+        pureHosts: hostCount,
+        both: bothCount,
+        totalSupplyReady: supplyReady,
+        totalHostsInLeaderboard: totalHostsInLeaderboard,
+        hostsBySuburb: Array.from(hostsBySuburb.entries()),
+        unspecifiedHosts: unspecifiedHostCount
+    });
+})();	
+
 
 
 
