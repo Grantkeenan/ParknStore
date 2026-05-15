@@ -4162,7 +4162,8 @@
         { user: "x", location: "Auckland", interest: "renter" },
         { user: "x", location: "Not Specified", interest: "Host" },
         { user: "x", location: "Red Beach", interest: "renter" },
-        { user: "x", location: "Grey Lynn", interest: "renter" }
+        { user: "x", location: "Grey Lynn", interest: "renter" },
+		{ user: "x", location: "Glen Innes", interest: "renter" }
     ];
 
     // Normalize interest types (host, renter, both)
@@ -4228,6 +4229,8 @@
                 suburb = "St Johns";
             } else if (lowerSuburb === "Newmarket") {
                 suburb = "Newmarket";
+            } else if (lowerSuburb === "Glen Innes") {
+                suburb = "Glen Innes";
             }
             // Otherwise keep the suburb as-is
             
@@ -4264,7 +4267,7 @@
         }
         
         // Priority target suburbs to show as opportunities (even if 0 hosts)
-        const targetSuburbs = ["Remuera", "Grey Lynn", "Ponsonby", "Takapuna", "Newmarket", "Eden Park", "St Johns", "Papakura", "Red Beach"];
+        const targetSuburbs = ["Remuera", "Grey Lynn", "Ponsonby", "Takapuna", "Newmarket", "Eden Park", "St Johns", "Papakura", "Red Beach","Glen Innes"];
         
         const displayedSuburbs = [];
         const leaderboardRows = [];
