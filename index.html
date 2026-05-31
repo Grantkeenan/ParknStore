@@ -2134,27 +2134,24 @@
                     <!-- Renter Form -->
                     <form action="https://formspree.io/f/movlzobz" method="POST" id="renterLeadForm" class="form-renter">
                         <input type="hidden" name="user_type" value="renter">
-                    <!-- Low-friction intro -->
-    				<div style="background: #e8f4fd; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-size: 14px;">
-        				<i class="fas fa-search"></i> <strong>No cost, no commitment.</strong> We'll email you when spaces become available in your suburb.
-    				</div>
+                        
                         <div class="form-group">
-                            <label for="renter-name"><strong>Name</strong></label>
+                            <label for="renter-name"><strong>Name *</strong></label>
                             <input type="text" id="renter-name" name="name" class="form-control" placeholder="e.g. John Smith" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="renter-email"><strong>Email</strong></label>
+                            <label for="renter-email"><strong>Email *</strong></label>
                             <input type="email" id="renter-email" name="email" class="form-control" placeholder="e.g. john.smith@example.com" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="renter-suburb"><strong>Suburb</strong></label>
+                            <label for="renter-suburb"><strong>Suburb *</strong></label>
                             <input type="text" id="renter-suburb" name="suburb" class="form-control" placeholder="Where do you need space?" required>
                         </div>
                         
                         <div class="form-group">
-                            <label><strong>What are you interested in?</strong></label>
+                            <label><strong>What are you interested in? *</strong></label>
                             <div class="radio-group">
                                 <div class="radio-option">
                                     <input type="radio" id="interest-parking" name="interest" value="parking" required>
@@ -2164,35 +2161,59 @@
                                     <input type="radio" id="interest-storage" name="interest" value="storage">
                                     <label for="interest-storage">Storage</label>
                                 </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="interest-both" name="interest" value="both">
-                                    <label for="interest-both">Both</label>
-                                </div>
                             </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label><strong>What do you need to store?</strong></label>
-                            <div class="checkbox-group">
-                                <div class="checkbox-option">
-                                    <input type="checkbox" id="store-car" name="storage_needs" value="car">
-                                    <label for="store-car">My car</label>
-                                </div>
-                                <div class="checkbox-option">
-                                    <input type="checkbox" id="store-boat" name="storage_needs" value="boat">
-                                    <label for="store-boat">Boat</label>
-                                </div>
-                                <div class="checkbox-option">
-                                    <input type="checkbox" id="store-furniture" name="storage_needs" value="furniture">
-                                    <label for="store-furniture">Furniture</label>
-                                </div>
-                                <div class="checkbox-option">
-                                    <input type="checkbox" id="store-other" name="storage_needs" value="other">
-                                    <label for="store-other">Other</label>
-                                </div>
-                            </div>
-                        </div>
+						<div class="form-group">
+							<label><strong>What type of vehicle do you need to park? *</strong></label>
+							<div class="radio-group">
+								<div class="radio-option">
+									<input type="radio" id="vehicle-car" name="vehicle_type" value="car" required>
+									<label for="vehicle-car">Car (standard)</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="vehicle-suv" name="vehicle_type" value="suv">
+									<label for="vehicle-suv">SUV / 4WD</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="vehicle-boat" name="vehicle_type" value="boat">
+									<label for="vehicle-boat">Boat / Trailer</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="vehicle-caravan" name="vehicle_type" value="caravan">
+									<label for="vehicle-caravan">Caravan / Campervan</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="vehicle-other" name="vehicle_type" value="other">
+									<label for="vehicle-other">Other</label>
+								</div>
+							</div>
+							<!-- Dynamic text field for "Other" vehicle -->
+							<input type="text" id="vehicle-other-text" name="vehicle_type_other" class="form-control" placeholder="Please specify vehicle type" style="margin-top: 10px; display: none;">
+						</div>
                         
+						<div class="form-group">
+							<label><strong>How often do you need parking? *</strong></label>
+							<div class="radio-group">
+								<div class="radio-option">
+									<input type="radio" id="frequency-daily" name="frequency" value="daily" required>
+									<label for="frequency-daily">Daily (commute)</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="frequency-weekly" name="frequency" value="weekly">
+									<label for="frequency-weekly">Weekly (few days/week)</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="frequency-monthly" name="frequency" value="monthly">
+									<label for="frequency-monthly">Monthly (long term)</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="frequency-occasional" name="frequency" value="occasional">
+									<label for="frequency-occasional">Occasional (events/weekends)</label>
+								</div>
+							</div>
+						</div>
+						
                         <div class="form-group">
                             <label><strong>Biggest problem with current solutions</strong></label>
                             <div class="radio-group" style="flex-direction: column; align-items: flex-start;">
@@ -3319,6 +3340,37 @@
 			}
 		});
 
+// Show/hide "Other" text field for vehicle type
+const vehicleOtherRadio = document.getElementById('vehicle-other');
+const vehicleOtherText = document.getElementById('vehicle-other-text');
+
+if (vehicleOtherRadio && vehicleOtherText) {
+    vehicleOtherRadio.addEventListener('change', function() {
+        if (this.checked) {
+            vehicleOtherText.style.display = 'block';
+            vehicleOtherText.focus();
+        } else {
+            vehicleOtherText.style.display = 'none';
+            vehicleOtherText.value = '';
+        }
+    });
+    
+    // Also hide the text field if another radio is selected
+    const allVehicleRadios = document.querySelectorAll('input[name="vehicle_type"]');
+    allVehicleRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (!vehicleOtherRadio.checked) {
+                vehicleOtherText.style.display = 'none';
+                vehicleOtherText.value = '';
+            }
+        });
+    });
+}
+
+
+
+
+		
         // Form toggle functionality
         const toggleOptions = document.querySelectorAll('.toggle-option');
         const forms = {
