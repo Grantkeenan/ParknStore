@@ -1927,7 +1927,7 @@
             <h1>List or Rent Parking & Storage Spaces</h1>
             <p>Earn money by listing your unused spaces or connect with people in your community to rent unused parking and storage spaces.</p>
             <div class="cta-buttons">
-                <a href="#forms" class="btn btn-primary">List or Rent a Space</a>
+                <a href="#forms" class="btn btn-primary">See How Much Your Space Could Earn</a>
                 <a href="#how-it-works" class="btn btn-outline">Learn More</a>
             </div>
             <p class="cta-nudge">Have unused space? Need affordable parking or storage? Get started below.</p>
@@ -1946,7 +1946,7 @@
             <div class="form-toggle-container">
                 <div class="form-toggle">
                     <div class="toggle-option active" data-form="host" id="hostFormToggle">
-                        <i class="fas fa-home"></i> List Your Space
+                        <i class="fas fa-home"></i> Become a Host & Earn
                     </div>
                     <div class="toggle-option" data-form="renter">
                         <i class="fas fa-search"></i> Find a Space
@@ -1957,7 +1957,7 @@
             <!-- Form Card -->
             <div class="form-card">
                 <div class="form-header">
-                    <h2 id="form-title">List Your Space</h2>
+                    <h2 id="form-title">Turn Your Empty Space Into Cash</h2>
                 </div>
                 <div class="form-body">
                     <!--<p class="form-cta" id="form-subtitle">Turn Your Unused Space into $500+/Month.</p>
@@ -2064,7 +2064,7 @@
 						
 						<!-- Low-friction intro - builds trust -->
 						<div style="background: #e8f4fd; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-size: 14px;">
-							<i class="fas fa-bolt"></i> <strong>Takes 30 seconds.</strong> No commitment. We'll follow up within 48 hours.
+							<i class="fas fa-bolt"></i> <strong>Estimate your earnings in 30 seconds.</strong> No commitment. We'll follow up within 48 hours.
 						</div>
 						
 						<!-- Social proof snippet -->
@@ -2102,7 +2102,7 @@
 						</div>
 						
 						<div class="form-group">
-							<label><strong>What's your biggest question or concern? (optional — helps us improve)</strong></label>
+							<label><strong>What's holding you back from listing your space today?</strong></label>
 							<div class="radio-group" style="flex-direction: column; align-items: flex-start;">
 								<div class="radio-option">
 									<input type="radio" id="concern-security" name="concerns" value="security">
@@ -2123,7 +2123,7 @@
 							</div>
 						</div>
 						
-						<button type="submit" class="submit-btn" id="submitBtn">Submit my interest</button>
+						<button type="submit" class="submit-btn" id="submitBtn">See My Potential Earnings</button>
 						
 						<p style="font-size: 12px; color: #888; text-align: center; margin-top: 15px;">
 							We'll email you within 48 hours to learn more about your space. No spam, just real follow-up.
@@ -2267,7 +2267,7 @@
             <div class="steps">
                 <div class="step step-1">
                     <div class="step-icon">1</div>
-                    <h3>Find or List</h3>
+                    <h3>Find or Earn From Your Space</h3>
                     <p>Search for spaces in your area or list your own unused space in minutes with our easy process.</p>
                 </div>
                 
@@ -3403,7 +3403,7 @@ if (vehicleOtherRadio && vehicleOtherText) {
                 
                 // Update form title and subtitle
                 if (formType === 'host') {
-                    formTitle.textContent = 'List Your Space';
+                    formTitle.textContent = 'Turn Your Empty Space Into Cash';
                     formSubtitle.innerHTML = 'Earn extra income from your unused space.';
                     userTypeInput.value = 'host';
                 } else {
@@ -4101,7 +4101,8 @@ if (vehicleOtherRadio && vehicleOtherText) {
         { user: "x", location: "Red Beach", interest: "renter" },
         { user: "x", location: "Grey Lynn", interest: "renter" },
 		{ user: "x", location: "Glen Innes", interest: "renter" },
-		{ user: "x", location: "Auckland Central", interest: "Host"}
+		{ user: "x", location: "Auckland Central", interest: "Host"},
+		{ user: "x", location: "Otahuhu", interest: "renter" }
     ];
 
     // Normalize interest types (host, renter, both)
@@ -4169,6 +4170,8 @@ if (vehicleOtherRadio && vehicleOtherText) {
                 suburb = "Newmarket";
             } else if (lowerSuburb === "Glen Innes") {
                 suburb = "Glen Innes";
+			} else if (lowerSuburb === "otahuhu") {
+                suburb = "Otahuhu";
             }
             // Otherwise keep the suburb as-is
             
@@ -4205,7 +4208,7 @@ if (vehicleOtherRadio && vehicleOtherText) {
         }
         
         // Priority target suburbs to show as opportunities (even if 0 hosts)
-        const targetSuburbs = ["Remuera", "Grey Lynn", "Ponsonby", "Takapuna", "Newmarket", "Eden Park", "St Johns", "Papakura", "Red Beach","Glen Innes"];
+        const targetSuburbs = ["Remuera", "Grey Lynn", "Ponsonby", "Takapuna", "Newmarket", "Eden Park", "St Johns", "Papakura", "Red Beach","Glen Innes", "Otahuhu"];
         
         const displayedSuburbs = [];
         const leaderboardRows = [];
@@ -4299,5 +4302,4 @@ if (vehicleOtherRadio && vehicleOtherText) {
     </script>
 </body>
 </html>
-
 
